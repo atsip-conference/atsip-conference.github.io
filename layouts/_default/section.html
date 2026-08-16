@@ -1,0 +1,32 @@
+{{ define "main" }}
+  {{ $y := .Params.edition }}
+  {{ $e := "" }}
+  {{ with $y }}{{ $e = index (where site.Data.editions.editions "year" .) 0 }}{{ end }}
+
+  {{ if $e }}
+    <section class="hero">
+      <p class="hero__eyebrow">{{ $e.num }}th edition</p>
+      <h1 class="hero__title">ATSIP&rsquo;{{ $e.year }}</h1>
+      <p class="hero__meta">
+        <b>{{ $e.dates_display }}</b> &nbsp;·&nbsp; {{ $e.city }}, {{ $e.country }}
+        {{ with $e.isbn }}<br>ISBN {{ . }}{{ end }}
+      </p>
+      {{ if eq $e.status "upcoming" }}
+        <div class="actions">
+          <a class="btn btn--solid" href="{{ printf "/%d/call-for-papers/" $e.year | relURL }}">Call for papers</a>
+          <a class="btn btn--ghost" href="{{ printf "/%d/important-dates/" $e.year | relURL }}">Key dates</a>
+        </div>
+      {{ end }}
+    </section>
+  {{ else }}
+    <h1 class="page-title">{{ .Title }}</h1>
+  {{ end }}
+
+  <div class="prose">{{ .Content }}</div>
+
+  {{ with .Pages }}
+    <ul class="prose">
+      {{ range . }}<li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>{{ end }}
+    </ul>
+  {{ end }}
+{{ end }}

@@ -1,0 +1,81 @@
+# Source unique de vérité pour toutes les éditions.
+# Métadonnées conformes à DBLP : https://dblp.org/db/conf/atsip/index.html
+# Changer `current` fait basculer tout le site (bandeaux d'archive, mise en avant).
+
+current: 2027
+
+editions:
+  - num: 8
+    year: 2027
+    city: Sousse
+    country: Tunisia
+    dates_start: 2027-06-30
+    dates_end: 2027-07-03
+    dates_display: "30 June – 3 July 2027"
+    status: upcoming
+    recovered: []
+
+  # Édition hors périmètre du projet de récupération d'archive.
+  # Conservée ici pour la cohérence de la numérotation : sans elle,
+  # la liste passerait de la 6e à la 8e édition.
+  - num: 7
+    year: 2024
+    city: Sousse
+    country: Tunisia
+    dates_display: "11–13 July 2024"
+    isbn: "979-8-3503-5148-4"
+    status: archived
+    recovered: []
+
+  - num: 6
+    year: 2022
+    city: Sfax
+    country: Tunisia
+    dates_display: "24–27 May 2022"
+    isbn: "978-1-6654-5116-1"
+    status: archived
+    recovered: []
+
+  - num: 5
+    year: 2020
+    city: Sousse
+    country: Tunisia
+    dates_display: "2–5 September 2020"
+    isbn: "978-1-7281-7513-3"
+    status: archived
+    recovered: []
+
+  - num: 4
+    year: 2018
+    city: Sousse
+    country: Tunisia
+    dates_display: "21–24 March 2018"
+    isbn: "978-1-5386-5239-8"
+    status: archived
+    recovered: []
+
+  - num: 3
+    year: 2017
+    city: Fez
+    country: Morocco
+    dates_display: "22–24 May 2017"
+    status: archived
+    recovered: []
+
+  - num: 2
+    year: 2016
+    city: Monastir
+    country: Tunisia
+    dates_display: "21–23 March 2016"
+    isbn: "978-1-4673-8526-8"
+    status: archived
+    recovered: []
+
+  - num: 1
+    year: 2014
+    city: Sousse
+    country: Tunisia
+    dates_display: "17–19 March 2014"
+    status: archived
+    # Documents confirmés comme existants sur lab-atms.com, à récupérer.
+    recovered: []

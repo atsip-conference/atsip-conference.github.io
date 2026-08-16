@@ -1,0 +1,15 @@
+baseURL = 'https://atsip-conference.org/'
+languageCode = 'en-us'
+title = 'ATSIP'
+enableRobotsTXT = true
+
+[params]
+  fullName = 'International Conference on Advanced Technologies for Signal and Image Processing'
+  acronym = 'ATSIP'
+  contactEmail = 'contact@atsip-conference.org'
+  dblp = 'https://dblp.org/db/conf/atsip/index.html'
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[taxonomies]

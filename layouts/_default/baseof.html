@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="en">
+{{ partial "head.html" . }}
+<body>
+  {{ partial "archive-notice.html" . }}
+  {{ partial "masthead.html" . }}
+  <main class="wrap">
+    {{ block "main" . }}{{ end }}
+  </main>
+  {{ partial "foot.html" . }}
+</body>
+</html>

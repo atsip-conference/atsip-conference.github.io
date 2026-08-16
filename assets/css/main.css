@@ -1,0 +1,296 @@
+/* ATSIP — palette tirée du littoral de Sousse :
+   pierre du ribat, bleu de mer profonde, ambre de trace d'oscilloscope. */
+
+:root {
+  --ink:        #16232b;
+  --ink-soft:   #4d5f68;
+  --paper:      #f4f5f1;
+  --paper-2:    #e7eae2;
+  --sea:        #16506b;
+  --amber:      #c8801d;
+  --rule:       #ccd2c9;
+
+  --sans: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --display: "Bricolage Grotesque", var(--sans);
+  --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --measure: 68ch;
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: clamp(1rem, 0.96rem + 0.2vw, 1.0625rem);
+  line-height: 1.6;
+}
+
+.wrap {
+  width: 100%;
+  max-width: 68rem;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+a { color: var(--sea); text-underline-offset: 0.18em; }
+a:hover { color: var(--amber); }
+
+:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 3px;
+}
+
+/* ---------- En-tête ---------- */
+
+.masthead {
+  border-bottom: 1px solid var(--rule);
+  background: var(--paper);
+}
+
+.masthead__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.75rem 2rem;
+  padding-block: 1.1rem;
+}
+
+.wordmark {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.wordmark span { color: var(--amber); }
+
+.masthead__tag {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+}
+
+.nav {
+  margin-left: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  font-size: 0.9rem;
+}
+
+.nav a { text-decoration: none; color: var(--ink-soft); }
+.nav a:hover, .nav a[aria-current="true"] { color: var(--sea); }
+
+/* ---------- Bandeau d'archive ---------- */
+
+.archive-notice {
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 0.9rem;
+}
+
+.archive-notice__inner {
+  padding-block: 0.7rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1rem;
+  align-items: baseline;
+}
+
+.archive-notice strong { font-family: var(--mono); font-weight: 600; }
+.archive-notice a { color: var(--amber); }
+
+/* ---------- Hero ---------- */
+
+.hero { padding-block: clamp(2.5rem, 7vw, 5rem) 1rem; }
+
+.hero__eyebrow {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 1rem;
+}
+
+.hero__title {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(2.1rem, 1.2rem + 4vw, 4rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  margin: 0 0 1.2rem;
+  max-width: 18ch;
+}
+
+.hero__meta {
+  font-family: var(--mono);
+  font-size: clamp(0.95rem, 0.9rem + 0.3vw, 1.15rem);
+  color: var(--sea);
+  margin: 0 0 2rem;
+}
+
+.hero__meta b { color: var(--ink); font-weight: 600; }
+
+.actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+
+.btn {
+  display: inline-block;
+  padding: 0.7rem 1.4rem;
+  border: 1px solid var(--sea);
+  border-radius: 2px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.btn--solid { background: var(--sea); color: var(--paper); }
+.btn--solid:hover { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.btn--ghost { color: var(--sea); }
+.btn--ghost:hover { background: var(--paper-2); color: var(--sea); }
+
+/* ---------- Frise des éditions (signature) ---------- */
+
+.timeline { padding-block: 2rem 3.5rem; }
+
+.timeline__head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem 1rem;
+  border-top: 1px solid var(--rule);
+  padding-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.timeline__title {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.timeline__note { font-size: 0.85rem; color: var(--ink-soft); margin: 0; }
+
+.timeline svg { width: 100%; height: auto; display: block; overflow: visible; }
+
+.tl-axis { stroke: var(--rule); stroke-width: 1; }
+.tl-stem { stroke: var(--sea); stroke-width: 1.5; }
+.tl-stem--now { stroke: var(--amber); stroke-width: 2.5; }
+.tl-dot { fill: var(--sea); }
+.tl-dot--now { fill: var(--amber); }
+.tl-year {
+  font-family: var(--mono);
+  font-size: 11px;
+  fill: var(--ink-soft);
+}
+.tl-year--now { fill: var(--amber); font-weight: 600; }
+.tl-num {
+  font-family: var(--mono);
+  font-size: 10px;
+  fill: var(--ink-soft);
+}
+.tl-link:hover .tl-dot { fill: var(--amber); }
+.tl-link:hover .tl-year { fill: var(--ink); }
+
+/* ---------- Contenu ---------- */
+
+main { padding-block: 1rem 4rem; }
+
+.prose { max-width: var(--measure); }
+.prose h2 {
+  font-family: var(--display);
+  font-size: clamp(1.4rem, 1.2rem + 0.8vw, 1.9rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin: 2.5rem 0 0.75rem;
+}
+.prose h3 { font-family: var(--display); font-size: 1.15rem; margin: 2rem 0 0.5rem; }
+.prose p, .prose li { color: var(--ink); }
+.prose ul { padding-left: 1.1rem; }
+.prose li { margin-bottom: 0.35rem; }
+
+.page-title {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 1.3rem + 2vw, 2.8rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 2rem 0 1.5rem;
+  max-width: 22ch;
+}
+
+/* ---------- Tableau des éditions ---------- */
+
+.editions { width: 100%; border-collapse: collapse; margin-top: 1.5rem; font-size: 0.95rem; }
+.editions th {
+  text-align: left;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  font-weight: 500;
+  border-bottom: 1px solid var(--ink);
+  padding: 0.5rem 0.75rem 0.5rem 0;
+}
+.editions td { border-bottom: 1px solid var(--rule); padding: 0.7rem 0.75rem 0.7rem 0; vertical-align: baseline; }
+.editions tr:hover td { background: var(--paper-2); }
+.editions .num { font-family: var(--mono); color: var(--ink-soft); width: 3rem; }
+.editions .year { font-family: var(--mono); font-weight: 600; width: 5rem; }
+.editions .isbn { font-family: var(--mono); font-size: 0.8rem; color: var(--ink-soft); }
+.editions tr[data-status="upcoming"] .year { color: var(--amber); }
+
+/* ---------- Dates ---------- */
+
+.dates { width: 100%; border-collapse: collapse; margin-top: 1.5rem; }
+.dates td { border-bottom: 1px solid var(--rule); padding: 0.65rem 0.75rem 0.65rem 0; }
+.dates .when { font-family: var(--mono); font-weight: 600; white-space: nowrap; width: 12rem; }
+.dates tr.is-passed { color: var(--ink-soft); }
+.dates tr.is-passed .when { text-decoration: line-through; }
+
+/* ---------- Pied de page ---------- */
+
+.foot {
+  border-top: 1px solid var(--rule);
+  padding-block: 2rem 3rem;
+  font-size: 0.875rem;
+  color: var(--ink-soft);
+}
+
+.foot__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1.5rem 2rem;
+}
+
+.foot h2 {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 0 0 0.5rem;
+  font-weight: 500;
+}
+
+.foot ul { list-style: none; margin: 0; padding: 0; }
+.foot li { margin-bottom: 0.3rem; }
+.foot a { color: var(--ink-soft); }
+.foot a:hover { color: var(--sea); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}

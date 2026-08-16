@@ -1,0 +1,22 @@
+{{ define "main" }}
+{{ $cur := site.Data.editions.current }}
+{{ $e := index (where site.Data.editions.editions "year" $cur) 0 }}
+
+<section class="hero">
+  <p class="hero__eyebrow">{{ $e.num }}th edition · IEEE</p>
+  <h1 class="hero__title">{{ site.Params.fullName }}</h1>
+  <p class="hero__meta">
+    <b>{{ $e.dates_display }}</b> &nbsp;·&nbsp; {{ $e.city }}, {{ $e.country }}
+  </p>
+  <div class="actions">
+    <a class="btn btn--solid" href="{{ printf "/%d/call-for-papers/" $cur | relURL }}">Call for papers</a>
+    <a class="btn btn--ghost" href="{{ printf "/%d/important-dates/" $cur | relURL }}">Key dates</a>
+  </div>
+</section>
+
+{{ partial "timeline.html" . }}
+
+<div class="prose">
+  {{ .Content }}
+</div>
+{{ end }}

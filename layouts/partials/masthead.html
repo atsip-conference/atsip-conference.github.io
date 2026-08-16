@@ -1,0 +1,27 @@
+{{ $cur := string site.Data.editions.current }}
+{{ $ed := "" }}{{ with .Params.edition }}{{ $ed = string . }}{{ end }}
+
+<header class="masthead">
+  <div class="wrap masthead__inner">
+    <a class="wordmark" href="{{ "/" | relURL }}">ATSIP<span>.</span></a>
+    <span class="masthead__tag">Signal &amp; Image Processing · since 2014</span>
+
+    <nav class="nav" aria-label="Main">
+      {{ if $ed }}
+        {{/* Navigation interne à une édition */}}
+        <a href="{{ printf "/%s/" $ed | relURL }}">{{ $ed }}</a>
+        {{ if eq $ed $cur }}
+          <a href="{{ printf "/%s/call-for-papers/" $ed | relURL }}">Call for papers</a>
+          <a href="{{ printf "/%s/important-dates/" $ed | relURL }}">Dates</a>
+          <a href="{{ printf "/%s/committees/" $ed | relURL }}">Committees</a>
+        {{ end }}
+        <a href="{{ "/editions/" | relURL }}">All editions</a>
+      {{ else }}
+        <a href="{{ printf "/%s/" $cur | relURL }}">ATSIP&rsquo;{{ $cur }}</a>
+        <a href="{{ "/editions/" | relURL }}">Editions</a>
+        <a href="{{ "/committee/" | relURL }}">Steering committee</a>
+        <a href="{{ "/contact/" | relURL }}">Contact</a>
+      {{ end }}
+    </nav>
+  </div>
+</header>
