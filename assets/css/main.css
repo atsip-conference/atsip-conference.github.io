@@ -56,28 +56,101 @@ a:hover { color: var(--amber); }
 .masthead__inner {
   display: flex;
   flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.75rem 2rem;
-  padding-block: 1.1rem;
+  align-items: center;
+  gap: 0.75rem 1.5rem;
+  padding-block: 1rem;
 }
 
 .wordmark {
-  font-family: var(--display);
-  font-weight: 700;
-  font-size: 1.5rem;
-  letter-spacing: 0.06em;
-  color: var(--ink);
+  display: block;
+  line-height: 0;
   text-decoration: none;
 }
 
-.wordmark span { color: var(--amber); }
+.wordmark img {
+  height: clamp(2.1rem, 1.6rem + 1.6vw, 2.9rem);
+  width: auto;
+  display: block;
+}
 
 .masthead__tag {
   font-family: var(--mono);
-  font-size: 0.7rem;
+  font-size: 0.65rem;
+  line-height: 1.35;
   letter-spacing: 0.04em;
   color: var(--ink-soft);
   text-transform: uppercase;
+  padding-left: 1rem;
+  border-left: 1px solid var(--rule);
+  align-self: center;
+}
+
+@media (max-width: 40rem) {
+  .masthead__tag { display: none; }
+}
+
+/* ---------- Partenaires institutionnels ---------- */
+
+.sponsors {
+  width: 100%;
+  max-width: 68rem;
+  margin-inline: auto;
+  padding: 2.5rem var(--gutter) 0;
+  border-top: 1px solid var(--rule);
+}
+
+.sponsors__label {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 1.1rem;
+}
+
+.sponsors__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem 3rem;
+}
+
+.sponsors__row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  gap: 2rem 3rem;
+}
+
+.sponsors__list img {
+  height: 2.4rem;
+  width: auto;
+  display: block;
+  filter: grayscale(1);
+  opacity: 0.62;
+  transition: filter 0.2s, opacity 0.2s;
+}
+
+.sponsors__list li:hover img { filter: none; opacity: 1; }
+
+/* Le logo IEEE est fourni en blanc ; currentColor le rend lisible sur fond clair. */
+.ieee-mark {
+  display: block;
+  color: var(--ink);
+  opacity: 0.78;
+  transition: opacity 0.2s;
+}
+.ieee-mark:hover { opacity: 1; }
+.ieee-mark svg { height: 2.1rem; width: auto; display: block; }
+
+.sponsors__note {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  max-width: 34ch;
+  margin: 0.9rem 0 0;
 }
 
 .nav {
@@ -133,11 +206,71 @@ a:hover { color: var(--amber); }
   max-width: 18ch;
 }
 
+.hero__sub {
+  font-size: clamp(1.05rem, 0.95rem + 0.5vw, 1.4rem);
+  line-height: 1.3;
+  color: var(--ink-soft);
+  max-width: 34ch;
+  margin: -0.4rem 0 1.2rem;
+}
+
 .hero__meta {
   font-family: var(--mono);
   font-size: clamp(0.95rem, 0.9rem + 0.3vw, 1.15rem);
   color: var(--sea);
   margin: 0 0 2rem;
+}
+
+/* Page d'accueil : les thèmes en colonnes plutôt qu'en liste étirée. */
+.prose--home h2 {
+  border-top: 1px solid var(--rule);
+  padding-top: 1.1rem;
+}
+
+/* Les huit tracks : grille de cartes, chaque track avec ses sous-thèmes. */
+.tracks {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 0;
+  border-top: 1px solid var(--rule);
+  margin-top: 1.5rem;
+}
+
+.tracks h3 {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sea);
+  margin: 0 0 0.6rem;
+  padding-top: 1.3rem;
+  border-top: 2px solid var(--sea);
+}
+
+.tracks ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 1.75rem 1.6rem 0;
+  font-size: 0.875rem;
+  line-height: 1.45;
+}
+
+.tracks li {
+  color: var(--ink-soft);
+  padding-left: 0.85rem;
+  position: relative;
+  margin-bottom: 0.3rem;
+}
+
+.tracks li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 4px;
+  height: 1px;
+  background: var(--rule);
 }
 
 .hero__meta b { color: var(--ink); font-weight: 600; }
@@ -158,6 +291,107 @@ a:hover { color: var(--amber); }
 .btn--solid:hover { background: var(--ink); border-color: var(--ink); color: var(--paper); }
 .btn--ghost { color: var(--sea); }
 .btn--ghost:hover { background: var(--paper-2); color: var(--sea); }
+
+/* ---------- Encart de l'édition à venir ---------- */
+
+.hero--series { padding-block: clamp(2.5rem, 6vw, 4rem) 1.5rem; }
+.hero--series .hero__title { max-width: 20ch; }
+.hero--series .hero__sub { max-width: 52ch; margin-bottom: 0; }
+
+.next-edition {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem 2rem;
+  background: var(--paper-2);
+  border-left: 3px solid var(--amber);
+  border-radius: 0;
+  padding: 1.4rem 1.6rem;
+  margin-top: 2rem;
+}
+
+.next-edition__eyebrow {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 0.35rem;
+}
+
+.next-edition__title {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(1.4rem, 1.2rem + 1vw, 1.9rem);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin: 0 0 0.3rem;
+}
+
+.next-edition__meta {
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  color: var(--sea);
+  margin: 0;
+}
+
+/* ---------- Bandeau de crédibilité ---------- */
+
+.creds {
+  border-block: 1px solid var(--rule);
+  padding-block: 1.6rem;
+  margin-top: 1rem;
+}
+
+.creds__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: 1.6rem 2.5rem;
+}
+
+.creds__item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.creds__mark { margin-bottom: 0.5rem; }
+.creds__mark svg { height: 1.6rem; }
+
+.creds__big {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 2.1rem;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--sea);
+  margin: 0 0 0.35rem;
+}
+
+.creds__big--sm { font-size: 1.55rem; letter-spacing: 0.02em; padding-top: 0.4rem; }
+
+.creds__val {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0;
+}
+
+.creds__key {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.creds__key a { color: var(--amber); text-decoration: none; }
+.creds__key a:hover { text-decoration: underline; }
 
 /* ---------- Frise des éditions (signature) ---------- */
 
@@ -253,6 +487,32 @@ main { padding-block: 1rem 4rem; }
 .editions .year { font-family: var(--mono); font-weight: 600; width: 5rem; }
 .editions .isbn { font-family: var(--mono); font-size: 0.8rem; color: var(--ink-soft); }
 .editions tr[data-status="upcoming"] .year { color: var(--amber); }
+
+/* Étiquettes de liens vers les actes */
+
+.editions__links { white-space: nowrap; }
+
+.tag {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.02em;
+  padding: 0.2rem 0.5rem;
+  margin: 0.1rem 0.25rem 0.1rem 0;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  text-decoration: none;
+  color: var(--ink-soft);
+}
+
+.tag:hover { border-color: var(--sea); color: var(--sea); }
+
+.tag--ieee { border-color: var(--sea); color: var(--sea); }
+.tag--ieee:hover { background: var(--sea); color: var(--paper); }
+
+.tag--muted { color: var(--ink-soft); opacity: 0.55; }
+
+.actions--tags { margin-top: 0.5rem; }
 
 /* ---------- Dates ---------- */
 

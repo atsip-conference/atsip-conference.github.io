@@ -1,22 +1,36 @@
 {{ define "main" }}
 {{ $cur := site.Data.editions.current }}
 {{ $e := index (where site.Data.editions.editions "year" $cur) 0 }}
+{{ $first := index (sort site.Data.editions.editions "year") 0 }}
 
-<section class="hero">
-  <p class="hero__eyebrow">{{ $e.num }}th edition · IEEE</p>
+{{/* La racine présente la série, pas une édition. L'édition courante
+     apparaît comme un encart secondaire, pas comme le titre. */}}
+<section class="hero hero--series">
+  <p class="hero__eyebrow">Since {{ $first.year }} &middot; IEEE</p>
   <h1 class="hero__title">{{ site.Params.fullName }}</h1>
-  <p class="hero__meta">
-    <b>{{ $e.dates_display }}</b> &nbsp;·&nbsp; {{ $e.city }}, {{ $e.country }}
+  <p class="hero__sub">
+    An international conference on signal processing, image analysis, and their
+    applications, held across the Euro-Mediterranean region since 2014.
   </p>
-  <div class="actions">
-    <a class="btn btn--solid" href="{{ printf "/%d/call-for-papers/" $cur | relURL }}">Call for papers</a>
-    <a class="btn btn--ghost" href="{{ printf "/%d/important-dates/" $cur | relURL }}">Key dates</a>
-  </div>
 </section>
+
+{{ partial "credentials.html" . }}
+
+<aside class="next-edition">
+  <div class="next-edition__body">
+    <p class="next-edition__eyebrow">Next edition &middot; {{ $e.num }}th</p>
+    <p class="next-edition__title">ATSIP&rsquo;{{ $e.year }}</p>
+    <p class="next-edition__meta">{{ $e.dates_display }} &middot; {{ $e.city }}, {{ $e.country }}</p>
+  </div>
+  <div class="actions">
+    <a class="btn btn--solid" href="{{ printf "%d/call-for-papers/" $cur | relURL }}">Call for papers</a>
+    <a class="btn btn--ghost" href="{{ printf "%d/" $cur | relURL }}">Edition site</a>
+  </div>
+</aside>
 
 {{ partial "timeline.html" . }}
 
-<div class="prose">
+<div class="prose prose--home">
   {{ .Content }}
 </div>
 {{ end }}

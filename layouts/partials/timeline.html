@@ -24,7 +24,7 @@
       {{ $t := div (float (sub .year $first)) (float $span) }}
       {{ $x := add $x0 (mul $t (sub $x1 $x0)) }}
       {{ $now := eq .year $cur }}
-      <a class="tl-link" href="{{ printf "/%d/" .year | relURL }}"
+      <a class="tl-link" href="{{ printf "%d/" .year | relURL }}"
          aria-label="ATSIP {{ .year }}, {{ .city }}">
         <line class="tl-stem{{ if $now }} tl-stem--now{{ end }}"
               x1="{{ $x }}" y1="{{ $base }}" x2="{{ $x }}" y2="{{ $top }}"/>

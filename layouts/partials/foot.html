@@ -1,20 +1,22 @@
 {{ $cur := site.Data.editions.current }}
+{{ partial "sponsors.html" . }}
+
 <footer class="foot">
   <div class="wrap foot__grid">
     <div>
       <h2>ATSIP&rsquo;{{ $cur }}</h2>
       <ul>
-        <li><a href="{{ printf "/%d/call-for-papers/" $cur | relURL }}">Call for papers</a></li>
-        <li><a href="{{ printf "/%d/important-dates/" $cur | relURL }}">Important dates</a></li>
-        <li><a href="{{ printf "/%d/committees/" $cur | relURL }}">Committees</a></li>
+        <li><a href="{{ printf "%d/call-for-papers/" $cur | relURL }}">Call for papers</a></li>
+        <li><a href="{{ printf "%d/important-dates/" $cur | relURL }}">Important dates</a></li>
+        <li><a href="{{ printf "%d/committees/" $cur | relURL }}">Committees</a></li>
       </ul>
     </div>
     <div>
       <h2>Conference</h2>
       <ul>
-        <li><a href="{{ "/editions/" | relURL }}">Past editions</a></li>
-        <li><a href="{{ "/committee/" | relURL }}">Steering committee</a></li>
-        <li><a href="{{ "/contact/" | relURL }}">Contact</a></li>
+        <li><a href="{{ "editions/" | relURL }}">Past editions</a></li>
+        <li><a href="{{ "committee/" | relURL }}">Steering committee</a></li>
+        <li><a href="{{ "contact/" | relURL }}">Contact</a></li>
       </ul>
     </div>
     <div>

@@ -5,16 +5,23 @@
 
   {{ if $e }}
     <section class="hero">
-      <p class="hero__eyebrow">{{ $e.num }}th edition</p>
+      <p class="hero__eyebrow">{{ $e.num }}{{ if eq $e.num 1 }}st{{ else if eq $e.num 2 }}nd{{ else if eq $e.num 3 }}rd{{ else }}th{{ end }} edition</p>
       <h1 class="hero__title">ATSIP&rsquo;{{ $e.year }}</h1>
       <p class="hero__meta">
-        <b>{{ $e.dates_display }}</b> &nbsp;·&nbsp; {{ $e.city }}, {{ $e.country }}
+        <b>{{ $e.dates_display }}</b> &nbsp;&middot;&nbsp; {{ $e.city }}, {{ $e.country }}
         {{ with $e.isbn }}<br>ISBN {{ . }}{{ end }}
       </p>
+
       {{ if eq $e.status "upcoming" }}
         <div class="actions">
-          <a class="btn btn--solid" href="{{ printf "/%d/call-for-papers/" $e.year | relURL }}">Call for papers</a>
-          <a class="btn btn--ghost" href="{{ printf "/%d/important-dates/" $e.year | relURL }}">Key dates</a>
+          <a class="btn btn--solid" href="{{ printf "%d/call-for-papers/" $e.year | relURL }}">Call for papers</a>
+          <a class="btn btn--ghost" href="{{ printf "%d/important-dates/" $e.year | relURL }}">Key dates</a>
+        </div>
+      {{ else }}
+        <div class="actions actions--tags">
+          {{ with $e.xplore }}<a class="btn btn--solid" href="{{ . }}">Proceedings on IEEE Xplore</a>{{ end }}
+          {{ with $e.doi }}<a class="btn btn--ghost" href="{{ . }}">DOI</a>{{ end }}
+          {{ with $e.dblp }}<a class="btn btn--ghost" href="{{ . }}">DBLP</a>{{ end }}
         </div>
       {{ end }}
     </section>

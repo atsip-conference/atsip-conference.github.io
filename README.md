@@ -57,6 +57,17 @@ editions:
 Then `mkdir content/2029` with an `_index.md` carrying `cascade: {edition: 2029}`.
 The previous edition freezes on its own.
 
+## Topics: two levels
+
+The eight general tracks belong to the **conference**, not to any one edition.
+They live in `content/_index.md` under `## Topics` and are shown on the homepage.
+Edit them there when the scope of the series changes.
+
+Each edition then declares its **own** topics in its call for papers
+(`content/YYYY/call-for-papers.md`, section `## Topics for this edition`):
+emphasis areas, special sessions, anything specific to that year. An edition
+links back to the general tracks rather than copying them.
+
 ## Conventions
 
 - **Never** republish `submission`, `registration` or `important-dates` pages for
