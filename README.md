@@ -4,26 +4,32 @@ Static site built with [Hugo](https://gohugo.io) (extended, v0.128+), deployed t
 GitHub Pages. No database, no server-side code, no build dependencies beyond a
 single binary.
 
-## Structure
-
-```
-data/editions.yaml     Single source of truth for every edition
-content/               Page content, one folder per edition year
-layouts/               Templates
-assets/css/main.css    Styles
-.github/workflows/     Automatic deployment on push to main
-```
-
 ## The one file that matters
 
 `data/editions.yaml` drives the whole site: the homepage, the timeline, the
-editions table, and the archive banners. Changing `current:` from `2027` to
-`2029` flips every page at once — past editions get their banner, the homepage
-points at the new one. Nothing else needs editing.
+editions table, the archive banners. Changing `current:` from `2027` to `2029`
+flips every page at once.
 
 Metadata follows DBLP (<https://dblp.org/db/conf/atsip/index.html>), which
-mirrors the published IEEE proceedings. Where the old `lab-atms.com` pages
-disagree — Sfax for 2020, Moncton for 2022 — DBLP is authoritative.
+mirrors the published IEEE proceedings.
+
+## Topics: two levels
+
+The eight general tracks belong to the **conference**. They live in
+`content/_index.md` under `## Topics` and are shown on the homepage. They follow the
+ATSIP'2024 call for papers, with subtopics written out in full.
+
+Each edition declares its **own** emphases and special sessions in its call for
+papers (`content/YYYY/call-for-papers.md`).
+
+## Microsoft CMT
+
+The CMT acknowledgment is rendered on **every page**, in
+`layouts/partials/foot.html`, as static plain text. CMT fetches the page and
+compares the text exactly.
+
+Do not style it, do not reword it, do not move it into JavaScript, do not comment
+it out. Without it, a CMT site request is refused.
 
 ## Local preview
 
@@ -34,54 +40,29 @@ hugo server -D
 
 ## Deployment
 
-1. Create a GitHub **organisation** (`atsip-conference`), not a personal account.
-   Add at least three owners from the steering committee.
-2. Create a public repository and push this project to `main`.
-3. Settings → Pages → Source: **GitHub Actions**.
-4. Push. The workflow builds and deploys automatically.
-5. Once the domain is registered: Settings → Pages → Custom domain, and update
-   `baseURL` in `hugo.toml`.
+Push to `main`. Settings → Pages → Source must be **GitHub Actions**.
 
-## Adding the next edition
+## Still to do
 
-```yaml
-current: 2029
-
-editions:
-  - num: 9
-    year: 2029
-    city: ...
-    status: upcoming
-```
-
-Then `mkdir content/2029` with an `_index.md` carrying `cascade: {edition: 2029}`.
-The previous edition freezes on its own.
-
-## Topics: two levels
-
-The eight general tracks belong to the **conference**, not to any one edition.
-They live in `content/_index.md` under `## Topics` and are shown on the homepage.
-Edit them there when the scope of the series changes.
-
-Each edition then declares its **own** topics in its call for papers
-(`content/YYYY/call-for-papers.md`, section `## Topics for this edition`):
-emphasis areas, special sessions, anything specific to that year. An edition
-links back to the general tracks rather than copying them.
-
-## Conventions
-
-- **Never** republish `submission`, `registration` or `important-dates` pages for
-  past editions. They advertise dead deadlines and mislead authors. Archived
-  editions keep only: metadata, committees, programme, recovered documents.
-- Heavy PDFs (plenary slides, proceedings extracts) go to Zenodo for a permanent
-  DOI, not into this repository — Git history keeps binaries forever.
-- The canonical name is *International Conference on Advanced Technologies for
-  Signal and Image Processing*. Use it without variation.
-
-## To do
-
-- [ ] Register the domain (10 years, owned by the ATSI association)
+- [ ] Confirm the ATSIP'2027 committee and track chairs (carried over from 2024)
+- [ ] Name the partner journals for the special issues
+- [ ] CMT submission link, once the site request is accepted
+- [ ] Venue and accommodation details
 - [ ] IEEE technical sponsorship application — critical path
-- [ ] Fill `content/committee.md` and `content/2027/committees.md`
-- [ ] Confirm submission platform, then link it from the call for papers
-- [ ] Attach recovered documents to past-edition pages as they become available
+
+## Call-for-papers flyer
+
+The one-page A4 flyer lives in `static/files/CFP_ATSIP2027.pdf` and is linked from
+the call-for-papers page. Its source is kept outside this repository; rebuild it
+with WeasyPrint from the HTML (wkhtmltopdf lays out at 1024px and shrinks, which
+leaves a white band on the right of the page — do not use it).
+
+The photo band (`static/img/sousse.png`) is taken from the ATSIP'2024 flyer:
+medina souk, golf course, marina.
+
+## Naming
+
+The conference name is **International Conference on Advanced Technologies,
+Signal and Image Processing** — with a comma, matching the 2024 edition and the
+logo. Earlier editions used "Advanced Technologies *for* Signal and Image
+Processing"; do not mix the two, it fragments indexing.

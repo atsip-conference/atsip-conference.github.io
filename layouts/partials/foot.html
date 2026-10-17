@@ -1,0 +1,53 @@
+{{ $cur := site.Data.editions.current }}
+
+<section class="sponsors" aria-label="Publication and organisers">
+  <div class="sponsors__row">
+    <div class="sponsors__block">
+      <p class="sponsors__label">Published by</p>
+      <ul class="sponsors__list">
+        <li><a href="https://ieeexplore.ieee.org/" class="ieee-mark" aria-label="IEEE Xplore">
+          {{ readFile "static/img/ieee.svg" | safeHTML }}</a></li>
+      </ul>
+    </div>
+    <div class="sponsors__block">
+      <p class="sponsors__label">Organised with</p>
+      <ul class="sponsors__list">
+        <li><img src="{{ "img/atsi.png" | relURL }}" alt="ATSI association" width="420" height="165"></li>
+        <li><img src="{{ "img/ieee-tunisia.png" | relURL }}" alt="IEEE Tunisia Section" width="420" height="149"></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap foot__grid">
+    <div>
+      <h2>ATSIP&rsquo;{{ $cur }}</h2>
+      <ul>
+        <li><a href="{{ printf "%d/call-for-papers/" $cur | relURL }}">Call for papers</a></li>
+        <li><a href="{{ printf "%d/important-dates/" $cur | relURL }}">Important dates</a></li>
+        <li><a href="{{ printf "%d/committees/" $cur | relURL }}">Committees</a></li>
+        <li><a href="{{ printf "%d/submission/" $cur | relURL }}">Submission</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Conference</h2>
+      <ul>
+        <li><a href="{{ "editions/" | relURL }}">Past editions</a></li>
+        <li><a href="{{ "contact/" | relURL }}">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Record</h2>
+      <ul>
+        <li><a href="{{ site.Params.dblp }}">DBLP bibliography</a></li>
+        <li><a href="https://ieeexplore.ieee.org/">IEEE Xplore</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <p class="foot__name">{{ site.Params.fullName }} &middot; Held since 2014.</p>
+    <p class="cmt-ack">The Microsoft CMT service was used for managing the peer-reviewing process for this conference. This service was provided for free by Microsoft and they bore all expenses, including costs for Azure cloud services as well as for software development and support.</p>
+  </div>
+</footer>

@@ -1,0 +1,12 @@
+{{ with .Params.edition }}
+  {{ $cur := string site.Data.editions.current }}
+  {{ if ne (string .) $cur }}
+    <div class="archive-notice">
+      <div class="wrap archive-notice__inner">
+        <span>Archive of <strong>ATSIP&rsquo;{{ . }}</strong>. This edition has taken place.</span>
+        <span>The current edition is
+          <a href="{{ printf "%s/" $cur | relURL }}">ATSIP&rsquo;{{ $cur }}</a>.</span>
+      </div>
+    </div>
+  {{ end }}
+{{ end }}

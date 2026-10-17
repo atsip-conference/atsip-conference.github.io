@@ -1,0 +1,94 @@
+# Source unique de vérité pour toutes les éditions.
+# Métadonnées conformes à DBLP : https://dblp.org/db/conf/atsip/index.html
+# Changer `current` fait basculer tout le site (bandeaux d'archive, mise en avant).
+
+current: 2027
+
+# Indexation de la série.
+indexing:
+  publisher: IEEE
+  xplore: true
+  dblp: "https://dblp.org/db/conf/atsip/index.html"
+  core_rank: "National (Tunisia)"
+  core_url: "https://portal.core.edu.au/conf-ranks/2231/"
+
+editions:
+  - num: 8
+    year: 2027
+    city: Sousse
+    country: Tunisia
+    dates_start: 2027-06-30
+    dates_end: 2027-07-03
+    dates_display: "30 June – 3 July 2027"
+    status: upcoming
+
+  - num: 7
+    year: 2024
+    city: Sousse
+    country: Tunisia
+    dates_display: "11–13 July 2024"
+    isbn: "979-8-3503-5148-4"
+    xplore: "https://ieeexplore.ieee.org/xpl/conhome/10639060/proceeding"
+    doi: "https://doi.org/10.1109/ATSIP62566.2024"
+    dblp: "https://dblp.org/db/conf/atsip/atsip2024.html"
+    status: archived
+
+  - num: 6
+    year: 2022
+    city: Sfax
+    country: Tunisia
+    dates_display: "24–27 May 2022"
+    isbn: "978-1-6654-5116-1"
+    xplore: "https://ieeexplore.ieee.org/xpl/conhome/9805785/proceeding"
+    doi: "https://doi.org/10.1109/ATSIP55956.2022"
+    dblp: "https://dblp.org/db/conf/atsip/atsip2022.html"
+    status: archived
+
+  - num: 5
+    year: 2020
+    city: Sousse
+    country: Tunisia
+    dates_display: "2–5 September 2020"
+    isbn: "978-1-7281-7513-3"
+    xplore: "https://ieeexplore.ieee.org/xpl/conhome/9224548/proceeding"
+    dblp: "https://dblp.org/db/conf/atsip/atsip2020.html"
+    status: archived
+
+  - num: 4
+    year: 2018
+    city: Sousse
+    country: Tunisia
+    dates_display: "21–24 March 2018"
+    isbn: "978-1-5386-5239-8"
+    xplore: "https://ieeexplore.ieee.org/xpl/conhome/8360431/proceeding"
+    dblp: "https://dblp.org/db/conf/atsip/atsip2018.html"
+    status: archived
+
+  - num: 3
+    year: 2017
+    city: Fez
+    country: Morocco
+    dates_display: "22–24 May 2017"
+    isbn: "978-1-5386-0551-6"
+    xplore: "https://ieeexplore.ieee.org/xpl/conhome/8056674/proceeding"
+    dblp: "https://dblp.org/db/conf/atsip/atsip2017.html"
+    status: archived
+
+  - num: 2
+    year: 2016
+    city: Monastir
+    country: Tunisia
+    dates_display: "21–23 March 2016"
+    isbn: "978-1-4673-8526-8"
+    xplore: "https://ieeexplore.ieee.org/xpl/conhome/7504793/proceeding"
+    dblp: "https://dblp.org/db/conf/atsip/atsip2016.html"
+    status: archived
+
+  - num: 1
+    year: 2014
+    city: Sousse
+    country: Tunisia
+    dates_display: "17–19 March 2014"
+    xplore: "https://ieeexplore.ieee.org/xpl/conhome/6823825/proceeding"
+    dblp: "https://dblp.org/db/conf/atsip/atsip2014.html"
+    status: archived
