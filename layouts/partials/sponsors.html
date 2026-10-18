@@ -1,20 +1,12 @@
-{{/* Bandeau institutionnel. `big` = version agrandie, en haut de l'accueil,
-     qui porte aussi le logo de la conférence ; sinon version discrète en pied
-     de page des autres pages. */}}
+{{/* Bandeau institutionnel, en haut de chaque page. `big` = version agrandie.
+
+     Le logo ATSIP n'y figure pas : il est dans l'en-tete, juste au-dessus, et
+     le repeter n'apporterait rien. */}}
 {{ $big := .big | default false }}
 
 <section class="sponsors{{ if $big }} sponsors--big{{ end }}"
          aria-label="Publication and organisers">
   <div class="sponsors__row">
-    {{ if $big }}
-    <div class="sponsors__block">
-      <p class="sponsors__label">The conference</p>
-      <ul class="sponsors__list">
-        <li><img class="logo--atsip" src="{{ "img/atsip-logo.png" | relURL }}"
-                 alt="ATSIP International Conference" width="1172" height="599"></li>
-      </ul>
-    </div>
-    {{ end }}
     <div class="sponsors__block">
       <p class="sponsors__label">Published by</p>
       <ul class="sponsors__list">

@@ -588,12 +588,15 @@ main { padding-block: 1rem 4rem; }
   margin-top: 0;
   border-top: 0;
   border-bottom: 1px solid var(--rule);
-  background: var(--paper-2);
+  /* Meme fond que la page : les logos, detoures, y flottent sans cadre. */
+  background: var(--paper);
 }
 
+/* Flex plutot que grid : le bandeau s'adapte au nombre de groupes, qu'il y en
+   ait deux ou quatre. */
 .sponsors--big .sponsors__row {
-  display: grid;
-  grid-template-columns: auto auto auto;
+  display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   gap: 2rem clamp(2rem, 4vw, 4.5rem);
   align-items: center;
@@ -621,7 +624,6 @@ main { padding-block: 1rem 4rem; }
   opacity: 1;
 }
 
-.sponsors--big .logo--atsip { height: 7rem; }
 .sponsors--big .ieee-mark { opacity: 1; }
 .sponsors--big .ieee-mark svg { height: 4.4rem; }
 
@@ -637,7 +639,6 @@ main { padding-block: 1rem 4rem; }
 
 @media (max-width: 36rem) {
   .sponsors--big .sponsors__list img { height: 3.6rem; }
-  .sponsors--big .logo--atsip { height: 4.4rem; }
   .sponsors--big .ieee-mark svg { height: 3rem; }
 }
 
@@ -1589,3 +1590,35 @@ main > .cover { margin-top: -1rem; }
   margin-inline: auto;
   padding-inline: var(--gutter);
 }
+
+/* ---------- Appel à l'action centré ---------- */
+
+/* Le téléchargement du call for papers : centré sur toute la largeur et
+   dessiné comme un bouton, pas comme un lien perdu dans le texte. */
+.cta {
+  max-width: none !important;
+  text-align: center;
+  margin: 2.2rem 0 2.6rem;
+}
+
+.cta p { margin: 0; }
+
+.cta a {
+  display: inline-block;
+  padding: 0.85rem 1.8rem;
+  border: 1px solid var(--sea);
+  border-radius: 2px;
+  background: var(--sea);
+  color: var(--paper);
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+.cta a:hover {
+  background: var(--amber);
+  border-color: var(--amber);
+  color: var(--ink);
+}
+
+.cta a strong { font-weight: 600; }

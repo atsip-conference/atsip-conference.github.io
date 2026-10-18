@@ -20,7 +20,11 @@ industrial exhibits, and poster sessions.
 
 </div>
 
+<div class="cta">
+
 [**Download the call for papers (PDF)**]({{< relref "/" >}}files/CFP_ATSIP2027.pdf)
+
+</div>
 
 ## Topics
 
