@@ -17,7 +17,7 @@ edition: 2027
      ligne « Paper submission deadline » par la nouvelle date et ajouter
      « (extended) » le moment venu. -->
 
-All deadlines are 23:59 AoE (Anywhere on Earth).
+All deadlines are 23:59 AoE.
 
 Papers that are not presented at the conference by a registered author are not
 submitted to IEEE Xplore.

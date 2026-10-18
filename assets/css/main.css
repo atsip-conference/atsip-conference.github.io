@@ -592,18 +592,31 @@ main { padding-block: 1rem 4rem; }
   background: var(--paper);
 }
 
-/* Flex plutot que grid : le bandeau s'adapte au nombre de groupes, qu'il y en
-   ait deux ou quatre. */
+/* Equidistance des trois logos.
+
+   Un groupe porte un logo, l'autre en porte deux : en donnant au second le
+   double de largeur, et en centrant chaque logo dans sa part, les centres
+   tombent aux sixiemes 1, 3 et 5 de la largeur — donc a intervalles egaux. */
 .sponsors--big .sponsors__row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 2rem clamp(2rem, 4vw, 4.5rem);
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem 0;
   align-items: center;
 }
 
+/* Chaque logo occupe une part egale de son groupe et s'y centre. */
+.sponsors--big .sponsors__list {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  justify-items: center;
+  gap: 0;
+}
+
+.sponsors--big .sponsors__label { text-align: center; }
+
+/* Le filet marque la separation de sens, sans decaler la geometrie. */
 .sponsors--big .sponsors__block + .sponsors__block {
-  padding-left: clamp(2rem, 4vw, 4.5rem);
   border-left: 1px solid var(--rule);
 }
 
@@ -614,7 +627,6 @@ main { padding-block: 1rem 4rem; }
   margin-bottom: 1.2rem;
 }
 
-.sponsors--big .sponsors__list { gap: 1.5rem clamp(2rem, 3.5vw, 3.5rem); }
 
 /* En haut de page, les logos sont une information, pas une mention légale :
    couleurs d'origine et grande taille. */
@@ -630,7 +642,6 @@ main { padding-block: 1rem 4rem; }
 @media (max-width: 68rem) {
   .sponsors--big .sponsors__row { grid-template-columns: 1fr; }
   .sponsors--big .sponsors__block + .sponsors__block {
-    padding-left: 0;
     padding-top: 1.8rem;
     border-left: 0;
     border-top: 1px solid var(--rule);

@@ -34,7 +34,7 @@ has been published by IEEE and indexed in IEEE Xplore.
 | 25 June 2027 | Final programme |
 | 30 June – 3 July 2027 | Conference |
 
-All deadlines are 23:59 AoE (Anywhere on Earth).
+All deadlines are 23:59 AoE.
 [Full schedule]({{< relref "/2027/important-dates" >}}).
 
 ## Topics
