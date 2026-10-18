@@ -5,6 +5,8 @@ cascade:
   edition: 2027
 ---
 
+<div class="lead">
+
 The **8th International Conference on Advanced Technologies, Signal and Image
 Processing (ATSIP'2027)** will be held in **Sousse, Tunisia, from 30 June to
 3 July 2027**.
@@ -12,6 +14,8 @@ Processing (ATSIP'2027)** will be held in **Sousse, Tunisia, from 30 June to
 The conference is organised by the **ATISP laboratory (ENET'Com, University of
 Sfax)** with the ATSI association and the IEEE Tunisia Section. Every edition since 2014
 has been published by IEEE and indexed in IEEE Xplore.
+
+</div>
 
 [**Download the call for papers (PDF)**]({{< relref "/" >}}files/CFP_ATSIP2027.pdf)
 

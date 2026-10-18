@@ -1464,6 +1464,128 @@ main > .cover { margin-top: -1rem; }
 /* Ruban du lieu : cartes un peu plus hautes, les photos sont presque carrées. */
 .topicstrip--tall .tcard { height: clamp(12rem, 19vw, 17rem); }
 
-/* Les pages d'édition reprennent le pied de page à fond clair : la page de
-   garde sombre ne doit pas se coller au bandeau institutionnel. */
-.cover + .sponsors { border-top: 0; }
+/* Les logos passent avant la bande bleue : pas de filet entre les deux, le
+   changement de fond suffit. */
+.sponsors--big + .cover { border-top: 0; }
+.sponsors--big { border-bottom: 0; }
+
+/* ---------- En-tête bleu des pages internes d'une édition ---------- */
+
+.cover--inner {
+  padding-block: clamp(1.8rem, 3.4vw, 3rem) clamp(1.6rem, 3vw, 2.4rem);
+  border-bottom-width: 2px;
+}
+
+.cover--inner .cover__eyebrow {
+  margin-bottom: 1rem;
+  gap: 0.6rem;
+}
+
+.cover__back {
+  font-family: var(--mono);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--amber);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.cover__back:hover { color: var(--paper); border-bottom-color: var(--paper); }
+
+.cover__crumb {
+  padding-left: 0.6rem;
+  border-left: 1px solid rgba(244, 245, 241, 0.3);
+  color: #8fb0c0;
+}
+
+.cover__title--inner {
+  font-size: clamp(1.9rem, 1.1rem + 3.2vw, 3.4rem);
+  line-height: 1.05;
+  max-width: 22ch;
+  margin-bottom: 1.1rem;
+}
+
+/* Les faits de l'édition, sur une ligne : la page interne rappelle le cadre
+   sans répéter toute la page de garde. */
+.cover__line {
+  margin: 0;
+  font-size: clamp(0.92rem, 0.86rem + 0.3vw, 1.05rem);
+  line-height: 1.6;
+  color: #c3d6e0;
+}
+
+.cover__line b { color: var(--paper); font-weight: 600; }
+.cover__amber { color: var(--amber) !important; }
+.cover__dot { padding: 0 0.6rem; color: rgba(244, 245, 241, 0.4); }
+
+/* Le compte à rebours tient sur la même ligne ici, pas en dessous. */
+.cover__line .fact__note {
+  display: inline;
+  margin: 0 0 0 0.45rem;
+  color: #8fb0c0;
+}
+
+@media (max-width: 36rem) {
+  .cover__dot { display: block; height: 0; overflow: hidden; padding: 0; }
+  .cover__line { line-height: 1.75; }
+}
+
+/* ---------- Tableaux sur petit écran ---------- */
+
+/* Les liens longs de la page « call for papers » et le `nowrap` de la première
+   colonne poussaient le tableau hors de l'écran. */
+.prose td, .prose th { overflow-wrap: anywhere; }
+
+@media (max-width: 40rem) {
+  .prose td:first-child { white-space: normal; }
+  .prose table { display: block; width: 100%; overflow-x: auto; }
+}
+
+/* Le tableau des éditions a six colonnes : sur téléphone il défile
+   horizontalement plutôt que d'élargir la page. */
+@media (max-width: 48rem) {
+  .editions { display: block; width: 100%; overflow-x: auto; white-space: nowrap; }
+  .editions td, .editions th { white-space: nowrap; }
+}
+
+/* ---------- Chapeau pleine largeur ---------- */
+
+/* Un texte d'introduction qui prend toute la largeur : en colonnes, pour que
+   la ligne reste lisible. Une seule colonne sur 1400 px donnerait des lignes
+   de 170 caractères, que l'œil ne suit plus. */
+.lead {
+  max-width: none !important;
+  columns: 2;
+  column-gap: clamp(2.5rem, 5vw, 5rem);
+  font-size: clamp(1.05rem, 1rem + 0.3vw, 1.18rem);
+  line-height: 1.6;
+  margin: 0 0 2.2rem;
+  padding-bottom: 1.8rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.lead p { margin-top: 0; break-inside: avoid; }
+.lead p:last-child { margin-bottom: 0; }
+
+@media (max-width: 60rem) {
+  .lead { columns: 1; }
+  .lead p { max-width: var(--measure); }
+}
+
+/* Le contenu ne doit pas se coller au bandeau institutionnel. */
+.sponsors--big + .wrap { padding-top: clamp(1.8rem, 3vw, 2.8rem); }
+/* Apres la bande bleue, le contenu respire aussi. */
+.cover + .wrap, .topicstrip + .wrap { padding-top: clamp(1.8rem, 3vw, 2.8rem); }
+
+/* Le bandeau des logos doit aller de bord à bord comme la bande bleue qui le
+   suit : sinon deux liserés clairs apparaissent sur les côtés. */
+.sponsors--big {
+  max-width: none;
+  padding-inline: 0;
+}
+
+.sponsors--big .sponsors__row {
+  max-width: var(--page);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}

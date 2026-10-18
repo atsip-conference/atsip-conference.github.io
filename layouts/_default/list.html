@@ -1,4 +1,6 @@
 {{ define "main" }}
+  {{ partial "sponsors.html" (dict "big" true) }}
+
   <div class="wrap">
     <h1 class="page-title">{{ .Title }}</h1>
     <div class="prose prose--banded">{{ partial "banded.html" .Content }}</div>

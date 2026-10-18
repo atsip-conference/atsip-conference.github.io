@@ -8,6 +8,8 @@
     {{/* Même page de garde que celle de la conférence, aux détails de
          l'édition près : fond bleu profond, trace d'oscilloscope, faits
          essentiels, boutons d'action. */}}
+    {{ partial "sponsors.html" (dict "big" true) }}
+
     <section class="cover cover--edition">
       {{ partial "cover-trace.html" . }}
       <div class="wrap cover__inner">
@@ -80,8 +82,10 @@
     {{ end }}
 
   {{ else }}
-    <h1 class="page-title">{{ .Title }}</h1>
+    {{ partial "sponsors.html" (dict "big" true) }}
+    <div class="wrap"><h1 class="page-title">{{ .Title }}</h1></div>
   {{ end }}
+
 
   <div class="wrap">
     <div class="prose prose--banded">{{ partial "banded.html" .Content }}</div>

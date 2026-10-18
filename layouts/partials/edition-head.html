@@ -1,0 +1,38 @@
+{{/* En-tête des pages internes d'une édition : version condensée de la page de
+     garde. Même fond bleu, même trace, mais le titre de la page prend la place
+     du nom de l'édition, et les faits essentiels tiennent sur une ligne.
+
+     Sans paramètre `edition` dans le front matter, on retombe sur le titre de
+     page ordinaire — contact, sponsors, etc. */}}
+
+{{ $y := .Params.edition }}
+{{ $e := "" }}
+{{ with $y }}{{ $e = index (where site.Data.editions.editions "year" .) 0 }}{{ end }}
+
+{{ if $e }}
+  {{ $up := eq $e.status "upcoming" }}
+  <section class="cover cover--inner">
+    {{ partial "cover-trace.html" . }}
+    <div class="wrap cover__inner">
+      <p class="cover__eyebrow">
+        <a class="cover__back" href="{{ printf "%d/" $e.year | relURL }}">ATSIP&rsquo;{{ $e.year }}</a>
+        <span class="cover__crumb">{{ $e.num }}{{ if eq $e.num 1 }}st{{ else if eq $e.num 2 }}nd{{ else if eq $e.num 3 }}rd{{ else }}th{{ end }} edition</span>
+      </p>
+
+      <h1 class="cover__title cover__title--inner">{{ .Title }}</h1>
+
+      <p class="cover__line">
+        <b>{{ $e.dates_display }}</b>
+        <span class="cover__dot">&middot;</span>{{ $e.city }}, {{ $e.country }}
+        {{ if $up }}
+          <span class="cover__dot">&middot;</span>Submissions close
+          <b class="cover__amber" data-countdown="2027-03-30">30 March 2027</b>
+        {{ else }}
+          <span class="cover__dot">&middot;</span>Archive
+        {{ end }}
+      </p>
+    </div>
+  </section>
+{{ else }}
+  <div class="wrap"><h1 class="page-title">{{ .Title }}</h1></div>
+{{ end }}

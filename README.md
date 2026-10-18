@@ -110,6 +110,32 @@ Les trois photos de Sousse sont decoupees du bandeau du CFP 2024 et ne font que
 250 px de large : avec si peu d'images, la repetition se voit. De vraies photos,
 plus nombreuses et plus grandes, ameliorent beaucoup le resultat.
 
+## Bandeau institutionnel
+
+Les logos (ATSIP, IEEE, ATSI, IEEE Tunisia Section) sont en HAUT de chaque
+page, pas dans le pied. Chaque gabarit appelle
+`{{ partial "sponsors.html" (dict "big" true) }}` juste apres son en-tete : un
+nouveau gabarit doit penser a l'ajouter.
+
+Ne pas le mettre dans la liste des elements animes au defilement
+(`layouts/partials/scripts.html`) : etant au-dessus de la ligne de flottaison,
+il clignoterait a l'ouverture de la page.
+
+## En-tete bleu des pages d'edition
+
+`layouts/partials/edition-head.html` : version condensee de la page de garde,
+posee sur chaque page portant un parametre `edition` (cascade depuis
+`content/<annee>/_index.md`). Le titre de la page remplace le nom de
+l'edition, et les faits tiennent sur une ligne. Sans ce parametre, on retombe
+sur un titre de page ordinaire.
+
+## Chapeau pleine largeur
+
+La classe `.lead`, posee autour des paragraphes d'introduction dans le
+markdown, les etale sur toute la largeur EN COLONNES. Une seule colonne sur
+1400 px donnerait des lignes de 170 caracteres, illisibles. Utilisee sur
+`content/2027/_index.md` et `content/2027/call-for-papers.md`.
+
 ## Local preview
 
 ```bash
@@ -160,22 +186,31 @@ Processing"; do not mix the two, it fragments indexing.
 
 ## Search visibility
 
-Technical groundwork is in place: `sitemap.xml`, `robots.txt`, canonical links,
-Open Graph tags, and schema.org `Event` structured data on the current edition
-page (which is what lets Google show dates and venue rather than a plain link).
+Ce qui est en place, et qu'il ne faut pas casser :
 
-What actually moves the ranking is off-site and has to be done by hand:
+- un titre et une description UNIQUES par page, generes dans
+  `layouts/partials/head.html`. Google penalise les descriptions dupliquees ;
+  verifier apres tout ajout de page que les titres restent distincts ;
+- `layouts/partials/schema.html` : un `EventSeries` sur l'accueil qui liste les
+  huit editions (c'est ce qui rattache « ATSIP » a une entite unique et le
+  distingue de l'association americaine de meme sigle), un `Event` sur la page
+  de l'edition courante, un fil d'Ariane sur les pages internes ;
+- `sitemap.xml`, `robots.txt`, liens canoniques, Open Graph.
 
-1. **Google Search Console** — verify the site, submit the sitemap, request
-   indexing of the edition page. Without this, indexing takes weeks.
-2. **Inbound links.** These matter more than anything on the page. Ask for a link
-   from: IEEE Tunisia Section, the ATMS laboratory page, the universities of the
-   committee members, and the conference's Facebook page.
-3. **Conference listings** — WikiCFP, Conference Alerts, Guide2Research, AllConfs,
-   and the IEEE conference calendar. Free, and they rank well themselves.
-4. **Consistent naming.** Always "ATSIP'2027" and the comma form of the full name,
-   in every announcement and mailing. Variants split the signal.
+Ce qui reste a faire a la main, et qui pese bien plus lourd :
 
-Note that "ATSIP" alone is also the acronym of a US transportation safety
-association with an established domain; realistic targets are "ATSIP 2027",
-"ATSIP conference", "ATSIP Sousse".
+1. **Google Search Console** — ajouter la propriete, soumettre
+   `https://atsip-conference.github.io/sitemap.xml`, demander l'indexation de
+   `/` et de `/2027/`. Sans cela, l'indexation prend des semaines.
+2. **Liens entrants.** Facteur dominant. Demander un lien depuis : IEEE Tunisia
+   Section, la page du laboratoire ATISP, ENET'Com, les universites des membres
+   du comite, la page Facebook de la conference.
+3. **Annuaires de conferences** : WikiCFP, Conference Alerts, Guide2Research,
+   AllConfs, le calendrier IEEE. Gratuits, et bien classes eux-memes.
+4. **Nommage constant** : toujours « ATSIP'2027 » et la forme complete avec
+   virgule, dans chaque annonce et chaque mail. Les variantes dispersent le
+   signal.
+
+« ATSIP » seul est aussi le sigle d'une association americaine de securite
+routiere, au domaine bien etabli. Les requetes realistes sont « ATSIP 2027 »,
+« ATSIP conference », « ATSIP Sousse », « IEEE ATSIP ».

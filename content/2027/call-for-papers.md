@@ -3,6 +3,8 @@ title: "Call for papers"
 edition: 2027
 ---
 
+<div class="lead">
+
 The ATSIP Executive Committee is pleased to announce the **8th IEEE ATSIP
 edition**, International Ranked Conference on Advanced Technologies, Signal and
 Image Processing — ATSIP'2027, held in Sousse, Tunisia, from 30 June to 3 July
@@ -16,7 +18,7 @@ image processing.
 The conference features world-class speakers, plenary sessions, business and
 industrial exhibits, and poster sessions.
 
-<img class="banner" src="{{< relref "/" >}}img/sousse.png" alt="Sousse: medina souk, golf course and marina">
+</div>
 
 [**Download the call for papers (PDF)**]({{< relref "/" >}}files/CFP_ATSIP2027.pdf)
 

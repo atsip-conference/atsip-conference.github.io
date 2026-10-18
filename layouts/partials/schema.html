@@ -38,3 +38,63 @@
 }
 </script>
 {{ end }}
+
+{{/* Accueil : la serie elle-meme, avec toutes ses editions. C'est ce qui
+     permet a Google de rattacher « ATSIP » a une entite unique plutot qu'a
+     huit pages sans lien, et de distinguer la conference de l'association
+     americaine qui porte le meme sigle. */}}
+{{ if .IsHome }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EventSeries",
+  "name": "{{ site.Params.fullName }}",
+  "alternateName": ["ATSIP", "ATSIP Conference", "IEEE ATSIP"],
+  "url": "{{ site.BaseURL }}",
+  "description": "IEEE conference on advanced technologies, signal and image processing, held across Tunisia and Morocco since 2014. Proceedings published by IEEE and indexed in IEEE Xplore.",
+  "inLanguage": "en",
+  "organizer": {
+    "@type": "Organization",
+    "name": "ATISP Laboratory, ENET'Com, University of Sfax",
+    "url": "{{ site.BaseURL }}"
+  },
+  "sameAs": [
+    "{{ site.Params.dblp }}",
+    "https://portal.core.edu.au/conf-ranks/2231/"
+  ],
+  "subEvent": [
+    {{ range $i, $e := sort site.Data.editions.editions "year" "desc" }}{{ if $i }},{{ end }}
+    {
+      "@type": "Event",
+      "name": "ATSIP'{{ $e.year }}",
+      "startDate": "{{ $e.dates_start }}",
+      "endDate": "{{ $e.dates_end }}",
+      "eventStatus": "{{ if eq $e.status "upcoming" }}https://schema.org/EventScheduled{{ else }}https://schema.org/EventScheduled{{ end }}",
+      "location": {
+        "@type": "Place",
+        "name": "{{ $e.city }}, {{ $e.country }}",
+        "address": { "@type": "PostalAddress", "addressLocality": "{{ $e.city }}" }
+      },
+      "url": "{{ printf "%d/" $e.year | absURL }}"
+    }{{ end }}
+  ]
+}
+</script>
+{{ end }}
+
+{{/* Fil d'Ariane sur les pages internes : Google l'affiche a la place de
+     l'URL brute sous le titre. */}}
+{{ if and (not .IsHome) .Params.edition (ne .Kind "section") }}
+{{ $y := .Params.edition }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "ATSIP", "item": "{{ site.BaseURL }}" },
+    { "@type": "ListItem", "position": 2, "name": "ATSIP'{{ $y }}", "item": "{{ printf "%v/" $y | absURL }}" },
+    { "@type": "ListItem", "position": 3, "name": "{{ .Title }}", "item": "{{ .Permalink }}" }
+  ]
+}
+</script>
+{{ end }}

@@ -7,6 +7,8 @@
 {{ range $eds }}{{ $cities = $cities | append .city }}{{ end }}
 
 {{/* ---------- Page de garde ---------- */}}
+{{ partial "sponsors.html" (dict "big" true) }}
+
 <section class="cover">
   {{ partial "cover-trace.html" . }}
   <div class="wrap cover__inner">
@@ -52,7 +54,6 @@
 
 {{ partial "coverband.html" . }}
 
-{{ partial "sponsors.html" (dict "big" true) }}
 
 {{ partial "partners.html" (dict "top" true) }}
 

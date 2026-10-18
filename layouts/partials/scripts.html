@@ -111,7 +111,7 @@
   try {
     if (!reduce && "IntersectionObserver" in window) {
       var targets = document.querySelectorAll(
-        ".photoband, .sponsors--big, .creds, .timeline, .prose--home > h2, .topics"
+        ".creds, .timeline, .prose--home > h2, .topics"
       );
       if (targets.length) {
         var io = new IntersectionObserver(function (entries) {

@@ -1,6 +1,7 @@
 {{ $cur := site.Data.editions.current }}
 
-{{ if not .IsHome }}{{ partial "sponsors.html" (dict "big" false "Site" .Site) }}{{ end }}
+{{/* Les logos ne sont plus ici : le bandeau institutionnel est en haut de
+     chaque page, juste sous l'en-tete. Voir les gabarits de layouts/. */}}
 
 <footer class="foot">
   <div class="wrap foot__grid">

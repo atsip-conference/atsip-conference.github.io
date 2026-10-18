@@ -2,9 +2,24 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   {{ $cur := site.Data.editions.current }}
-  <title>{{ if .IsHome }}ATSIP — {{ site.Params.fullName }}{{ else if and .Params.edition (eq (string .Params.edition) (string $cur)) (eq .Kind "section") }}ATSIP&rsquo;{{ $cur }} — {{ site.Params.fullName }}{{ else }}{{ .Title }} — ATSIP&rsquo;{{ with .Params.edition }}{{ . }}{{ end }}{{ end }}</title>
+  {{/* Le titre est ce que Google affiche en bleu : il doit porter le sigle,
+       l'annee quand il y en a une, et jamais d'apostrophe orpheline. */}}
+  {{ $suffix := "ATSIP" }}
+  {{ with .Params.edition }}{{ $suffix = printf "ATSIP&rsquo;%v" . }}{{ end }}
+  <title>{{ if .IsHome }}ATSIP {{ $cur }} &mdash; {{ site.Params.fullName }}{{ else if and .Params.edition (eq (string .Params.edition) (string $cur)) (eq .Kind "section") }}ATSIP&rsquo;{{ $cur }} &mdash; {{ site.Params.fullName }}, Sousse Tunisia{{ else }}{{ .Title }} &mdash; {{ $suffix | safeHTML }}{{ end }}</title>
   <link rel="canonical" href="{{ .Permalink }}">
-  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ site.Params.fullName }}. IEEE conference series held since 2014.{{ end }}">
+  {{ $desc := .Description }}
+  {{ if not $desc }}
+    {{ if .IsHome }}
+      {{ $desc = printf "ATSIP is an IEEE conference on advanced technologies, signal and image processing, held since 2014. ATSIP'%v takes place in Sousse, Tunisia, 30 June to 3 July 2027." $cur }}
+    {{ else if .Params.edition }}
+      {{ $e := index (where site.Data.editions.editions "year" .Params.edition) 0 }}
+      {{ $desc = printf "%s — ATSIP'%v, the %dth International Conference on Advanced Technologies, Signal and Image Processing, %s, %s. Published by IEEE." .Title $e.year $e.num $e.city $e.dates_display }}
+    {{ else }}
+      {{ $desc = printf "%s — ATSIP, International Conference on Advanced Technologies, Signal and Image Processing. IEEE conference series held since 2014." .Title }}
+    {{ end }}
+  {{ end }}
+  <meta name="description" content="{{ $desc }}">
 
   <link rel="icon" href="{{ "favicon.png" | relURL }}" sizes="32x32">
   <link rel="apple-touch-icon" href="{{ "img/favicon-180.png" | relURL }}">
@@ -17,7 +32,7 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="ATSIP">
   <meta property="og:title" content="{{ if .IsHome }}{{ site.Params.fullName }}{{ else }}{{ .Title }}{{ end }}">
-  <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ site.Params.fullName }}. IEEE conference series held since 2014.{{ end }}">
+  <meta property="og:description" content="{{ $desc }}">
   <meta property="og:url" content="{{ .Permalink }}">
   <meta property="og:image" content="{{ "img/sousse.png" | absURL }}">
   <meta name="twitter:card" content="summary_large_image">
