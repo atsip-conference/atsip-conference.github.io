@@ -198,6 +198,21 @@ to a new year. It appears in `content/2027/_index.md`, `content/contact.md`,
 Committee affiliations carried over from 2024 still read "ATMS, ENIS"; those are
 individual affiliations, not the organiser, and should be confirmed per person.
 
+## Le nom du fondateur
+
+Une seule graphie sur tout le site : **Ahmed BEN HAMIDA**. C'est la forme
+retenue par DBLP et par l'annuaire de l'ENIS, donc celle sous laquelle ses
+publications sont indexees.
+
+La variante « Ahmed ElMokhtar BEN HMIDA », heritee de l'appel 2024, a ete
+retiree des pages 2024 et 2027 : deux graphies du fondateur sur le meme site
+dispersaient le signal et compliquaient le rapprochement avec ses
+publications. Ne pas la reintroduire.
+
+Affiliation courante : KKU, Saudi Arabia (confirmee par le comite en octobre
+2026). La page 2018 garde ATMS, ENIS : c'etait son affiliation a l'epoque, et
+une affiliation change legitimement, contrairement a une graphie.
+
 ## Naming
 
 The conference name is **International Conference on Advanced Technologies,

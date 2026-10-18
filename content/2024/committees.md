@@ -9,7 +9,7 @@ Committee of the 7th edition, held in Sousse, 11–13 July 2024.
 
 ## Founder and General Chair
 
-- Ahmed ElMokhtar BEN HMIDA — KKU, Saudi Arabia
+- Ahmed BEN HAMIDA — KKU, Saudi Arabia
 
 ## General Chairs
 

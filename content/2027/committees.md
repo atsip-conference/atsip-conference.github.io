@@ -13,7 +13,7 @@ confirmed for ATSIP'2027.
 
 ## Founder and General Chair
 
-- Ahmed ElMokhtar BEN HMIDA — KKU, Saudi Arabia
+- Ahmed BEN HAMIDA — KKU, Saudi Arabia
 
 ## General Chairs
 
