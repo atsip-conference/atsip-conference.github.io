@@ -93,6 +93,20 @@
     }
   } catch (e) {}
 
+  /* ---- Ruban des thématiques : bouton pause ---- */
+  try {
+    var strip = document.querySelector(".topicstrip");
+    var sb = document.querySelector("[data-strip-pause]");
+    if (strip && sb) {
+      sb.addEventListener("click", function () {
+        var held = strip.classList.toggle("is-held");
+        sb.innerHTML = held ? "&#9654;" : "&#10073;&#10073;";
+        sb.setAttribute("aria-label",
+          held ? "Resume the topic strip" : "Pause the topic strip");
+      });
+    }
+  } catch (e) {}
+
   /* ---- Apparition des sections au défilement ---- */
   try {
     if (!reduce && "IntersectionObserver" in window) {

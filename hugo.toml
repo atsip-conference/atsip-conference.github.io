@@ -3,6 +3,10 @@ languageCode = 'en-us'
 title = 'ATSIP'
 enableRobotsTXT = true
 
+# Pas de taxonomies sur ce site : sans cela Hugo publie /categories/ et /tags/,
+# deux pages vides qui diluent l'indexation.
+disableKinds = ['taxonomy', 'term']
+
 [params]
   fullName = 'International Conference on Advanced Technologies, Signal and Image Processing'
   acronym = 'ATSIP'

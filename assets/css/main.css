@@ -57,24 +57,50 @@ a:hover { color: var(--amber); }
 
 .wordmark { display: block; line-height: 0; text-decoration: none; }
 .wordmark img {
-  height: clamp(2.1rem, 1.6rem + 1.6vw, 2.9rem);
+  height: clamp(2.8rem, 2rem + 2.4vw, 4.4rem);
   width: auto;
   display: block;
 }
 
-.masthead__tag {
-  font-family: var(--mono);
-  font-size: 0.65rem;
-  line-height: 1.35;
-  letter-spacing: 0.04em;
-  color: var(--ink-soft);
-  text-transform: uppercase;
-  padding-left: 1rem;
+/* Nom complet de la conférence, à côté du logo. */
+.masthead__name {
+  display: block;
+  min-width: 0;
+  padding-left: 1.1rem;
   border-left: 1px solid var(--rule);
   align-self: center;
 }
 
-@media (max-width: 44rem) { .masthead__tag { display: none; } }
+.masthead__full {
+  display: block;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: clamp(0.78rem, 0.68rem + 0.3vw, 0.95rem);
+  line-height: 1.25;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+  text-wrap: balance;
+}
+
+/* Assez large : le nom tient sur une ligne, « since 2014 » passe dessous. */
+@media (min-width: 86rem) {
+  .masthead__full { white-space: nowrap; text-wrap: nowrap; }
+}
+
+.masthead__since {
+  display: block;
+  margin-top: 0.22rem;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* L'en-tête compacté réduit le logo et laisse tomber la ligne secondaire. */
+.masthead.is-pinned .masthead__since { display: none; }
+
+@media (max-width: 62rem) { .masthead__name { display: none; } }
 
 .nav {
   margin-left: auto;
@@ -495,15 +521,18 @@ main { padding-block: 1rem 4rem; }
 .foot a:hover { color: var(--sea); }
 .foot__name { margin: 1.5rem 0 0; }
 
-/* Accusé CMT : discret, mais jamais masqué ni restylé en gras ou italique. */
+/* Accusé de réception CMT : désormais un paragraphe de contenu à part entière,
+   sur la page de soumission. Microsoft doit pouvoir constater qu'il est
+   visible : taille et couleur normales, aucun effet qui puisse passer pour une
+   dissimulation. Ne pas réduire, ne pas griser, ne pas masquer. */
 .cmt-ack {
   max-width: var(--measure);
   margin: 1.2rem 0 0;
-  padding-top: 1rem;
+  padding: 1.1rem 0 0;
   border-top: 1px solid var(--rule);
-  font-size: 0.78rem;
-  line-height: 1.55;
-  color: var(--ink-soft);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--ink);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -881,9 +910,9 @@ main > .cover { margin-top: -1rem; }
 .track__head {
   display: flex;
   width: 100%;
-  align-items: baseline;
-  gap: 0.8rem;
-  padding: 0.95rem 0;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem 0;
   cursor: pointer;
   list-style: none;
 }
@@ -895,7 +924,6 @@ main > .cover { margin-top: -1rem; }
   font-size: 0.72rem;
   color: var(--ink-soft);
   flex: none;
-  padding-top: 0.15rem;
 }
 
 .track__name {
@@ -927,7 +955,7 @@ main > .cover { margin-top: -1rem; }
 .track__list {
   list-style: none;
   margin: 0 0 1.6rem;
-  padding: 0 0 0 3rem;
+  padding: 0 0 0 7.2rem;
   font-size: 0.95rem;
   line-height: 1.5;
   columns: 3 16rem;
@@ -1002,7 +1030,7 @@ main > .cover { margin-top: -1rem; }
   box-shadow: 0 1px 12px rgba(22, 35, 43, 0.09);
 }
 
-.masthead.is-pinned .wordmark img { height: clamp(1.8rem, 1.4rem + 1vw, 2.2rem); }
+.masthead.is-pinned .wordmark img { height: clamp(2.2rem, 1.8rem + 1.2vw, 3rem); }
 .wordmark img { transition: height 0.2s; }
 
 /* ---------- Apparition au défilement ---------- */
@@ -1019,3 +1047,423 @@ main > .cover { margin-top: -1rem; }
   .reveal { opacity: 1; transform: none; }
   .masthead { position: static; }
 }
+
+/* ---------- Emblèmes des tracks ---------- */
+
+.track__emblem {
+  width: 5.2rem;
+  height: auto;
+  flex: none;
+  color: var(--sea);
+  opacity: 0.72;
+  transition: opacity 0.18s, color 0.18s, transform 0.18s;
+}
+
+.track__emblem .em-accent { color: var(--amber); stroke: var(--amber); }
+
+.track__head:hover .track__emblem,
+.track[open] > .track__head .track__emblem { opacity: 1; }
+
+.track__head:hover .track__emblem { transform: translateY(-1px); }
+
+@media (max-width: 40rem) { .track__emblem { width: 3.4rem; } }
+
+/* ---------- Sponsors et partenaires ---------- */
+
+.partners {
+  border-top: 1px solid var(--rule);
+  padding-block: 2.8rem 3rem;
+  margin-top: 3rem;
+}
+
+/* Variante haute : collée au bandeau institutionnel, même fond. */
+.partners--top {
+  margin-top: 0;
+  border-top: 0;
+  border-bottom: 1px solid var(--rule);
+  background: var(--paper-2);
+  padding-block: 1.8rem 2rem;
+}
+
+.partners__title {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 2rem;
+}
+
+.partners__tier + .partners__tier { margin-top: 2.4rem; }
+
+.partners__label {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--sea);
+  margin: 0 0 1.1rem;
+}
+
+.partners__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.8rem clamp(2rem, 4vw, 3.5rem);
+}
+
+.partners__list img {
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* La hauteur porte le rang : un platinum se voit de loin, un partenaire
+   institutionnel s'aligne discrètement. */
+.partners__tier--platinum .partners__list img { height: 4.6rem; }
+.partners__tier--gold     .partners__list img { height: 3.6rem; }
+.partners__tier--silver   .partners__list img { height: 2.8rem; }
+.partners__tier--partners .partners__list img { height: 2.6rem; }
+.partners__tier--support  .partners__list img { height: 2.4rem; }
+
+.partners--top .partners__list img { height: 4.2rem; }
+
+@media (max-width: 36rem) {
+  .partners__tier--platinum .partners__list img { height: 3.4rem; }
+  .partners__tier--gold     .partners__list img { height: 2.8rem; }
+  .partners__list img       { max-width: 44vw; }
+}
+
+/* ---------- Ruban des thématiques ---------- */
+
+.topicstrip {
+  position: relative;
+  background: var(--ink);
+  border-bottom: 3px solid var(--amber);
+  overflow: hidden;
+}
+
+.topicstrip__mask { overflow: hidden; }
+
+.topicstrip__track {
+  display: flex;
+  width: max-content;
+  animation: roll var(--roll, 35s) linear infinite;
+}
+
+/* La liste est écrite deux fois : déplacer de la moitié ramène exactement au
+   point de départ, d'où une boucle sans saut. */
+@keyframes roll {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+
+.topicstrip:hover .topicstrip__track,
+.topicstrip:focus-within .topicstrip__track { animation-play-state: paused; }
+
+.topicstrip.is-held .topicstrip__track { animation-play-state: paused; }
+
+.tcard {
+  position: relative;
+  display: block;
+  flex: none;
+  height: clamp(11rem, 17vw, 15.5rem);
+  text-decoration: none;
+  border-right: 1px solid rgba(244, 245, 241, 0.12);
+}
+
+.tcard img {
+  display: block;
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+  filter: saturate(0.92);
+  transition: filter 0.25s, transform 0.25s;
+}
+
+.tcard:hover img { filter: saturate(1.1) brightness(1.06); }
+
+.tcard__label {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 2.6rem 1rem 0.8rem;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.05em;
+  line-height: 1.3;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: linear-gradient(to top, rgba(13, 29, 38, 0.92) 35%, rgba(13, 29, 38, 0));
+}
+
+.tstrip__pause {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.7rem;
+  z-index: 3;
+  font-size: 0.6rem;
+  line-height: 1;
+  color: var(--paper);
+  background: rgba(13, 29, 38, 0.55);
+  border: 1px solid rgba(244, 245, 241, 0.4);
+  border-radius: 2px;
+  padding: 0.35rem 0.5rem;
+  cursor: pointer;
+}
+
+.tstrip__pause:hover { background: rgba(13, 29, 38, 0.9); }
+
+/* Sans animation : le ruban devient une bande que l'on fait glisser soi-même. */
+@media (prefers-reduced-motion: reduce) {
+  .topicstrip__mask { overflow-x: auto; }
+  .topicstrip__track { animation: none; }
+  .tstrip__pause { display: none; }
+}
+
+@media (max-width: 36rem) {
+  .tcard { height: 9.5rem; }
+  .tcard__label { font-size: 0.6rem; padding: 2rem 0.7rem 0.6rem; }
+}
+
+/* ---------- Emblèmes des tracks ---------- */
+
+.track__emblem {
+  width: 5.2rem;
+  height: auto;
+  flex: none;
+  color: var(--sea);
+  opacity: 0.72;
+  transition: opacity 0.18s, color 0.18s, transform 0.18s;
+}
+
+.track__emblem .em-accent { color: var(--amber); stroke: var(--amber); }
+
+.track__head:hover .track__emblem,
+.track[open] > .track__head .track__emblem { opacity: 1; }
+
+.track__head:hover .track__emblem { transform: translateY(-1px); }
+
+@media (max-width: 40rem) { .track__emblem { width: 3.4rem; } }
+
+/* ---------- Sponsors et partenaires ---------- */
+
+.partners {
+  border-top: 1px solid var(--rule);
+  padding-block: 2.8rem 3rem;
+  margin-top: 3rem;
+}
+
+/* Variante haute : collée au bandeau institutionnel, même fond. */
+.partners--top {
+  margin-top: 0;
+  border-top: 0;
+  border-bottom: 1px solid var(--rule);
+  background: var(--paper-2);
+  padding-block: 1.8rem 2rem;
+}
+
+.partners__title {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 2rem;
+}
+
+.partners__tier + .partners__tier { margin-top: 2.4rem; }
+
+.partners__label {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--sea);
+  margin: 0 0 1.1rem;
+}
+
+.partners__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.8rem clamp(2rem, 4vw, 3.5rem);
+}
+
+.partners__list img {
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* La hauteur porte le rang : un platinum se voit de loin, un partenaire
+   institutionnel s'aligne discrètement. */
+.partners__tier--platinum .partners__list img { height: 4.6rem; }
+.partners__tier--gold     .partners__list img { height: 3.6rem; }
+.partners__tier--silver   .partners__list img { height: 2.8rem; }
+.partners__tier--partners .partners__list img { height: 2.6rem; }
+.partners__tier--support  .partners__list img { height: 2.4rem; }
+
+.partners--top .partners__list img { height: 4.2rem; }
+
+@media (max-width: 36rem) {
+  .partners__tier--platinum .partners__list img { height: 3.4rem; }
+  .partners__tier--gold     .partners__list img { height: 2.8rem; }
+  .partners__list img       { max-width: 44vw; }
+}
+
+/* ---------- Bandeau défilant des thématiques ---------- */
+
+.coverband {
+  position: relative;
+  border-bottom: 1px solid var(--rule);
+  background: var(--ink);
+}
+
+/* Hauteur fixe plutôt qu'un rapport : les images fournies vont de 1,34 à 1,90
+   et aucune n'est recadrée. Plafonnée à 20rem (320 px) pour qu'aucune ne soit
+   agrandie au-delà de sa définition réelle. */
+.coverband__stage {
+  position: relative;
+  width: 100%;
+  height: clamp(13rem, 21vw, 20rem);
+  overflow: hidden;
+}
+
+.cslide {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  transition: opacity 0.9s ease-in-out;
+  pointer-events: none;
+}
+
+.cslide.is-active { opacity: 1; pointer-events: auto; }
+
+/* Fond : la même image, étirée, floutée et assombrie. Elle n'est jamais lue
+   comme une image, seulement comme une teinte qui s'accorde au premier plan. */
+.cslide__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: blur(26px) saturate(0.75) brightness(0.42);
+  transform: scale(1.15);
+  display: block;
+}
+
+/* Premier plan : l'image entière, centrée, jamais agrandie. */
+.cslide__fg {
+  position: relative;
+  display: block;
+  height: 100%;
+  width: auto;
+  max-width: 100%;
+  margin-inline: auto;
+  object-fit: contain;
+}
+
+/* Le dégradé garantit la lisibilité du libellé quelle que soit l'image. */
+.cslide__label {
+  position: absolute;
+  inset: auto 0 0 0;
+  z-index: 2;
+  padding: 3.5rem var(--gutter) 1.1rem;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: linear-gradient(to top, rgba(13, 29, 38, 0.85), rgba(13, 29, 38, 0));
+}
+
+.coverband__nav {
+  position: absolute;
+  top: 1rem;
+  right: var(--gutter);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.coverband__dots { display: flex; gap: 0.5rem; }
+
+.cdot {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border: 1px solid rgba(244, 245, 241, 0.75);
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+}
+
+.cdot.is-on { background: var(--amber); border-color: var(--amber); }
+.cdot:hover { background: rgba(244, 245, 241, 0.6); }
+
+.cpause {
+  font-size: 0.6rem;
+  line-height: 1;
+  color: var(--paper);
+  background: rgba(13, 29, 38, 0.45);
+  border: 1px solid rgba(244, 245, 241, 0.4);
+  border-radius: 2px;
+  padding: 0.3rem 0.45rem;
+  cursor: pointer;
+}
+
+.cpause:hover { background: rgba(13, 29, 38, 0.8); }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Sans mouvement : la première image reste, la transition disparaît. */
+@media (prefers-reduced-motion: reduce) {
+  .cslide { transition: none; }
+}
+
+@media (max-width: 36rem) {
+  .coverband__stage { height: 11rem; }
+  .cslide__label { font-size: 0.7rem; padding-bottom: 0.9rem; }
+  .cslide__bg { filter: blur(18px) saturate(0.75) brightness(0.42); }
+}
+
+/* ---------- Page de garde d'une édition ---------- */
+
+.cover--edition { padding-block: clamp(2.5rem, 5.5vw, 4.5rem) clamp(2rem, 4vw, 3.2rem); }
+
+.cover__title--edition {
+  font-size: clamp(2.6rem, 1.4rem + 5.5vw, 5.4rem);
+  letter-spacing: -0.03em;
+  max-width: none;
+  margin-bottom: 0.9rem;
+}
+
+.cover--edition .cover__sub {
+  font-size: clamp(1rem, 0.92rem + 0.45vw, 1.3rem);
+  max-width: 48ch;
+  margin-bottom: 2rem;
+}
+
+/* Ruban du lieu : cartes un peu plus hautes, les photos sont presque carrées. */
+.topicstrip--tall .tcard { height: clamp(12rem, 19vw, 17rem); }
+
+/* Les pages d'édition reprennent le pied de page à fond clair : la page de
+   garde sombre ne doit pas se coller au bandeau institutionnel. */
+.cover + .sponsors { border-top: 0; }

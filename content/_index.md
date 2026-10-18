@@ -54,7 +54,7 @@ topics, announced in the call for papers for that edition.
   <p class="topics__empty" data-topics-empty hidden>No track matches that term. Try a broader word.</p>
   <div class="topics__grid">
     <details class="track" open>
-      <summary class="track__head"><span class="track__n">01</span><span class="track__name">Medical signal/image and computer-aided diagnosis</span></summary>
+      <summary class="track__head">{{< emblem 1 >}}<span class="track__n">01</span><span class="track__name">Medical signal/image and computer-aided diagnosis</span></summary>
       <ul class="track__list">
         <li>Medical image computing and analysis</li>
         <li>Computer-aided diagnosis</li>
@@ -65,7 +65,7 @@ topics, announced in the call for papers for that edition.
       </ul>
     </details>
     <details class="track">
-      <summary class="track__head"><span class="track__n">02</span><span class="track__name">IoT, embedded systems and RF applications</span></summary>
+      <summary class="track__head">{{< emblem 2 >}}<span class="track__n">02</span><span class="track__name">IoT, embedded systems and RF applications</span></summary>
       <ul class="track__list">
         <li>Embedded architectures for signal and image processing</li>
         <li>Real-time and hardware-accelerated implementation</li>
@@ -75,7 +75,7 @@ topics, announced in the call for papers for that edition.
       </ul>
     </details>
     <details class="track">
-      <summary class="track__head"><span class="track__n">03</span><span class="track__name">Remote sensing and assimilation</span></summary>
+      <summary class="track__head">{{< emblem 3 >}}<span class="track__n">03</span><span class="track__name">Remote sensing and assimilation</span></summary>
       <ul class="track__list">
         <li>Satellite image processing</li>
         <li>Multiresolution fusion and pansharpening</li>
@@ -86,7 +86,7 @@ topics, announced in the call for papers for that edition.
       </ul>
     </details>
     <details class="track">
-      <summary class="track__head"><span class="track__n">04</span><span class="track__name">New technologies for communications and networking</span></summary>
+      <summary class="track__head">{{< emblem 4 >}}<span class="track__n">04</span><span class="track__name">New technologies for communications and networking</span></summary>
       <ul class="track__list">
         <li>Cognitive radio and cooperative systems</li>
         <li>Resource allocation and cross-layer design</li>
@@ -97,7 +97,7 @@ topics, announced in the call for papers for that edition.
       </ul>
     </details>
     <details class="track">
-      <summary class="track__head"><span class="track__n">05</span><span class="track__name">Image, video, speech and audio processing</span></summary>
+      <summary class="track__head">{{< emblem 5 >}}<span class="track__n">05</span><span class="track__name">Image, video, speech and audio processing</span></summary>
       <ul class="track__list">
         <li>Coding, transmission, indexing and retrieval</li>
         <li>Filtering, restoration and enhancement</li>
@@ -108,7 +108,7 @@ topics, announced in the call for papers for that edition.
       </ul>
     </details>
     <details class="track">
-      <summary class="track__head"><span class="track__n">06</span><span class="track__name">Big data and cloud computing applications</span></summary>
+      <summary class="track__head">{{< emblem 6 >}}<span class="track__n">06</span><span class="track__name">Big data and cloud computing applications</span></summary>
       <ul class="track__list">
         <li>Large-scale data analysis and mining</li>
         <li>Distributed and cloud architectures</li>
@@ -117,7 +117,7 @@ topics, announced in the call for papers for that edition.
       </ul>
     </details>
     <details class="track">
-      <summary class="track__head"><span class="track__n">07</span><span class="track__name">AI for advanced technologies</span></summary>
+      <summary class="track__head">{{< emblem 7 >}}<span class="track__n">07</span><span class="track__name">AI for advanced technologies</span></summary>
       <ul class="track__list">
         <li>Deep learning architectures for signals and images</li>
         <li>Foundation models and self-supervised learning</li>
@@ -128,7 +128,7 @@ topics, announced in the call for papers for that edition.
       </ul>
     </details>
     <details class="track">
-      <summary class="track__head"><span class="track__n">08</span><span class="track__name">Advanced technologies for security</span></summary>
+      <summary class="track__head">{{< emblem 8 >}}<span class="track__n">08</span><span class="track__name">Advanced technologies for security</span></summary>
       <ul class="track__list">
         <li>Cryptography and cryptanalysis</li>
         <li>Watermarking, steganography and steganalysis</li>

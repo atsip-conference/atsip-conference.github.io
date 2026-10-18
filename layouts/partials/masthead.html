@@ -6,7 +6,10 @@
     <a class="wordmark" href="{{ "" | relURL }}" aria-label="ATSIP, home">
       <img src="{{ "img/atsip-logo.png" | relURL }}" alt="ATSIP International Conference" width="1172" height="599">
     </a>
-    <span class="masthead__tag">Signal &amp; image processing<br>since 2014</span>
+    <span class="masthead__name">
+      <span class="masthead__full">{{ site.Params.fullName }}</span>
+      <span class="masthead__since">Since 2014</span>
+    </span>
 
     <nav class="nav" aria-label="Main">
       {{ if $ed }}

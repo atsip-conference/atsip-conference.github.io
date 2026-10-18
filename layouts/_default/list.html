@@ -1,7 +1,9 @@
 {{ define "main" }}
-  <h1 class="page-title">{{ .Title }}</h1>
-  <div class="prose">{{ .Content }}</div>
-  {{ with .Pages }}<ul class="prose">
-    {{ range . }}<li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>{{ end }}
-  </ul>{{ end }}
+  <div class="wrap">
+    <h1 class="page-title">{{ .Title }}</h1>
+    <div class="prose prose--banded">{{ partial "banded.html" .Content }}</div>
+    {{ with .Pages }}<ul class="prose">
+      {{ range . }}<li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>{{ end }}
+    </ul>{{ end }}
+  </div>
 {{ end }}

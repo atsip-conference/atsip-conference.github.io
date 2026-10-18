@@ -13,8 +13,6 @@ The conference is organised by the **ATISP laboratory (ENET'Com, University of
 Sfax)** with the ATSI association and the IEEE Tunisia Section. Every edition since 2014
 has been published by IEEE and indexed in IEEE Xplore.
 
-<img class="banner" src="{{< relref "/" >}}img/sousse.png" alt="Sousse: medina souk, golf course and marina">
-
 [**Download the call for papers (PDF)**]({{< relref "/" >}}files/CFP_ATSIP2027.pdf)
 
 ## Important dates

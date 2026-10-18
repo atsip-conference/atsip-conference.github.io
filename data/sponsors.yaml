@@ -1,0 +1,47 @@
+# Sponsors et partenaires de l'édition en cours.
+#
+# Le bandeau du bas de l'accueil et la page /sponsors/ sont entièrement pilotés
+# par ce fichier : tant qu'un niveau est vide, il ne s'affiche nulle part.
+#
+# Pour ajouter un sponsor :
+#   1. déposer son logo dans static/img/sponsors/ (PNG ou SVG, fond transparent,
+#      au moins 400 px de large) ;
+#   2. ajouter une entrée sous le bon niveau.
+#
+#   name : nom exact, tel qu'il doit apparaître dans les remerciements
+#   logo : chemin depuis static/, p. ex. img/sponsors/exemple.png
+#   url  : site officiel (facultatif ; sans url, le logo n'est pas cliquable)
+#
+# `promote_to_top: true` sur un niveau le fait aussi apparaître dans le bandeau
+# institutionnel en haut de l'accueil. À réserver aux sponsors principaux, et
+# plutôt une fois le programme publié : en phase d'appel à communications, le
+# haut de page doit rester lisible comme une caution scientifique.
+
+tiers:
+  - id: platinum
+    label: Platinum sponsors
+    promote_to_top: false
+    items: []
+
+  - id: gold
+    label: Gold sponsors
+    promote_to_top: false
+    items: []
+
+  - id: silver
+    label: Silver sponsors
+    promote_to_top: false
+    items: []
+
+  - id: partners
+    label: Partners
+    promote_to_top: false
+    items: []
+      # - name: Example Institute
+      #   logo: img/sponsors/example.png
+      #   url: https://example.org/
+
+  - id: support
+    label: With the support of
+    promote_to_top: false
+    items: []

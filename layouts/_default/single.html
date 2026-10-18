@@ -1,4 +1,10 @@
 {{ define "main" }}
-  <h1 class="page-title">{{ .Title }}</h1>
-  <div class="prose prose--banded">{{ partial "banded.html" .Content }}</div>
+  <div class="wrap">
+    <h1 class="page-title">{{ .Title }}</h1>
+    <div class="prose prose--banded">{{ partial "banded.html" .Content }}</div>
+  </div>
+  {{/* La page Sponsors affiche tous les niveaux renseignes. */}}
+  {{ if eq .File.ContentBaseName "sponsors" }}
+    {{ partial "partners.html" (dict "top" false) }}
+  {{ end }}
 {{ end }}

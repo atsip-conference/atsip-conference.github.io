@@ -1,0 +1,19 @@
+{{/* Bandeau sous la page de garde de l'accueil : une image par thématique,
+     en ruban continu. Sans entrée dans data/cover_slides.yaml, le bandeau
+     photo de Sousse s'affiche à la place — le site n'a jamais de trou. */}}
+
+{{ $slides := site.Data.cover_slides.slides }}
+
+{{ if $slides }}
+  {{ partial "strip.html" (dict
+      "slides" $slides
+      "interval" (site.Data.cover_slides.interval | default 5)
+      "link" ("#topics" | relURL)
+      "label" "Conference topics") }}
+{{ else }}
+  <div class="photoband">
+    <img src="{{ "img/sousse.png" | relURL }}"
+         alt="Sousse: medina souk, golf course and marina"
+         width="819" height="254" loading="lazy">
+  </div>
+{{ end }}

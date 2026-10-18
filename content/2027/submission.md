@@ -53,3 +53,12 @@ Authors of accepted papers must:
 
 Papers that are not presented at the conference by a registered author are not
 submitted to IEEE Xplore.
+
+## Peer-review platform
+
+<!-- ACCUSÉ DE RÉCEPTION CMT — NE PAS MODIFIER, NE PAS REFORMULER, NE PAS
+     SUPPRIMER. Microsoft relève cette page et compare le texte mot pour mot.
+     C'est l'URL déclarée dans la demande de site CMT. Sans ce texte, la
+     demande est refusée. -->
+
+<p class="cmt-ack">The Microsoft CMT service was used for managing the peer-reviewing process for this conference. This service was provided for free by Microsoft and they bore all expenses, including costs for Azure cloud services as well as for software development and support.</p>

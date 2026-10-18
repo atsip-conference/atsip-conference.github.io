@@ -4,8 +4,9 @@
 <body>
   {{ partial "archive-notice.html" . }}
   {{ partial "masthead.html" . }}
-  {{/* L'accueil gère ses propres largeurs : les bandeaux y sont pleine page. */}}
-  <main{{ if not .IsHome }} class="wrap"{{ end }}>
+  {{/* Chaque gabarit pose ses propres .wrap : les bandeaux pleine page
+       (page de garde, rubans, logos) doivent pouvoir aller de bord a bord. */}}
+  <main>
     {{ block "main" . }}{{ end }}
   </main>
   {{ partial "foot.html" . }}

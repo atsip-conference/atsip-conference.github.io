@@ -1,0 +1,34 @@
+# Photos du lieu, en ruban sous la page de garde de l'édition en cours.
+#
+# Tant que `photos` est vide, le ruban ne s'affiche pas.
+#
+# `port` et `medina-view` sont de vraies photos en 1200 px.
+# `medina`, `golf` et `marina` sont découpées du bandeau de l'appel à
+# communications 2024 et ne font que 250 px de large : à côté des deux
+# premières, elles paraissent molles. Les remplacer dès que possible.
+#
+# Une photo du lieu exact de la conférence — hôtel ou centre de congrès —
+# vaudrait mieux que des vues générales : c'est ce qu'un auteur cherche.
+
+photos:
+  - image: img/sousse/port.jpg
+    label: Port of Sousse
+    alt: Replica galleon moored along the quay under palm trees
+
+  - image: img/sousse/medina-view.jpg
+    label: Medina and harbour
+    alt: Whitewashed rooftops of the medina looking out over the harbour
+
+  - image: img/sousse/medina.jpg
+    label: Medina souk
+    alt: Lantern-lit stalls in the covered souk of the Sousse medina
+
+  - image: img/sousse/golf.jpg
+    label: Coastal golf course
+    alt: Fairway and bunkers running down to the sea
+
+  - image: img/sousse/marina.jpg
+    label: Marina
+    alt: Yachts moored in rows along the pontoons of Port El Kantaoui
+
+interval: 5

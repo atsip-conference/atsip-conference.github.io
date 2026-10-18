@@ -24,12 +24,25 @@ papers (`content/YYYY/call-for-papers.md`).
 
 ## Microsoft CMT
 
-The CMT acknowledgment is rendered on **every page**, in
-`layouts/partials/foot.html`, as static plain text. CMT fetches the page and
-compares the text exactly.
+L'accuse de reception CMT vit a UN SEUL endroit : la fin de
+`content/2027/submission.md`, rendu sur
+<https://atsip-conference.github.io/2027/submission/>. C'est l'URL declaree
+dans la demande de site CMT.
 
-Do not style it, do not reword it, do not move it into JavaScript, do not comment
-it out. Without it, a CMT site request is refused.
+Microsoft releve cette page et compare le texte mot pour mot. Ne pas le
+reformuler, ne pas le mettre en italique ou en gras, ne pas le deplacer dans du
+JavaScript, ne pas le commenter. Sans lui, la demande CMT est refusee.
+
+Il n'est PAS dans le pied de page. Il y a ete, ce qui le faisait apparaitre sur
+les pages des editions 2014-2024 : or ces editions n'ont pas utilise CMT, et la
+phrase y etait donc fausse.
+
+La regle de style compte autant que le texte : `.cmt-ack` le rend a taille et
+couleur normales. Ne pas le reduire ni le griser, un texte minuscule ou pale
+pouvant passer pour une tentative de dissimulation.
+
+Si l'edition courante change (2029, etc.), deplacer le paragraphe dans la page
+de soumission de la nouvelle edition et mettre a jour l'URL aupres de CMT.
 
 ## Design et interactions
 
@@ -50,11 +63,52 @@ contenu de `content/_index.md`.
   la cloture des soumissions, filtre libre sur les topics, apparition au
   defilement, en-tete compact. Chaque bloc est isole ; sans JavaScript le
   contenu reste complet et les topics restent depliables (`<details>` natif).
+- **Emblemes des tracks** : `layouts/partials/track-emblem.html` dessine les huit
+  figures en SVG, appelees depuis le markdown par le shortcode
+  `{{< emblem N >}}` (`layouts/shortcodes/emblem.html`). L'ordre des numeros
+  suit celui des tracks dans `content/_index.md` : si l'ordre change, il faut
+  changer les numeros aussi. La classe `em-accent` porte l'ambre.
 - **Compte a rebours** : la date cible est l'attribut `data-countdown` dans
   `layouts/index.html`. A changer en meme temps que les dates cles.
 
 L'image `static/img/sousse.png` fait 819 px de large : `.banner` est plafonnee a
 52 rem pour qu'elle ne soit pas agrandie au-dela de sa definition.
+
+## Pages de garde
+
+Deux gabarits portent la meme page de garde bleue :
+
+- `layouts/index.html` pour la conference (nom complet, 8 editions, prochaine
+  edition) ;
+- `layouts/_default/section.html` pour chaque edition. Le contenu depend de
+  `status` dans `data/editions.yaml` : `upcoming` affiche la date limite avec
+  son compte a rebours et les boutons de soumission, sinon l'ISBN et les liens
+  vers les actes.
+
+`<main>` n'est plus contraint : chaque gabarit pose ses propres `.wrap`, pour
+que les bandeaux aillent de bord a bord. Un nouveau gabarit doit donc penser a
+encapsuler son contenu.
+
+## Rubans d'images
+
+`layouts/partials/strip.html` sert les deux rubans : les thematiques sous la
+page de garde de l'accueil (`data/cover_slides.yaml`) et les photos du lieu
+sous celle de l'edition en cours (`data/venue_photos.yaml`).
+
+Deux regles a ne pas casser :
+
+1. La liste est repetee pour couvrir l'ecran, puis rendue DEUX FOIS, et
+   l'animation translate de -50%. C'est ce qui donne une boucle sans saut.
+2. Le nom de balise ne doit jamais etre construit dynamiquement
+   (`<{{ $tag }}>`) : Go l'echappe et les cartes sortent en texte brut.
+
+Images : JPG, 1200 px de large au maximum, moins de 150 Ko. Le rapport n'a pas
+d'importance, rien n'est recadre. Eviter les fonds blancs (ils creusent un trou
+dans le ruban sombre) et le texte incruste (doublon avec le libelle).
+
+Les trois photos de Sousse sont decoupees du bandeau du CFP 2024 et ne font que
+250 px de large : avec si peu d'images, la repetition se voit. De vraies photos,
+plus nombreuses et plus grandes, ameliorent beaucoup le resultat.
 
 ## Local preview
 

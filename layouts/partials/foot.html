@@ -17,6 +17,7 @@
       <h2>Conference</h2>
       <ul>
         <li><a href="{{ "editions/" | relURL }}">Past editions</a></li>
+        <li><a href="{{ "sponsors/" | relURL }}">Sponsors</a></li>
         <li><a href="{{ "contact/" | relURL }}">Contact</a></li>
       </ul>
     </div>
@@ -30,7 +31,10 @@
   </div>
 
   <div class="wrap">
+    {{/* L'accusé de réception CMT n'est PAS ici : il vit sur la page de
+         soumission, content/2027/submission.md, qui est l'URL déclarée à
+         Microsoft. Ne pas le remettre dans le pied de page — il serait faux sur
+         les pages des éditions antérieures, qui n'ont pas utilisé CMT. */}}
     <p class="foot__name">{{ site.Params.fullName }} &middot; Held since 2014.</p>
-    <p class="cmt-ack">The Microsoft CMT service was used for managing the peer-reviewing process for this conference. This service was provided for free by Microsoft and they bore all expenses, including costs for Azure cloud services as well as for software development and support.</p>
   </div>
 </footer>

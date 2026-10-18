@@ -4,33 +4,90 @@
   {{ with $y }}{{ $e = index (where site.Data.editions.editions "year" .) 0 }}{{ end }}
 
   {{ if $e }}
-    <section class="hero">
-      <p class="hero__eyebrow">{{ $e.num }}{{ if eq $e.num 1 }}st{{ else if eq $e.num 2 }}nd{{ else if eq $e.num 3 }}rd{{ else }}th{{ end }} edition</p>
-      <h1 class="hero__title">ATSIP&rsquo;{{ $e.year }}</h1>
-      <p class="hero__meta">
-        <b>{{ $e.dates_display }}</b> &nbsp;&middot;&nbsp; {{ $e.city }}, {{ $e.country }}
-        {{ with $e.isbn }}<br>ISBN {{ . }}{{ end }}
-      </p>
-      {{ if eq $e.status "upcoming" }}
-        <div class="actions">
-          <a class="btn btn--solid" href="{{ printf "%d/call-for-papers/" $e.year | relURL }}">Call for papers</a>
-          <a class="btn btn--ghost" href="{{ printf "%d/important-dates/" $e.year | relURL }}">Key dates</a>
+    {{ $up := eq $e.status "upcoming" }}
+    {{/* Même page de garde que celle de la conférence, aux détails de
+         l'édition près : fond bleu profond, trace d'oscilloscope, faits
+         essentiels, boutons d'action. */}}
+    <section class="cover cover--edition">
+      {{ partial "cover-trace.html" . }}
+      <div class="wrap cover__inner">
+        <p class="cover__eyebrow">
+          <span class="cover__pill">IEEE</span>
+          {{ $e.num }}{{ if eq $e.num 1 }}st{{ else if eq $e.num 2 }}nd{{ else if eq $e.num 3 }}rd{{ else }}th{{ end }} edition
+          {{ if not $up }}&middot; Archive{{ end }}
+        </p>
+
+        <h1 class="cover__title cover__title--edition">ATSIP&rsquo;{{ $e.year }}</h1>
+
+        <p class="cover__sub">{{ site.Params.fullName }}</p>
+
+        <dl class="cover__facts">
+          <div class="fact">
+            <dt>Dates</dt>
+            <dd>{{ $e.dates_display }}</dd>
+          </div>
+          <div class="fact">
+            <dt>Venue</dt>
+            <dd>{{ $e.city }}, {{ $e.country }}</dd>
+          </div>
+          {{ if $up }}
+            <div class="fact fact--live">
+              <dt>Submission deadline</dt>
+              <dd data-countdown="2027-03-30">30 March 2027</dd>
+            </div>
+            <div class="fact">
+              <dt>Proceedings</dt>
+              <dd>IEEE Xplore</dd>
+            </div>
+          {{ else }}
+            {{ with $e.isbn }}
+              <div class="fact">
+                <dt>ISBN</dt>
+                <dd>{{ . }}</dd>
+              </div>
+            {{ end }}
+            <div class="fact">
+              <dt>Proceedings</dt>
+              <dd>IEEE Xplore</dd>
+            </div>
+          {{ end }}
+        </dl>
+
+        <div class="actions cover__actions">
+          {{ if $up }}
+            <a class="btn btn--solid" href="{{ printf "%d/call-for-papers/" $e.year | relURL }}">Call for papers</a>
+            <a class="btn btn--line" href="{{ printf "%d/submission/" $e.year | relURL }}">Submit a paper</a>
+            <a class="btn btn--line" href="{{ printf "%d/important-dates/" $e.year | relURL }}">Key dates</a>
+          {{ else }}
+            {{ with $e.xplore }}<a class="btn btn--solid" href="{{ . }}">Proceedings on IEEE Xplore</a>{{ end }}
+            {{ with $e.doi }}<a class="btn btn--line" href="{{ . }}">DOI</a>{{ end }}
+            {{ with $e.dblp }}<a class="btn btn--line" href="{{ . }}">DBLP</a>{{ end }}
+          {{ end }}
         </div>
-      {{ else }}
-        <div class="actions actions--tags">
-          {{ with $e.xplore }}<a class="btn btn--solid" href="{{ . }}">Proceedings on IEEE Xplore</a>{{ end }}
-          {{ with $e.doi }}<a class="btn btn--ghost" href="{{ . }}">DOI</a>{{ end }}
-          {{ with $e.dblp }}<a class="btn btn--ghost" href="{{ . }}">DBLP</a>{{ end }}
-        </div>
-      {{ end }}
+      </div>
     </section>
+
+    {{/* Le lieu, en ruban, pour l'édition à venir seulement. */}}
+    {{ if $up }}
+      {{ with site.Data.venue_photos.photos }}
+        {{ partial "strip.html" (dict
+            "slides" .
+            "interval" (site.Data.venue_photos.interval | default 5)
+            "link" (printf "%d/venue/" $e.year | relURL)
+            "tall" true
+            "label" (printf "%s, %s" $e.city $e.country)) }}
+      {{ end }}
+    {{ end }}
+
   {{ else }}
     <h1 class="page-title">{{ .Title }}</h1>
   {{ end }}
 
-  <div class="prose prose--banded">{{ partial "banded.html" .Content }}</div>
+  <div class="wrap">
+    <div class="prose prose--banded">{{ partial "banded.html" .Content }}</div>
 
-  {{ with .Pages }}<ul class="prose">
-    {{ range . }}<li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>{{ end }}
-  </ul>{{ end }}
+    {{ with .Pages }}<ul class="prose">
+      {{ range . }}<li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>{{ end }}
+    </ul>{{ end }}
+  </div>
 {{ end }}

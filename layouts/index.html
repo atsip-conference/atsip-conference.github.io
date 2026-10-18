@@ -50,12 +50,11 @@
   </div>
 </section>
 
-<div class="photoband">
-  <img src="{{ "img/sousse.png" | relURL }}" alt="Sousse: medina souk, golf course and marina"
-       width="819" height="254" loading="lazy">
-</div>
+{{ partial "coverband.html" . }}
 
 {{ partial "sponsors.html" (dict "big" true) }}
+
+{{ partial "partners.html" (dict "top" true) }}
 
 <div class="wrap">
   {{ partial "credentials.html" . }}
@@ -71,4 +70,6 @@
     {{ partial "banded.html" .Content }}
   </div>
 </div>
+
+{{ partial "partners.html" (dict "top" false) }}
 {{ end }}

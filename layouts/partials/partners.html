@@ -1,0 +1,43 @@
+{{/* Bandeau des sponsors et partenaires, piloté par data/sponsors.yaml.
+     Rien ne s'affiche tant qu'aucun niveau ne contient d'entrée : le site ne
+     montre jamais une section « Sponsors » vide.
+     Paramètres : `top` = true pour ne garder que les niveaux marqués
+     promote_to_top (bandeau haut), false pour tous les autres (bandeau bas). */}}
+{{ $top := .top | default false }}
+{{ $tiers := slice }}
+{{ range site.Data.sponsors.tiers }}
+  {{ if .items }}
+    {{ if eq (.promote_to_top | default false) $top }}
+      {{ $tiers = $tiers | append . }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ if $tiers }}
+<section class="partners{{ if $top }} partners--top{{ end }}" aria-labelledby="partners-title">
+  <div class="wrap">
+    {{ if not $top }}
+      <h2 class="partners__title" id="partners-title">Sponsors and partners</h2>
+    {{ end }}
+
+    {{ range $tiers }}
+      <div class="partners__tier partners__tier--{{ .id }}">
+        <p class="partners__label">{{ .label }}</p>
+        <ul class="partners__list">
+          {{ range .items }}
+            <li>
+              {{ if .url }}
+                <a href="{{ .url }}" title="{{ .name }}">
+                  <img src="{{ .logo | relURL }}" alt="{{ .name }}" loading="lazy">
+                </a>
+              {{ else }}
+                <img src="{{ .logo | relURL }}" alt="{{ .name }}" loading="lazy">
+              {{ end }}
+            </li>
+          {{ end }}
+        </ul>
+      </div>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

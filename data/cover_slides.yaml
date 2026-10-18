@@ -1,0 +1,55 @@
+# Bandeau défilant sous la page de garde : une image par thématique.
+#
+# Tant que `slides` est vide, le bandeau photo de Sousse s'affiche à la place :
+# le site ne se retrouve jamais avec un trou.
+#
+# Spécifications des images
+#   format      : JPG ou WebP (PNG seulement si transparence nécessaire)
+#   dimensions  : 1600 x 500 px, soit un rapport 16:5
+#   poids       : viser moins de 250 Ko par image, 300 Ko maximum
+#   emplacement : static/img/cover/
+#
+# Le rapport 16:5 est celui du bandeau. Une image d'un autre rapport sera
+# recadrée au centre : garder le sujet au milieu, pas sur les bords.
+#
+# `label` s'affiche en surimpression, en bas du bandeau : c'est ce qui rend le
+# défilement informatif plutôt que décoratif. Reprendre le nom exact du track.
+#
+# `alt` décrit l'image pour les lecteurs d'écran et les moteurs de recherche.
+# Décrire ce que l'on voit, sans répéter le label.
+
+slides:
+  - image: img/cover/01-medical.jpg
+    label: Medical signal/image and computer-aided diagnosis
+    alt: Wireframe human figure under a magnifier, surrounded by clinical icons
+
+  - image: img/cover/02-iot.jpg
+    label: IoT, embedded systems and RF applications
+    alt: Connected-device diagram linking sensors, screens and cloud nodes
+
+  - image: img/cover/03-remote-sensing.jpg
+    label: Remote sensing and assimilation
+    alt: Satellite in orbit sweeping its radiometer beam across the Earth
+
+  - image: img/cover/04-communications.jpg
+    label: New technologies for communications and networking
+    alt: Handheld device projecting a web of linked service icons
+
+  - image: img/cover/05-image-speech.jpg
+    label: Image, video, speech and audio processing
+    alt: Montage of signal-processing devices over a circuit pattern
+
+  - image: img/cover/06-big-data.jpg
+    label: Big data and cloud computing applications
+    alt: Server racks feeding two cloud shapes above a mesh network
+
+  - image: img/cover/07-ai.jpg
+    label: AI for advanced technologies
+    alt: Luminous brain rising from a processor die traced with circuit lines
+
+  - image: img/cover/08-security.jpg
+    label: Advanced technologies for security
+    alt: Shielded padlock above a tablet, against falling streams of binary digits
+
+# Durée d'affichage de chaque image, en secondes.
+interval: 5

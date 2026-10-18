@@ -1,0 +1,53 @@
+{{/* Ruban d'images défilant, pleine largeur.
+
+     Les images gardent leur rapport d'origine : rien n'est recadré, la hauteur
+     de carte fixe la taille d'affichage.
+
+     La boucle : la liste est répétée `rep` fois pour couvrir largement
+     l'écran, puis l'ensemble est rendu DEUX FOIS. L'animation translate de
+     -50%, ce qui ramène exactement au point de départ — d'où une boucle sans
+     saut. Ne pas toucher à ce doublement.
+
+     Le nom de balise ne doit jamais être construit dynamiquement : Go
+     l'échappe et la carte sort en texte brut. On émet toujours <a>.
+
+     Paramètres :
+       slides   liste de { image, label, alt }
+       interval secondes par image
+       link     destination des cartes (facultatif)
+       tall     true pour des cartes plus hautes
+       label    nom de la section pour les lecteurs d'écran
+*/}}
+{{ $slides := .slides }}
+{{ $interval := .interval | default 5 }}
+{{ $link := .link | default "" }}
+{{ $tall := .tall | default false }}
+
+{{ if $slides }}
+  {{/* Assez de cartes pour couvrir deux fois l'écran, même avec peu d'images. */}}
+  {{ $rep := math.Ceil (div 9.0 (float (len $slides))) | int }}
+  {{ $base := slice }}
+  {{ range seq $rep }}{{ $base = $base | append $slides }}{{ end }}
+  {{ $dur := mul (len $base) $interval }}
+
+<section class="topicstrip{{ if $tall }} topicstrip--tall{{ end }}"
+         aria-label="{{ .label | default "Image strip" }}">
+  <div class="topicstrip__mask">
+    <div class="topicstrip__track" style="--roll: {{ $dur }}s">
+      {{ range $pass := slice 0 1 }}
+        {{ range $i, $s := $base }}
+          <a class="tcard"{{ with $link }} href="{{ . }}"{{ end }}{{ if eq $pass 1 }} aria-hidden="true" tabindex="-1"{{ end }}>
+            <img src="{{ $s.image | relURL }}"
+                 alt="{{ if eq $pass 1 }}{{ else }}{{ $s.alt | default $s.label }}{{ end }}"
+                 {{ if and (eq $pass 0) (lt $i 2) }}fetchpriority="high"{{ else }}loading="lazy"{{ end }}>
+            {{ with $s.label }}<span class="tcard__label">{{ . }}</span>{{ end }}
+          </a>
+        {{ end }}
+      {{ end }}
+    </div>
+  </div>
+
+  <button type="button" class="tstrip__pause" data-strip-pause
+          aria-label="Pause the strip">&#10073;&#10073;</button>
+</section>
+{{ end }}
