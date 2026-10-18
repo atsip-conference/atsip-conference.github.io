@@ -13,6 +13,27 @@ flips every page at once.
 Metadata follows DBLP (<https://dblp.org/db/conf/atsip/index.html>), which
 mirrors the published IEEE proceedings.
 
+## Liens vers les actes : le DOI, jamais l'adresse Xplore
+
+Chaque edition porte un champ `doi` et pas de champ `xplore`. Les deux menent a
+la meme page de sommaire sur IEEE Xplore, mais l'adresse directe
+(`ieeexplore.ieee.org/xpl/conhome/<numero>/proceeding`) repose sur un numero
+interne qui change quand IEEE reorganise son site : les sept liens du site ont
+casse de cette facon. Le DOI, lui, est permanent.
+
+Ne pas remettre d'URL Xplore en dur. Pour une nouvelle edition, prendre le DOI
+des actes, verifiable sur `https://api.crossref.org/works/<doi>` : la reponse
+donne le titre, l'annee et le lieu, ce qui confirme du meme coup la
+numerotation de l'edition.
+
+Les sept DOI ont ete verifies un par un aupres de CrossRef le 18 octobre 2026 ;
+les lieux retournes concordent avec `editions.yaml` (Monastir 2016, Fes 2017,
+Sousse 2014/2018/2020).
+
+Astuce : le DOI des actes est le prefixe de celui de chaque article de
+l'edition. `10.1109/ATSIP49331.2020.9231837` (un article) donne
+`10.1109/ATSIP49331.2020` (les actes).
+
 ## Topics: two levels
 
 The eight general tracks belong to the **conference**. They live in

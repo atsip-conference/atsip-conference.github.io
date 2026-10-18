@@ -61,8 +61,8 @@
             <a class="btn btn--line" href="{{ printf "%d/submission/" $e.year | relURL }}">Submit a paper</a>
             <a class="btn btn--line" href="{{ printf "%d/important-dates/" $e.year | relURL }}">Key dates</a>
           {{ else }}
-            {{ with $e.xplore }}<a class="btn btn--solid" href="{{ . }}">Proceedings on IEEE Xplore</a>{{ end }}
-            {{ with $e.doi }}<a class="btn btn--line" href="{{ . }}">DOI</a>{{ end }}
+            {{/* Le DOI resout vers la page Xplore des actes et ne casse pas. */}}
+            {{ with $e.doi }}<a class="btn btn--solid" href="{{ . }}">Proceedings on IEEE Xplore</a>{{ end }}
             {{ with $e.dblp }}<a class="btn btn--line" href="{{ . }}">DBLP</a>{{ end }}
           {{ end }}
         </div>

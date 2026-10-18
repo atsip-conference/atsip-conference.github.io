@@ -15,8 +15,9 @@
           <td>{{ .dates_display }}</td>
           <td class="isbn">{{ with .isbn }}{{ . }}{{ else }}&mdash;{{ end }}</td>
           <td class="editions__links">
-            {{ with .xplore }}<a class="tag tag--ieee" href="{{ . }}">IEEE&nbsp;Xplore</a>{{ end }}
-            {{ with .doi }}<a class="tag" href="{{ . }}">DOI</a>{{ end }}
+            {{/* Le DOI mene a la meme page que l'adresse Xplore directe, mais
+                 ne casse jamais : un seul lien, libelle par sa destination. */}}
+            {{ with .doi }}<a class="tag tag--ieee" href="{{ . }}">IEEE&nbsp;Xplore</a>{{ end }}
             {{ with .dblp }}<a class="tag" href="{{ . }}">DBLP</a>{{ end }}
             {{ if eq .status "upcoming" }}<span class="tag tag--muted">Forthcoming</span>{{ end }}
           </td>
