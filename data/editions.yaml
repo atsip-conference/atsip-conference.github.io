@@ -87,6 +87,7 @@ editions:
     city: Sousse
     country: Tunisia
     dates_display: "17–19 March 2014"
+    isbn: "978-1-4799-4888-8"
     doi: "https://doi.org/10.1109/ATSIP32773.2014"
     dblp: "https://dblp.org/db/conf/atsip/atsip2014.html"
     status: archived
