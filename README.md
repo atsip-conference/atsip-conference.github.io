@@ -199,9 +199,15 @@ Ce qui est en place, et qu'il ne faut pas casser :
 
 Ce qui reste a faire a la main, et qui pese bien plus lourd :
 
-1. **Google Search Console** — ajouter la propriete, soumettre
-   `https://atsip-conference.github.io/sitemap.xml`, demander l'indexation de
-   `/` et de `/2027/`. Sans cela, l'indexation prend des semaines.
+1. **Google Search Console** — propriete en « prefixe d'URL » (le mode
+   « domaine » est impossible sur github.io, qui n'est pas a nous).
+   La verification passe par `static/google4823855c7d7be657.html` : NE PAS
+   SUPPRIMER ce fichier, Google le relit periodiquement et la propriete serait
+   perdue. Son contenu est impose par son nom. Un second canal existe si
+   besoin : `params.googleVerification` dans `hugo.toml` emet la balise meta.
+   Apres verification, soumettre
+   `https://atsip-conference.github.io/sitemap.xml` et demander l'indexation
+   de `/` et de `/2027/`. Sans cela, l'indexation prend des semaines.
 2. **Liens entrants.** Facteur dominant. Demander un lien depuis : IEEE Tunisia
    Section, la page du laboratoire ATISP, ENET'Com, les universites des membres
    du comite, la page Facebook de la conference.

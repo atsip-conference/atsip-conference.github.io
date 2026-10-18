@@ -21,6 +21,12 @@
   {{ end }}
   <meta name="description" content="{{ $desc }}">
 
+  {{/* Verification Google Search Console : coller le jeton dans hugo.toml,
+       params.googleVerification. Sans valeur, aucune balise n'est emise. */}}
+  {{ with site.Params.googleVerification }}
+  <meta name="google-site-verification" content="{{ . }}">
+  {{ end }}
+
   <link rel="icon" href="{{ "favicon.png" | relURL }}" sizes="32x32">
   <link rel="apple-touch-icon" href="{{ "img/favicon-180.png" | relURL }}">
 
