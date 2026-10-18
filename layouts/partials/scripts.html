@@ -1,0 +1,137 @@
+{{/* Tout le comportement du site tient ici : pas de dépendance, pas de requête
+     supplémentaire. Chaque bloc est enveloppé pour qu'une erreur n'en bloque
+     pas les autres, et le contenu reste complet sans JavaScript. */}}
+<script>
+(function () {
+  "use strict";
+
+  var reduce = window.matchMedia &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---- Compte à rebours jusqu'à la clôture des soumissions ---- */
+  try {
+    document.querySelectorAll("[data-countdown]").forEach(function (el) {
+      var target = new Date(el.getAttribute("data-countdown") + "T23:59:59");
+      if (isNaN(target)) return;
+      var full = el.textContent.trim();
+
+      function tick() {
+        var days = Math.ceil((target - Date.now()) / 86400000);
+        if (days > 1) {
+          el.innerHTML = "<b>" + full + "</b><span class=\"fact__note\">" +
+            days.toLocaleString("en") + " days left</span>";
+        } else if (days === 1) {
+          el.innerHTML = "<b>" + full + "</b><span class=\"fact__note\">Closes tomorrow</span>";
+        } else if (days === 0) {
+          el.innerHTML = "<b>" + full + "</b><span class=\"fact__note\">Closes today</span>";
+        } else {
+          el.innerHTML = "<b>" + full + "</b><span class=\"fact__note\">Closed</span>";
+        }
+      }
+      tick();
+      setInterval(tick, 3600000);
+    });
+  } catch (e) {}
+
+  /* ---- Topics : filtre libre + tout ouvrir / tout fermer ---- */
+  try {
+    var box = document.querySelector("[data-topics]");
+    if (box) {
+      var tracks = Array.prototype.slice.call(box.querySelectorAll(".track"));
+      var input  = box.querySelector("[data-topics-filter]");
+      var empty  = box.querySelector("[data-topics-empty]");
+
+      /* Mémorise l'état initial pour pouvoir le restaurer. */
+      tracks.forEach(function (t) { t.dataset.wasOpen = t.open ? "1" : "0"; });
+
+      function setAll(open) {
+        tracks.forEach(function (t) { t.open = open; });
+      }
+
+      var bAll  = box.querySelector("[data-topics-all]");
+      var bNone = box.querySelector("[data-topics-none]");
+      if (bAll)  bAll.addEventListener("click", function () { setAll(true); });
+      if (bNone) bNone.addEventListener("click", function () { setAll(false); });
+
+      if (input) {
+        input.addEventListener("input", function () {
+          var q = input.value.trim().toLowerCase();
+          var shown = 0;
+
+          tracks.forEach(function (t) {
+            if (!q) {
+              t.hidden = false;
+              t.open = t.dataset.wasOpen === "1";
+              t.querySelectorAll(".track__list li").forEach(function (li) {
+                li.hidden = false;
+                li.classList.remove("is-hit");
+              });
+              shown++;
+              return;
+            }
+
+            var name = (t.querySelector(".track__name").textContent || "").toLowerCase();
+            var nameHit = name.indexOf(q) > -1;
+            var itemHit = 0;
+
+            t.querySelectorAll(".track__list li").forEach(function (li) {
+              var hit = (li.textContent || "").toLowerCase().indexOf(q) > -1;
+              li.hidden = !(nameHit || hit);
+              li.classList.toggle("is-hit", hit && !nameHit);
+              if (hit) itemHit++;
+            });
+
+            var keep = nameHit || itemHit > 0;
+            t.hidden = !keep;
+            t.open = keep;
+            if (keep) shown++;
+          });
+
+          if (empty) empty.hidden = shown > 0;
+        });
+      }
+    }
+  } catch (e) {}
+
+  /* ---- Apparition des sections au défilement ---- */
+  try {
+    if (!reduce && "IntersectionObserver" in window) {
+      var targets = document.querySelectorAll(
+        ".photoband, .sponsors--big, .creds, .timeline, .prose--home > h2, .topics"
+      );
+      if (targets.length) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (en) {
+            if (en.isIntersecting) {
+              en.target.classList.add("is-in");
+              io.unobserve(en.target);
+            }
+          });
+        }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+
+        targets.forEach(function (t) {
+          t.classList.add("reveal");
+          io.observe(t);
+        });
+      }
+    }
+  } catch (e) {}
+
+  /* ---- En-tête compact dès que la page défile ---- */
+  try {
+    var head = document.querySelector(".masthead");
+    if (head) {
+      var pinned = false;
+      var onScroll = function () {
+        var want = window.scrollY > 24;
+        if (want !== pinned) {
+          pinned = want;
+          head.classList.toggle("is-pinned", want);
+        }
+      };
+      window.addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
+    }
+  } catch (e) {}
+})();
+</script>

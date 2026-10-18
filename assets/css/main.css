@@ -14,8 +14,9 @@
   --display: "Bricolage Grotesque", var(--sans);
   --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
 
-  --measure: 68ch;
-  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --measure: 70ch;
+  --page: 88rem;
+  --gutter: clamp(1.25rem, 3.5vw, 3.5rem);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -26,13 +27,13 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family: var(--sans);
-  font-size: clamp(1rem, 0.96rem + 0.2vw, 1.0625rem);
+  font-size: clamp(1.03rem, 0.98rem + 0.25vw, 1.125rem);
   line-height: 1.6;
 }
 
 .wrap {
   width: 100%;
-  max-width: 68rem;
+  max-width: var(--page);
   margin-inline: auto;
   padding-inline: var(--gutter);
 }
@@ -416,7 +417,7 @@ main { padding-block: 1rem 4rem; }
 
 .sponsors {
   width: 100%;
-  max-width: 68rem;
+  max-width: var(--page);
   margin-inline: auto;
   padding: 2.5rem var(--gutter) 0;
   border-top: 1px solid var(--rule);
@@ -513,9 +514,508 @@ main { padding-block: 1rem 4rem; }
 .banner {
   display: block;
   width: 100%;
-  max-width: 68rem;
+  /* L'image source fait 819 px de large : au-delà, elle se dégrade. */
+  max-width: 52rem;
   height: auto;
   margin: 1.5rem 0;
   border-top: 1px solid var(--rule);
   border-bottom: 1px solid var(--rule);
+}
+
+/* Tableau des responsables de track : le style générique du tableau des dates
+   (mono, gras, nowrap sur la 1re colonne) écrase la colonne Chairs. */
+.tracks-table table { table-layout: fixed; }
+
+.tracks-table td:first-child {
+  width: 32%;
+  white-space: normal;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding-right: 1.5rem;
+}
+
+.tracks-table td:last-child {
+  width: 68%;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 36rem) {
+  .tracks-table table, .tracks-table tbody, .tracks-table tr, .tracks-table td {
+    display: block;
+    width: auto;
+  }
+  .tracks-table thead { display: none; }
+  .tracks-table tr { border-bottom: 1px solid var(--rule); padding-bottom: 0.6rem; margin-bottom: 0.6rem; }
+  .tracks-table td { border: 0; padding: 0; }
+  .tracks-table td:first-child { padding-bottom: 0.2rem; }
+}
+
+/* ---------- Bandeau institutionnel en haut de l'accueil ---------- */
+
+.sponsors--big {
+  padding: 2.4rem var(--gutter) 2.6rem;
+  margin-top: 0;
+  border-top: 0;
+  border-bottom: 1px solid var(--rule);
+  background: var(--paper-2);
+}
+
+.sponsors--big .sponsors__row {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-content: space-between;
+  gap: 2rem clamp(2rem, 4vw, 4.5rem);
+  align-items: center;
+}
+
+.sponsors--big .sponsors__block + .sponsors__block {
+  padding-left: clamp(2rem, 4vw, 4.5rem);
+  border-left: 1px solid var(--rule);
+}
+
+.sponsors--big .sponsors__label {
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  color: var(--sea);
+  margin-bottom: 1.2rem;
+}
+
+.sponsors--big .sponsors__list { gap: 1.5rem clamp(2rem, 3.5vw, 3.5rem); }
+
+/* En haut de page, les logos sont une information, pas une mention légale :
+   couleurs d'origine et grande taille. */
+.sponsors--big .sponsors__list img {
+  height: 5rem;
+  filter: none;
+  opacity: 1;
+}
+
+.sponsors--big .logo--atsip { height: 7rem; }
+.sponsors--big .ieee-mark { opacity: 1; }
+.sponsors--big .ieee-mark svg { height: 4.4rem; }
+
+@media (max-width: 68rem) {
+  .sponsors--big .sponsors__row { grid-template-columns: 1fr; }
+  .sponsors--big .sponsors__block + .sponsors__block {
+    padding-left: 0;
+    padding-top: 1.8rem;
+    border-left: 0;
+    border-top: 1px solid var(--rule);
+  }
+}
+
+@media (max-width: 36rem) {
+  .sponsors--big .sponsors__list img { height: 3.6rem; }
+  .sponsors--big .logo--atsip { height: 4.4rem; }
+  .sponsors--big .ieee-mark svg { height: 3rem; }
+}
+
+/* ======================================================================
+   Page de garde, interactions, mise en pleine largeur
+   ====================================================================== */
+
+/* L'accueil n'est pas contraint par <main> : chaque bandeau gère sa largeur. */
+main > .cover { margin-top: -1rem; }
+
+/* ---------- Page de garde ---------- */
+
+.cover {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(120% 140% at 12% 0%, #1d5f7e 0%, rgba(29, 95, 126, 0) 58%),
+    linear-gradient(170deg, #16232b 0%, #102b38 52%, #0d1d26 100%);
+  color: var(--paper);
+  padding-block: clamp(3rem, 7vw, 6rem) clamp(2.5rem, 5vw, 4rem);
+  border-bottom: 3px solid var(--amber);
+}
+
+.cover__trace {
+  position: absolute;
+  inset: auto 0 -6% 0;
+  width: 100%;
+  height: 78%;
+  color: var(--amber);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.cover__inner { position: relative; }
+
+.cover__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #a8c4d2;
+  margin: 0 0 1.5rem;
+}
+
+.cover__pill {
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #0d1d26;
+  background: var(--amber);
+  padding: 0.22rem 0.55rem;
+  border-radius: 2px;
+}
+
+.cover__title {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(2.1rem, 1rem + 4.4vw, 4.4rem);
+  line-height: 1.03;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+  max-width: 30ch;
+  margin: 0 0 1.4rem;
+}
+
+.cover__sub {
+  font-size: clamp(1.1rem, 1rem + 0.6vw, 1.5rem);
+  line-height: 1.45;
+  color: #c3d6e0;
+  max-width: 58ch;
+  margin: 0 0 2.4rem;
+}
+
+/* Les quatre faits essentiels, lisibles d'un coup d'œil. */
+.cover__facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: 1.5rem 2.5rem;
+  margin: 0 0 2.4rem;
+  padding-top: 1.8rem;
+  border-top: 1px solid rgba(244, 245, 241, 0.18);
+}
+
+.cover__facts dt {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #8fb0c0;
+  margin-bottom: 0.45rem;
+}
+
+.cover__facts dd {
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1.3;
+  color: var(--paper);
+}
+
+.cover__facts dd b { font-weight: 700; }
+.fact--live dd { color: var(--amber); }
+
+.fact__note {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: #8fb0c0;
+  margin-top: 0.3rem;
+}
+
+.cover__actions { gap: 0.9rem; }
+
+.btn--line {
+  color: var(--paper);
+  border-color: rgba(244, 245, 241, 0.45);
+  background: transparent;
+}
+
+.btn--line:hover {
+  color: #0d1d26;
+  background: var(--paper);
+  border-color: var(--paper);
+}
+
+.cover .btn--solid {
+  background: var(--amber);
+  border-color: var(--amber);
+  color: #16232b;
+}
+
+.cover .btn--solid:hover { background: var(--paper); border-color: var(--paper); }
+
+/* ---------- Bandeau photo ---------- */
+
+.photoband { overflow: hidden; border-bottom: 1px solid var(--rule); }
+
+.photoband img {
+  display: block;
+  width: 100%;
+  height: clamp(8rem, 17vw, 15rem);
+  object-fit: cover;
+  object-position: center;
+}
+
+/* ---------- Accueil : titres de section en colonne latérale ---------- */
+
+.prose--home { max-width: none; font-size: 1.06rem; padding-top: 1.5rem; }
+.prose--banded { max-width: none; }
+.prose--home > p, .prose--banded > p { max-width: var(--measure); }
+
+/* Listes longues (comités) : deux colonnes dès qu'il y a la place. */
+.prose--banded .band > ul { columns: 2 20rem; column-gap: 3rem; max-width: 60rem; }
+.prose--banded .band > ul > li { break-inside: avoid; }
+.prose--banded .band > .tracks-table { max-width: 64rem; }
+
+/* Une bande par section : le titre tient la colonne de gauche et reste
+   visible tant que l'on parcourt sa section. */
+.band {
+  display: grid;
+  grid-template-columns: minmax(0, 15rem) minmax(0, 1fr);
+  column-gap: clamp(2rem, 5vw, 5.5rem);
+  align-items: start;
+  padding-top: 2.8rem;
+  margin-top: 2.8rem;
+  border-top: 1px solid var(--rule);
+}
+
+.band:first-of-type { border-top: 0; margin-top: 0; padding-top: 1rem; }
+.band > * { grid-column: 2; max-width: var(--measure); }
+
+.band > h2 {
+  grid-column: 1;
+  position: sticky;
+  top: 6rem;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  max-width: none;
+  font-family: var(--display);
+  font-size: clamp(1.3rem, 1.05rem + 0.8vw, 1.8rem);
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  color: var(--sea);
+  text-wrap: balance;
+}
+
+.band > h2 + * { margin-top: 0; }
+
+/* Les blocs larges débordent volontairement de la colonne de texte. */
+.band > .topics { grid-column: 1 / -1; max-width: none; }
+
+@media (max-width: 62rem) {
+  .band { display: block; padding-top: 2rem; margin-top: 2rem; }
+  .band > h2 { position: static; margin-bottom: 0.9rem; }
+  .band > * { max-width: var(--measure); }
+}
+
+/* ---------- Topics : accordéon filtrable ---------- */
+
+.topics { margin: 1.5rem 0 1rem; }
+
+.topics__bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.topics__search { display: block; flex: 1 1 22rem; }
+
+.topics__search-label {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 0.45rem;
+}
+
+.topics__search input {
+  width: 100%;
+  font: inherit;
+  font-size: 0.98rem;
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  padding: 0.6rem 0.8rem;
+}
+
+.topics__search input:focus-visible {
+  border-color: var(--sea);
+  outline: 2px solid var(--amber);
+  outline-offset: 1px;
+}
+
+.topics__tools { display: flex; gap: 0.5rem; }
+
+.topics__btn {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  background: transparent;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+}
+
+.topics__btn:hover { color: var(--sea); border-color: var(--sea); }
+
+.topics__empty { font-size: 0.95rem; color: var(--ink-soft); margin: 0 0 1.25rem; }
+
+.topics__grid { border-bottom: 1px solid var(--rule); }
+
+.track { border-top: 1px solid var(--rule); }
+.track:first-child { border-top: 2px solid var(--sea); }
+.track:has(> summary:hover) { border-top-color: var(--sea); }
+.track[open] { border-top: 2px solid var(--sea); }
+
+.track__head {
+  display: flex;
+  width: 100%;
+  align-items: baseline;
+  gap: 0.8rem;
+  padding: 0.95rem 0;
+  cursor: pointer;
+  list-style: none;
+}
+
+.track__head::-webkit-details-marker { display: none; }
+
+.track__n {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+  flex: none;
+  padding-top: 0.15rem;
+}
+
+.track__name {
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.055em;
+  text-transform: uppercase;
+  line-height: 1.35;
+  color: var(--sea);
+  flex: 1;
+}
+
+.track__head::after {
+  content: "+";
+  font-family: var(--mono);
+  font-size: 1.05rem;
+  line-height: 1;
+  color: var(--ink-soft);
+  flex: none;
+  transition: transform 0.18s, color 0.18s;
+}
+
+.track[open] > .track__head::after { content: "\2212"; color: var(--amber); }
+.track__head:hover::after { color: var(--amber); }
+.track__head:hover .track__name { color: var(--ink); }
+
+/* Ouvert, un track étale ses sous-thèmes sur toute la largeur. */
+.track__list {
+  list-style: none;
+  margin: 0 0 1.6rem;
+  padding: 0 0 0 3rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  columns: 3 16rem;
+  column-gap: 3rem;
+}
+
+.track__list li { break-inside: avoid; }
+
+@media (max-width: 40rem) { .track__list { padding-left: 0; columns: 1; } }
+
+.track__list li {
+  color: var(--ink-soft);
+  padding-left: 0.9rem;
+  position: relative;
+  margin-bottom: 0.35rem;
+}
+
+.track__list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 5px;
+  height: 1px;
+  background: var(--rule);
+}
+
+/* Terme trouvé par le filtre. */
+.track__list li.is-hit { color: var(--ink); }
+.track__list li.is-hit::before { background: var(--amber); width: 7px; height: 2px; }
+
+/* ---------- Frise : survol ---------- */
+
+.timeline__svg { width: 100%; height: auto; display: block; overflow: visible; }
+.tl-hit { fill: transparent; }
+.tl-link { cursor: pointer; }
+
+.tl-halo {
+  fill: var(--amber);
+  opacity: 0;
+  transition: opacity 0.18s;
+}
+
+.tl-link:hover .tl-halo,
+.tl-link:focus-visible .tl-halo { opacity: 0.18; }
+
+.tl-city {
+  font-family: var(--sans);
+  font-size: 11px;
+  fill: var(--ink-soft);
+  opacity: 0;
+  transition: opacity 0.18s;
+}
+
+.tl-city--now { opacity: 1; fill: var(--amber); font-weight: 600; }
+.tl-link:hover .tl-city, .tl-link:focus-visible .tl-city { opacity: 1; fill: var(--ink); }
+.tl-link:hover .tl-dot { fill: var(--amber); }
+.tl-link:hover .tl-stem { stroke: var(--amber); }
+
+/* ---------- En-tête collant ---------- */
+
+.masthead {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  transition: box-shadow 0.2s, background-color 0.2s;
+}
+
+.masthead.is-pinned {
+  background: rgba(244, 245, 241, 0.94);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 1px 12px rgba(22, 35, 43, 0.09);
+}
+
+.masthead.is-pinned .wordmark img { height: clamp(1.8rem, 1.4rem + 1vw, 2.2rem); }
+.wordmark img { transition: height 0.2s; }
+
+/* ---------- Apparition au défilement ---------- */
+
+.reveal { opacity: 0; transform: translateY(14px); }
+
+.reveal.is-in {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; }
+  .masthead { position: static; }
 }

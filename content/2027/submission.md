@@ -22,6 +22,22 @@ created at [cmt3.research.microsoft.com](https://cmt3.research.microsoft.com).
 - PDF only
 - Original work, not published elsewhere and not under concurrent review
 
+## Paper template
+
+Papers must follow the **IEEE conference format** (two columns, A4). Download the
+official templates:
+
+| Format | Link |
+|---|---|
+| Word and LaTeX templates | [IEEE Manuscript Templates for Conference Proceedings](https://www.ieee.org/conferences/publishing/templates.html) |
+| LaTeX, online, no install | [IEEE conference template on Overleaf](https://www.overleaf.com/latex/templates/preparation-of-papers-for-ieee-sponsored-conferences-and-symposia/zfnqfzzzxghk) |
+| Not sure which to use | [IEEE Template Selector](https://template-selector.ieee.org/) |
+
+Use the **A4** variant, not US Letter. Do not alter the margins, column widths,
+font sizes or line spacing: papers that do not match the template are rejected by
+IEEE PDF eXpress at the camera-ready stage.
+
+
 ## Review
 
 Each submission receives independent reviews from members of the technical

@@ -1,0 +1,12 @@
+{{/* Découpe un contenu rendu en bandes, une par <h2> : le titre occupe la
+     colonne de gauche et reste visible le long de sa section. Sans <h2>, le
+     contenu ressort tel quel. */}}
+{{ $out := "" }}
+{{ range $i, $p := split . "<h2" }}
+  {{ if eq $i 0 }}
+    {{ $out = print $out $p }}
+  {{ else }}
+    {{ $out = print $out `<section class="band"><h2` $p `</section>` }}
+  {{ end }}
+{{ end }}
+{{ $out | safeHTML }}

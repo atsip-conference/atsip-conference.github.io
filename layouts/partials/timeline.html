@@ -3,33 +3,42 @@
 {{ $first := (index $eds 0).year }}
 {{ $last := (index (last 1 $eds) 0).year }}
 {{ $span := sub $last $first }}
-{{ $x0 := 44.0 }}{{ $x1 := 856.0 }}
-{{ $base := 118.0 }}{{ $top := 46.0 }}
+{{ $x0 := 52.0 }}{{ $x1 := 1148.0 }}
+{{ $base := 128.0 }}{{ $top := 52.0 }}
 
 <section class="timeline wrap" aria-labelledby="tl-title">
   <div class="timeline__head">
-    <h2 class="timeline__title" id="tl-title">Eight editions, 2014–2027</h2>
-    <p class="timeline__note">Select a year to open that edition.</p>
+    <h2 class="timeline__title" id="tl-title">{{ len $eds }} editions, {{ $first }}&ndash;{{ $last }}</h2>
+    <p class="timeline__note">Hover a year for the venue, select it to open that edition.</p>
   </div>
 
-  <svg viewBox="0 0 900 150" role="img"
-       aria-label="Timeline of ATSIP editions from 2014 to 2027">
+  <svg class="timeline__svg" viewBox="0 0 1200 196" role="group"
+       aria-label="Timeline of ATSIP editions from {{ $first }} to {{ $last }}">
     <line class="tl-axis" x1="{{ $x0 }}" y1="{{ $base }}" x2="{{ $x1 }}" y2="{{ $base }}"/>
+
+    {{/* Les segments entre éditions : épaisseur constante, jalons cliquables. */}}
     {{ range $eds }}
       {{ $t := div (float (sub .year $first)) (float $span) }}
       {{ $x := add $x0 (mul $t (sub $x1 $x0)) }}
       {{ $now := eq .year $cur }}
-      <a class="tl-link" href="{{ printf "%d/" .year | relURL }}"
-         aria-label="ATSIP {{ .year }}, {{ .city }}">
+      <a class="tl-link{{ if $now }} tl-link--now{{ end }}"
+         href="{{ printf "%d/" .year | relURL }}"
+         aria-label="ATSIP {{ .year }}, {{ .city }}, {{ .country }}">
+        <title>ATSIP&rsquo;{{ .year }} &mdash; {{ .city }}, {{ .country }}{{ with .dates_display }} &middot; {{ . }}{{ end }}</title>
+
+        {{/* Zone de survol généreuse, invisible. */}}
+        <rect class="tl-hit" x="{{ sub $x 32.0 }}" y="16" width="64" height="164"/>
+
         <line class="tl-stem{{ if $now }} tl-stem--now{{ end }}"
               x1="{{ $x }}" y1="{{ $base }}" x2="{{ $x }}" y2="{{ $top }}"/>
+        <circle class="tl-halo" cx="{{ $x }}" cy="{{ $top }}" r="13"/>
         <circle class="tl-dot{{ if $now }} tl-dot--now{{ end }}"
-                cx="{{ $x }}" cy="{{ $top }}" r="{{ if $now }}6{{ else }}4{{ end }}"/>
-        <text class="tl-num" x="{{ $x }}" y="{{ sub $top 14.0 }}" text-anchor="middle">{{ .num }}</text>
+                cx="{{ $x }}" cy="{{ $top }}" r="{{ if $now }}6.5{{ else }}4.5{{ end }}"/>
+        <text class="tl-num" x="{{ $x }}" y="{{ sub $top 20.0 }}" text-anchor="middle">{{ .num }}</text>
         <text class="tl-year{{ if $now }} tl-year--now{{ end }}"
-              x="{{ $x }}" y="{{ add $base 20.0 }}" text-anchor="middle">{{ .year }}</text>
-        <text class="tl-year" x="{{ $x }}" y="{{ add $base 34.0 }}" text-anchor="middle"
-              opacity="0.65">{{ .city }}</text>
+              x="{{ $x }}" y="{{ add $base 24.0 }}" text-anchor="middle">{{ .year }}</text>
+        <text class="tl-city{{ if $now }} tl-city--now{{ end }}"
+              x="{{ $x }}" y="{{ add $base 42.0 }}" text-anchor="middle">{{ .city }}</text>
       </a>
     {{ end }}
   </svg>

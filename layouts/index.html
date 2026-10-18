@@ -1,34 +1,74 @@
 {{ define "main" }}
 {{ $cur := site.Data.editions.current }}
 {{ $e := index (where site.Data.editions.editions "year" $cur) 0 }}
-{{ $first := index (sort site.Data.editions.editions "year") 0 }}
+{{ $eds := sort site.Data.editions.editions "year" }}
+{{ $first := index $eds 0 }}
+{{ $cities := slice }}
+{{ range $eds }}{{ $cities = $cities | append .city }}{{ end }}
 
-<section class="hero hero--series">
-  <p class="hero__eyebrow">Since {{ $first.year }} &middot; IEEE</p>
-  <h1 class="hero__title">{{ site.Params.fullName }}</h1>
-  <p class="hero__sub">
-    An international conference on signal processing, image analysis, and their
-    applications, held across the Euro-Mediterranean region since 2014.
-  </p>
+{{/* ---------- Page de garde ---------- */}}
+<section class="cover">
+  {{ partial "cover-trace.html" . }}
+  <div class="wrap cover__inner">
+    <p class="cover__eyebrow">
+      <span class="cover__pill">IEEE</span>
+      {{ len $eds }} editions since {{ $first.year }}
+    </p>
+
+    <h1 class="cover__title">{{ site.Params.fullName }}</h1>
+
+    <p class="cover__sub">
+      Signal processing, image analysis and their applications &mdash; a ranked,
+      IEEE-published forum held across the Euro-Mediterranean region since
+      {{ $first.year }}.
+    </p>
+
+    <dl class="cover__facts">
+      <div class="fact">
+        <dt>Next edition</dt>
+        <dd><b>ATSIP&rsquo;{{ $e.year }}</b> &middot; {{ $e.num }}th</dd>
+      </div>
+      <div class="fact">
+        <dt>Dates</dt>
+        <dd>{{ $e.dates_display }}</dd>
+      </div>
+      <div class="fact">
+        <dt>Venue</dt>
+        <dd>{{ $e.city }}, {{ $e.country }}</dd>
+      </div>
+      <div class="fact fact--live">
+        <dt>Submission deadline</dt>
+        <dd data-countdown="2027-03-30">30 March 2027</dd>
+      </div>
+    </dl>
+
+    <div class="actions cover__actions">
+      <a class="btn btn--solid" href="{{ printf "%d/call-for-papers/" $cur | relURL }}">Call for papers</a>
+      <a class="btn btn--line" href="{{ printf "%d/submission/" $cur | relURL }}">Submit a paper</a>
+      <a class="btn btn--line" href="{{ printf "%d/" $cur | relURL }}">ATSIP&rsquo;{{ $cur }} site</a>
+    </div>
+  </div>
 </section>
 
-{{ partial "credentials.html" . }}
+<div class="photoband">
+  <img src="{{ "img/sousse.png" | relURL }}" alt="Sousse: medina souk, golf course and marina"
+       width="819" height="254" loading="lazy">
+</div>
 
-<aside class="next-edition">
-  <div class="next-edition__body">
-    <p class="next-edition__eyebrow">Next edition &middot; {{ $e.num }}th</p>
-    <p class="next-edition__title">ATSIP&rsquo;{{ $e.year }}</p>
-    <p class="next-edition__meta">{{ $e.dates_display }} &middot; {{ $e.city }}, {{ $e.country }}</p>
-  </div>
-  <div class="actions">
-    <a class="btn btn--solid" href="{{ printf "%d/call-for-papers/" $cur | relURL }}">Call for papers</a>
-    <a class="btn btn--ghost" href="{{ printf "%d/" $cur | relURL }}">Edition site</a>
-  </div>
-</aside>
+{{ partial "sponsors.html" (dict "big" true) }}
+
+<div class="wrap">
+  {{ partial "credentials.html" . }}
+</div>
 
 {{ partial "timeline.html" . }}
 
-<div class="prose prose--home">
-  {{ .Content }}
+<div class="wrap">
+  <div class="prose prose--home">
+    {{/* Chaque <h2> ouvre une bande : titre en colonne latérale, texte à côté.
+         Découpé ici plutôt qu'en CSS pour que chaque titre reste solidaire de
+         sa propre section, sans JavaScript. */}}
+    {{ partial "banded.html" .Content }}
+  </div>
 </div>
 {{ end }}

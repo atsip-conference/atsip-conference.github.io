@@ -44,37 +44,30 @@ confirmed for ATSIP'2027.
 
 ## Organisation Committee Chair
 
-- Fathi KALLEL — ATMS, ENIS, Tunisia
+- Fathi KALLEL — ATISP, ENET'Com, Tunisia
 
 ## Organisation Committee
 
 - Leila BELTAIFA — Université de Nancy, France
-- Ridha HAMDI — ATMS, ENIS, Tunisia
-- Mouna SAHNOUN — ATMS, ENIS, Tunisia
-- Safa ZAIDI — CNRS, Sfax, Tunisia
+- Mouna SAHNOUN — ATISP, ENET'Com, Tunisia
 
 ## Technical Programme Committee
 
-- Mohamed NJAH — ATMS, ENIS, Tunisia
 - Abdelaziz KALLEL — CRNS, Tunisia
 - Mondher FRIKHA — ENET'Com, Tunisia
 - Mohamed FARAH — ISAMM, Tunisia
 
 ## Registration and Finance Chair
 
-- Mohamed GHORBEL — ATMS, ENIS, Tunisia
-
-## Publication Chairs
-
-- Lamia SELLAMI — ATMS, ENIS, Tunisia
-- Amira ECHTIOUI — ATMS, ENIS, Tunisia
+- Mohamed GHORBEL — ATISP, ENET'Com, Tunisia
 
 ## Publicity Committee
 
-- Rafik KHEMAKHEM — ATMS, ENIS, Tunisia
-- Wassim ZOUCH — ATMS, ENET'Com, Tunisia
-- Ridha DJEMEL — ATMS, ENIS, Tunisia
-- Achraf MAKHLOUFI — ATMS, ENIS, Tunisia
+- Lamia SELLAMI — ISBS, Sfax, Tunisia
+
+## Publication Committee
+
+- Omar TRIGUI — ATISP, ENET'Com, Tunisia
 
 ## Scientific Committee
 
@@ -117,6 +110,8 @@ confirmed for ATSIP'2027.
 
 ## Track chairs
 
+<div class="tracks-table">
+
 | Track | Chairs |
 |---|---|
 | Medical signal/image and computer-aided diagnosis | Habib BENALI (CAN), Khalil CHTOUROU (TUN), Lamia SELLAMI (TUN) |
@@ -127,3 +122,5 @@ confirmed for ATSIP'2027.
 | Big data and cloud computing applications | Naoufel KRAIM (KSA), Mohamed FARAH (TUN), Ali DOUIK (TUN) |
 | AI for advanced technologies | Bhiksha RAJ (USA), Zied LACHIRI (TUN), Najoua BEN AMARA (TUN) |
 | Advanced technologies for security | Gérard CHOLLET (FRA), Mounir SAYADI (TUN), Ali ALGARNI (KSA) |
+
+</div>

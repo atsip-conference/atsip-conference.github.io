@@ -25,6 +25,8 @@ industrial exhibits, and poster sessions.
 Main topics, with subtopics, include but are not limited to the
 [eight tracks of the conference]({{< relref "/" >}}#topics):
 
+<div class="tracks-table">
+
 | Track | Chairs |
 |---|---|
 | Medical signal/image and computer-aided diagnosis | Habib BENALI (CAN), Khalil CHTOUROU (TUN), Lamia SELLAMI (TUN) |
@@ -35,6 +37,8 @@ Main topics, with subtopics, include but are not limited to the
 | Big data and cloud computing applications | Naoufel KRAIM (KSA), Mohamed FARAH (TUN), Ali DOUIK (TUN) |
 | AI for advanced technologies | Bhiksha RAJ (USA), Zied LACHIRI (TUN), Najoua BEN AMARA (TUN) |
 | Advanced technologies for security | Gérard CHOLLET (FRA), Mounir SAYADI (TUN), Ali ALGARNI (KSA) |
+
+</div>
 
 <!-- Responsables de track repris de 2024 — à confirmer pour 2027. -->
 
@@ -48,6 +52,21 @@ Submissions must be original and must not have been published previously or be
 under consideration for publication while being evaluated for this conference.
 
 Accepted and presented papers will be submitted for inclusion in IEEE Xplore.
+
+## Paper template
+
+Papers must follow the **IEEE conference format** (two columns, A4). Download the
+official templates:
+
+| Format | Link |
+|---|---|
+| Word and LaTeX templates | [IEEE Manuscript Templates for Conference Proceedings](https://www.ieee.org/conferences/publishing/templates.html) |
+| LaTeX, online, no install | [IEEE conference template on Overleaf](https://www.overleaf.com/latex/templates/preparation-of-papers-for-ieee-sponsored-conferences-and-symposia/zfnqfzzzxghk) |
+| Not sure which to use | [IEEE Template Selector](https://template-selector.ieee.org/) |
+
+Use the **A4** variant, not US Letter. Do not alter the margins, column widths,
+font sizes or line spacing: papers that do not match the template are rejected by
+IEEE PDF eXpress at the camera-ready stage.
 
 ## Selected papers, best papers
 

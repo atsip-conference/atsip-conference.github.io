@@ -4,9 +4,11 @@
 <body>
   {{ partial "archive-notice.html" . }}
   {{ partial "masthead.html" . }}
-  <main class="wrap">
+  {{/* L'accueil gère ses propres largeurs : les bandeaux y sont pleine page. */}}
+  <main{{ if not .IsHome }} class="wrap"{{ end }}>
     {{ block "main" . }}{{ end }}
   </main>
   {{ partial "foot.html" . }}
+  {{ partial "scripts.html" . }}
 </body>
 </html>

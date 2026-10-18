@@ -28,7 +28,7 @@
     <h1 class="page-title">{{ .Title }}</h1>
   {{ end }}
 
-  <div class="prose">{{ .Content }}</div>
+  <div class="prose prose--banded">{{ partial "banded.html" .Content }}</div>
 
   {{ with .Pages }}<ul class="prose">
     {{ range . }}<li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>{{ end }}

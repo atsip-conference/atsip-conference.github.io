@@ -113,6 +113,8 @@ Committee of the 7th edition, held in Sousse, 11–13 July 2024.
 
 ## Track chairs
 
+<div class="tracks-table">
+
 | Track | Chairs |
 |---|---|
 | Medical signal/image and computer-aided diagnosis | Habib BENALI (CAN), Khalil CHTOUROU (TUN), Lamia SELLAMI (TUN) |
@@ -123,3 +125,5 @@ Committee of the 7th edition, held in Sousse, 11–13 July 2024.
 | Big data and cloud computing applications | Naoufel KRAIM (KSA), Mohamed FARAH (TUN), Ali DOUIK (TUN) |
 | AI for advanced technologies | Bhiksha RAJ (USA), Zied LACHIRI (TUN), Najoua BEN AMARA (TUN) |
 | Advanced technologies for security | Gérard CHOLLET (FRA), Mounir SAYADI (TUN), Ali ALGARNI (KSA) |
+
+</div>

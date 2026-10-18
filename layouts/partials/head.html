@@ -1,7 +1,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ if .IsHome }}ATSIP — {{ site.Params.fullName }}{{ else }}{{ .Title }} — ATSIP{{ end }}</title>
+  {{ $cur := site.Data.editions.current }}
+  <title>{{ if .IsHome }}ATSIP — {{ site.Params.fullName }}{{ else if and .Params.edition (eq (string .Params.edition) (string $cur)) (eq .Kind "section") }}ATSIP&rsquo;{{ $cur }} — {{ site.Params.fullName }}{{ else }}{{ .Title }} — ATSIP&rsquo;{{ with .Params.edition }}{{ . }}{{ end }}{{ end }}</title>
+  <link rel="canonical" href="{{ .Permalink }}">
   <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ site.Params.fullName }}. IEEE conference series held since 2014.{{ end }}">
 
   <link rel="icon" href="{{ "favicon.png" | relURL }}" sizes="32x32">
@@ -10,6 +12,17 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+  {{/* Open Graph : aperçu correct quand le lien est partagé par mail ou messagerie */}}
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ATSIP">
+  <meta property="og:title" content="{{ if .IsHome }}{{ site.Params.fullName }}{{ else }}{{ .Title }}{{ end }}">
+  <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ site.Params.fullName }}. IEEE conference series held since 2014.{{ end }}">
+  <meta property="og:url" content="{{ .Permalink }}">
+  <meta property="og:image" content="{{ "img/sousse.png" | absURL }}">
+  <meta name="twitter:card" content="summary_large_image">
+
+  {{ partial "schema.html" . }}
 
   {{ with resources.Get "css/main.css" | fingerprint }}
     <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">

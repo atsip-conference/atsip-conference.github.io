@@ -1,0 +1,40 @@
+{{/* Données structurées schema.org — permet à Google d'afficher la conférence
+     comme un événement (dates, lieu) plutôt qu'un simple lien bleu. */}}
+{{ $cur := site.Data.editions.current }}
+{{ $e := index (where site.Data.editions.editions "year" $cur) 0 }}
+{{ if and .Params.edition (eq (string .Params.edition) (string $cur)) (eq .Kind "section") }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "ATSIP'{{ $e.year }} — {{ site.Params.fullName }}",
+  "alternateName": ["ATSIP {{ $e.year }}", "ATSIP'{{ $e.year }}", "{{ $e.num }}th IEEE ATSIP"],
+  "startDate": "{{ $e.dates_start }}",
+  "endDate": "{{ $e.dates_end }}",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "location": {
+    "@type": "Place",
+    "name": "{{ $e.city }}",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "{{ $e.city }}",
+      "addressCountry": "TN"
+    }
+  },
+  "description": "The {{ $e.num }}th International Conference on Advanced Technologies, Signal and Image Processing. Signal processing, image analysis, medical imaging, remote sensing, AI. Published by IEEE and indexed in IEEE Xplore.",
+  "url": "{{ .Permalink }}",
+  "organizer": {
+    "@type": "Organization",
+    "name": "ATISP Laboratory, ENET'Com, University of Sfax",
+    "url": "{{ site.BaseURL }}"
+  },
+  "superEvent": {
+    "@type": "EventSeries",
+    "name": "{{ site.Params.fullName }}",
+    "alternateName": "ATSIP",
+    "url": "{{ site.BaseURL }}"
+  }
+}
+</script>
+{{ end }}

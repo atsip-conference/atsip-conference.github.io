@@ -1,23 +1,6 @@
 {{ $cur := site.Data.editions.current }}
 
-<section class="sponsors" aria-label="Publication and organisers">
-  <div class="sponsors__row">
-    <div class="sponsors__block">
-      <p class="sponsors__label">Published by</p>
-      <ul class="sponsors__list">
-        <li><a href="https://ieeexplore.ieee.org/" class="ieee-mark" aria-label="IEEE Xplore">
-          {{ readFile "static/img/ieee.svg" | safeHTML }}</a></li>
-      </ul>
-    </div>
-    <div class="sponsors__block">
-      <p class="sponsors__label">Organised with</p>
-      <ul class="sponsors__list">
-        <li><img src="{{ "img/atsi.png" | relURL }}" alt="ATSI association" width="420" height="165"></li>
-        <li><img src="{{ "img/ieee-tunisia.png" | relURL }}" alt="IEEE Tunisia Section" width="420" height="149"></li>
-      </ul>
-    </div>
-  </div>
-</section>
+{{ if not .IsHome }}{{ partial "sponsors.html" (dict "big" false "Site" .Site) }}{{ end }}
 
 <footer class="foot">
   <div class="wrap foot__grid">
