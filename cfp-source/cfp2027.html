@@ -102,11 +102,13 @@
 
   /* ---------- Corps en deux colonnes ---------- */
 
-  .body { display: table; width: 100%; table-layout: fixed; }
+  .body { display: flex; width: 100%; align-items: stretch; }
 
   .aside {
-    display: table-cell;
-    vertical-align: top;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 0 0 57mm;
     width: 57mm;
     padding: 2.6mm 2.5mm 2mm 3.5mm;
     border-right: 0.6pt solid var(--rule);
@@ -128,7 +130,7 @@
   .aside p { margin-bottom: 0.3mm; color: var(--ink); }
   .aside .aff { color: var(--soft); }
 
-  .main { display: table-cell; vertical-align: top; padding: 3.5mm 4mm 3mm 4mm; }
+  .main { flex: 1 1 auto; min-width: 0; padding: 3.5mm 4mm 3mm 4mm; }
 
   .lede { font-size: 7.6pt; margin-bottom: 1.8mm; }
   .lede strong { color: var(--navy); }
@@ -209,6 +211,17 @@
     color: var(--amber);
   }
 
+  .ss { margin: 1.2mm 0 1.4mm; padding: 0; column-count: 2; column-gap: 5mm; }
+  .ss li { break-inside: avoid; }
+  .ss__name { font-weight: bold; color: var(--navy); }
+  .ss__org {
+    display: block;
+    font-size: 5.6pt;
+    font-weight: normal;
+    color: var(--soft);
+    margin-top: 0.2mm;
+  }
+
   /* ---------- Échéances ---------- */
 
   .deadlines {
@@ -246,6 +259,8 @@
   .foot strong { color: var(--navy); }
   .foot .url { font-weight: bold; color: var(--sea); }
 
+  a { color: #0e6da8; font-weight: bold; text-decoration: none; }
+
   .cmt {
     margin-top: 2mm;
     font-size: 5.8pt;
@@ -277,20 +292,28 @@
   <div class="body">
 
     <aside class="aside">
-      <h2>Founder &amp; General Chair</h2>
+      
+      <div class="ablock">
+<h2>Founder &amp; General Chair</h2>
       <p>Ahmed ElMokhtar BEN HMIDA<br><span class="aff">KKU, KSA</span></p>
+      </div>
 
-      <h2>General Chairs</h2>
+      <div class="ablock">
+<h2>General Chairs</h2>
       <p>Basel SOLAIMAN<span class="aff">, IMT Atlantique, FRA</span></p>
       <p>Imed Riadh FARAH<span class="aff">, ISAMM, TUN</span></p>
       <p>Mohamed BEN SLIMA<span class="aff">, ENET'Com, TUN</span></p>
+      </div>
 
-      <h2>Honorary Chairs</h2>
+      <div class="ablock">
+<h2>Honorary Chairs</h2>
       <p>Areej ALASIRY<span class="aff">, CS, KKU, KSA</span></p>
       <p>Gérard CHOLLET<span class="aff">, Télécom Paris, FRA</span></p>
       <p>Eloi BOSSÉ<span class="aff">, Univ. QC, CAN</span></p>
+      </div>
 
-      <h2>Steering Committee Chairs</h2>
+      <div class="ablock">
+<h2>Steering Committee Chairs</h2>
       <p>Habib BENALI<span class="aff">, Concordia Univ., CAN</span></p>
       <p>Najoua BEN AMARA<span class="aff">, ENISO, TUN</span></p>
       <p>Mehrez ZRIBI<span class="aff">, CESBIO, FRA</span></p>
@@ -303,30 +326,43 @@
       <p>Ali DOUIK<span class="aff">, ENISO, TUN</span></p>
       <p>Hassene SEDDIK<span class="aff">, ENSIT, TUN</span></p>
       <p>Mounir SAYADI<span class="aff">, ENSIT, TUN</span></p>
+      </div>
 
-      <h2>Organisation Chair</h2>
+      <div class="ablock">
+<h2>Organisation Chair</h2>
       <p>Fathi KALLEL<span class="aff">, ATISP, ENET'Com, TUN</span></p>
+      </div>
 
-      <h2>Organisation Committee</h2>
+      <div class="ablock">
+<h2>Organisation Committee</h2>
       <p>Leila BELTAIFA<span class="aff">, Nancy Univ., FRA</span></p>
       <p>Mouna SAHNOUN<span class="aff">, ATISP, ENET'Com, TUN</span></p>
+      </div>
 
-      <h2>Technical Programme Committee</h2>
+      <div class="ablock">
+<h2>Technical Programme Committee</h2>
       <p>Abdelaziz KALLEL<span class="aff">, CRNS, TUN</span></p>
       <p>Mondher FRIKHA<span class="aff">, ENET'Com, TUN</span></p>
       <p>Mohamed FARAH<span class="aff">, ISAMM, TUN</span></p>
+      </div>
 
-      <h2>Registration &amp; Finance</h2>
+      <div class="ablock">
+<h2>Registration &amp; Finance</h2>
       <p>Mohamed GHORBEL<span class="aff">, ATISP, ENET'Com, TUN</span></p>
+      </div>
 
-      <h2>Publicity Committee</h2>
+      <div class="ablock">
+<h2>Publicity Committee</h2>
       <p>Lamia SELLAMI<span class="aff">, ISBS, Sfax, TUN</span></p>
+      </div>
 
-      <h2>Publication Committee</h2>
+      <div class="ablock">
+<h2>Publication Committee</h2>
       <p>Omar TRIGUI<span class="aff">, ATISP, ENET'Com, TUN</span></p>
+      </div>
 
-
-      <h2>Scientific Committee</h2>
+      <div class="ablock">
+<h2>Scientific Committee</h2>
       <p>Habib ZAIDI<span class="aff">, Geneva Univ., CH</span></p>
       <p>Aymen QAHMASH<span class="aff">, CS, KKU, KSA</span></p>
       <p>Mehrez MARZOUGUI<span class="aff">, CS, KKU, KSA</span></p>
@@ -348,7 +384,7 @@
       <p>Sofia BEN JEBARA<span class="aff">, SUP'COM, TUN</span></p>
       <p>Christophe GROVA<span class="aff">, Concordia Univ., CAN</span></p>
       <p>Kais OUNI<span class="aff">, ENICarthage, TUN</span></p>
-      <p>Riadh ABDELFATTEH<span class="aff">, SUP'COM, TUN</span></p>
+      <p>Riadh ABDELFATTAH<span class="aff">, SUP'COM, TUN</span></p>
       <p>Mohamed Hedi BEDOUI<span class="aff">, FMM, TUN</span></p>
       <p>Aicha BOUZID<span class="aff">, ENIT, TUN</span></p>
       <p>Najet AROUS<span class="aff">, ISIA, TUN</span></p>
@@ -359,7 +395,8 @@
       <p>Sylvie DANIEL<span class="aff">, Univ. Laval, CAN</span></p>
       <p>Mohammed EL HASSOUNI<span class="aff">, Med. V Univ., MOR</span></p>
       <p>Nouha JAOUA<span class="aff">, IRT Lille, FRA</span></p>
-    </aside>
+      </div>
+</aside>
 
     <section class="main">
 
@@ -371,7 +408,6 @@
         advances and applications. It features world-class speakers, plenary sessions,
         business and industrial exhibits, and poster sessions.</p>
 
-      <img class="photos" src="sousse.png" alt="Sousse: medina souk, golf course and marina">
 
       <p class="rank">ATSIP conference ranking: CORE database &mdash;
         portal.core.edu.au/conf-ranks/2231/ &nbsp;&middot;&nbsp;
@@ -396,7 +432,7 @@
         </div>
         <div class="track">
           <p class="track__name">New Technologies for Communications Networking</p>
-          <p class="track__chairs">Riadh ABDELFATTEH (TUN) &amp; Christophe GROVA (CAN) &amp; Abd. TOUMI (FRA)</p>
+          <p class="track__chairs">Riadh ABDELFATTAH (TUN) &amp; Christophe GROVA (CAN) &amp; Abdelmalek TOUMI (FRA)</p>
         </div>
         <div class="track">
           <p class="track__name">Image &amp; Video, Speech &amp; Audio Processing</p>
@@ -420,23 +456,41 @@
       <p>Authors are invited to submit full-length papers of no more than
         <strong>six pages</strong> including results, figures and references, in IEEE
         conference format. Papers are accepted only through the conference submission
-        system, <strong>cmt3.research.microsoft.com/ATSIP2027</strong>. Submissions must
-        be original and must not have been published previously or be under consideration
-        for publication elsewhere while being evaluated for this conference. Accepted and
-        presented papers will be submitted for inclusion in IEEE&nbsp;Xplore.</p>
+        system, <a href="https://cmt3.research.microsoft.com/ATSIP2027">cmt3.research.microsoft.com/ATSIP2027</a>. Submissions must be original and must not have been
+        published previously or be under consideration for publication elsewhere while
+        being evaluated for this conference. Accepted and presented papers will be
+        submitted for inclusion in IEEE&nbsp;Xplore.</p>
       <p style="margin-top:1.2mm;"><strong>Templates (Word and LaTeX):</strong>
-        ieee.org/conferences/publishing/templates.html &nbsp;&middot;&nbsp;
-        template-selector.ieee.org &nbsp;&mdash;&nbsp; use the A4 variant.</p>
+        <a href="https://www.ieee.org/conferences/publishing/templates.html">ieee.org/conferences/publishing/templates.html</a> &nbsp;&middot;&nbsp;
+        <a href="https://template-selector.ieee.org/">template-selector.ieee.org</a> &nbsp;&mdash;&nbsp; use the A4 variant.</p>
 
       <h3 class="sec">Selected papers, best papers</h3>
-      <p>Best papers will be awarded and extended in order to be submitted as special
-        issues of international journals.</p>
+      <p>Best papers will be awarded. Selected papers will be invited to extend their
+        work for special issues of international journals.</p>
 
       <h3 class="sec">Special sessions, round tables</h3>
-      <p>Besides regular sessions, special sessions are an important part of the
-        technical programme, promoting an environment that fosters discussion and
-        collaboration on specific topics of interest. Proposals give the session title,
-        a short rationale, the organisers and their affiliations.</p>
+      <p>Alongside the regular sessions, special sessions are an important part of
+        the technical programme. The sessions below are organised; further proposals
+        give the session title, a short rationale and the organisers.</p>
+
+      <ul class="ss">
+        <li><span class="ss__name">Medical signal/image and cognitive neuroscience</span>
+          <span class="ss__org">Habib BENALI (CAN) &amp; Julien DOYON (CAN)</span></li>
+        <li><span class="ss__name">Artificial intelligence in neurodegenerative diseases</span>
+          <span class="ss__org">Nawres KHLIFA (TUN), Rostom MABROUK (CAN), Hajer KACHNAOUI (TUN) &amp; Bouchra GUELIB (ALG)</span></li>
+        <li><span class="ss__name">Artificial intelligence for control and navigation of robots</span>
+          <span class="ss__org">Hassene SEDDIK (TUN) &amp; Chiraz BEN JABEUR (TUN) &amp; Nadhir MESAI (FRA)</span></li>
+        <li><span class="ss__name">Signal and image processing for disease and pattern identification</span>
+          <span class="ss__org">Hassene SEDDIK (TUN) &amp; Slim BEN CHAABENE (TUN) &amp; Zouhair MBARKI (TUN) &amp; Amine BEN SLAMA (TUN)</span></li>
+        <li><span class="ss__name">Recent advances in AI for emotion recognition</span>
+          <span class="ss__org">Leila BELTAIFA (FRA), Bhiksha RAJ (USA), Hassene SEDDIK (TUN) &amp; Gérard CHOLLET (FRA)</span></li>
+        <li><span class="ss__name">Deep learning for medical imaging and CAD in health information systems</span>
+          <span class="ss__org">Rachid JENNANE (FRA) &amp; Rania HAMMEMI (TUN) &amp; Ali ALGARNI (KSA)</span></li>
+        <li><span class="ss__name">Advanced AI models for biometrics</span>
+          <span class="ss__org">Ahmed KAFFEL (USA), Imed Riadh FARAH (TUN), Najoua BEN AMARA (TUN) &amp; Aymen QAHMESH (KSA)</span></li>
+        <li><span class="ss__name">Artificial intelligence for remote sensing images</span>
+          <span class="ss__org">Mehrez ZRIBI (FRA), Abdelmalek TOUMI (FRA) &amp; Abdelaziz KALLEL (TUN)</span></li>
+      </ul>
 
       <h3 class="sec">Important deadlines</h3>
       <table class="deadlines">
@@ -470,7 +524,7 @@
 
       <div class="foot">
         <p><strong>More information:</strong>
-          <span class="url">atsip-conference.github.io</span>
+          <a class="url" href="https://atsip-conference.github.io/2027/">atsip-conference.github.io</a>
           &nbsp;&middot;&nbsp; atsip.conf@gmail.com</p>
         <p class="cmt">The Microsoft CMT service was used for managing the peer-reviewing process for this conference. This service was provided for free by Microsoft and they bore all expenses, including costs for Azure cloud services as well as for software development and support.</p>
       </div>
