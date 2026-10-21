@@ -28,9 +28,9 @@ has been published by IEEE and indexed in IEEE Xplore.
 | | |
 |---|---|
 | 30 March 2027 | Paper submission deadline |
-| 20 April 2027 | Notification of acceptance |
-| 1 May 2027 | Camera-ready and copyright form |
-| 1 May 2027 | Author registration |
+| 1 May 2027 | Notification of acceptance |
+| 15 May 2027 | Camera-ready and copyright form |
+| 30 May 2027 | Author registration |
 | 25 June 2027 | Final programme |
 | 30 June – 3 July 2027 | Conference |
 
@@ -73,7 +73,11 @@ Submissions are handled electronically through **Microsoft CMT**. Authors need a
 CMT account, which is free to create at
 [cmt3.research.microsoft.com](https://cmt3.research.microsoft.com).
 
-*The submission link will be published here when the system opens.*
+<div class="cta">
+
+[**Submit your paper**](https://cmt3.research.microsoft.com/ATSIP2027)
+
+</div>
 
 [Submission details]({{< relref "/2027/submission" >}}).
 

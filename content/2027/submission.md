@@ -10,10 +10,13 @@ Submissions for ATSIP'2027 are handled electronically through **Microsoft CMT**.
 Authors need a CMT account before submitting. Accounts are free and can be
 created at [cmt3.research.microsoft.com](https://cmt3.research.microsoft.com).
 
-<!-- À COMPLÉTER : remplacer par le lien direct de la conférence dès que le site
-     CMT est créé (il arrive par e-mail après acceptation de la demande). -->
+<div class="cta">
 
-*The submission link will be published here when the system opens.*
+[**Submit your paper**](https://cmt3.research.microsoft.com/ATSIP2027)
+
+</div>
+
+Direct link: **https://cmt3.research.microsoft.com/ATSIP2027**
 
 ## Format
 

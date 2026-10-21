@@ -102,9 +102,9 @@ their affiliations, and an indication of the expected contributions.
 | | |
 |---|---|
 | Submission of regular papers | 30 March 2027 |
-| Notification of paper acceptance | 20 April 2027 |
-| Revised paper upload | 1 May 2027 |
-| Author registration | 1 May 2027 |
+| Notification of paper acceptance | 1 May 2027 |
+| Revised paper upload | 15 May 2027 |
+| Author registration | 30 May 2027 |
 
 See the [important dates page]({{< relref "/2027/important-dates" >}}) for the
 full schedule.
