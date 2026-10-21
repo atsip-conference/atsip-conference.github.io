@@ -3,110 +3,105 @@ title: "Committees"
 edition: 2027
 ---
 
-<!-- REPRIS DU CFP ATSIP'2024 — À CONFIRMER PAR LE COMITÉ EXÉCUTIF.
-     Chaque nom doit être confirmé avant diffusion de l'appel à communications :
-     certaines personnes ont changé d'affiliation et toutes n'ont pas encore
-     donné leur accord pour 2027. Supprimer ce commentaire une fois validé. -->
-
-**Provisional.** The committee below is carried over from ATSIP'2024 and is being
-confirmed for ATSIP'2027.
-
 ## Founder and General Chair
 
-- Ahmed BEN HAMIDA — KKU, Saudi Arabia
+- Ahmed Ben HAMIDA — KKU, Saudi Arabia
 
 ## General Chairs
 
 - Basel SOLAIMAN — IMT Atlantique, France
-- Imed Riadh FARAH — ISAMM, Tunisia
-- Mohamed BEN SLIMA — ENET'Com, Tunisia
+- Mehrez ZRIBI — CESBIO, Toulouse, France
 
 ## Honorary Chairs
 
-- Areej ALASIRY — CS, KKU, Saudi Arabia
+- Aymen QAHMESH — CS, KKU, Saudi Arabia
 - Gérard CHOLLET — Télécom Paris, France
-- Eloi BOSSÉ — Université du Québec, Canada
+- Bhiksha RAJ — CMU, USA
 
-## Steering Committee Chairs
-
-- Habib BENALI — Concordia University, Montreal, Canada
-- Najoua BEN AMARA — ENISO, Tunisia
-- Mehrez ZRIBI — CESBIO, Toulouse, France
-- Ali ALGARNI — CS, KKU, Saudi Arabia
-- Hamed AlQAHTANI — CS, KKU, Saudi Arabia
-- Abdulmohsen ALGARNI — CS, KKU, Saudi Arabia
-- Bhiksha RAJ RAMAKRISHNAN — Carnegie Mellon University, USA
-- Zied LACHIRI — ENIT, Tunisia
-- Ali KHENCHAF — ENSTA Bretagne, France
-- Ali DOUIK — ENISO, Tunisia
-- Hassene SEDDIK — ENSIT, Tunisia
-- Mounir SAYADI — ENSIT, Tunisia
-
-## Organisation Committee Chair
+## Logistics and Organisation Chair
 
 - Fathi KALLEL — ATISP, ENET'Com, Tunisia
 
+## Steering Committee Chairs
+
+- Mohamed BEN SLIMA — ATISP, Univ. Sfax, Tunisia
+- Naoufel KRAIM — CS, KKU, Saudi Arabia
+- Ali KHENCHAF — ENSTA Bretagne, France
+- Ali DOUIK — ENISO, Tunisia
+- Najoua BEN AMARA — ENISO, Tunisia
+- Radja KHEDDAM — USTHB, Algiers, Algeria
+- Imed Riadh FARAH — Univ. Tunis, Tunisia
+- Chokri BEN AMAR — ENIS, Tunisia
+- Hassene SEDDIK — ENSIT, Tunisia
+- Mounir SAYADI — ENSIT, Tunisia
+
+## Technical Programme Chairs
+
+- Mohamed FARAH — RIADI, Univ. Tunis, Tunisia
+- Ahmed KAFFEL — Univ. of Wisconsin, USA
+
+## Sponsoring Chair
+
+- Lamia SELLAMI — ISBS, Univ. Sfax, Tunisia
+
 ## Organisation Committee
 
-- Leila BELTAIFA — Université de Nancy, France
+- Yassine ARIBI — Univ. of Sfax, Tunisia
+- Suhail QADIR — CS, KKU, Saudi Arabia
+- Shoeib BANDAY — CS, KKU, Saudi Arabia
 - Mouna SAHNOUN — ATISP, ENET'Com, Tunisia
-
-## Technical Programme Committee
-
-- Abdelaziz KALLEL — CRNS, Tunisia
-- Mondher FRIKHA — ENET'Com, Tunisia
-- Mohamed FARAH — ISAMM, Tunisia
-
-## Registration and Finance Chair
-
-- Mohamed GHORBEL — ATISP, ENET'Com, Tunisia
-
-## Publicity Committee
-
-- Lamia SELLAMI — ISBS, Sfax, Tunisia
-
-## Publication Committee
-
 - Omar TRIGUI — ATISP, ENET'Com, Tunisia
 
 ## Scientific Committee
 
-- Habib ZAIDI — University of Geneva, Switzerland
-- Aymen QAHMASH — CS, KKU, Saudi Arabia
-- Bhiksha RAJ RAMAKRISHNAN — Carnegie Mellon University, USA
-- Mehrez MARZOUGUI — CS, KKU, Saudi Arabia
+- Habib BENALI — Concordia Univ., Canada
+- Zied LACHIRI — ENIT, Tunisia
+- Mohamed AlHEFDHI — CS, KKU, Saudi Arabia
+- Sarra AbouGHAZELA — CS, KKU, Saudi Arabia
+- Habib ZAIDI — Univ. of Geneva, Switzerland
+- Eloi BOSSÉ — Univ. QC, Canada
+- Bhiksha RAJ — CMU, USA
 - Ali KHENCHAF — ENSTA Bretagne, France
-- Ahmed KAFFEL — University of Wisconsin, USA
-- Ali ALGARNI — CS, KKU, Saudi Arabia
-- Rachid JENNANE — Université d'Orléans, France
-- Omar ALQAHTANI — CS, KKU, Saudi Arabia
-- Habib HAMAM — Université de Moncton, Canada
+- Bassem BOUHAMED — Univ. of Sfax, Tunisia
+- Rachid JENNANE — Univ. d'Orléans, France
+- Habib HAMAM — Univ. Moncton, Canada
 - Jean-Philippe GASTELLU-ETCHEGORRY — CESBIO, France
 - Ahmed FAKHFAKH — CNRS, Tunisia
 - Mauro DALLA MURA — Grenoble INP, France
-- Habib BENALI — Concordia University, Canada
 - Mohamed ATRI — CS, KKU, Saudi Arabia
+- Abdelaziz KALLEL — CRNS, Tunisia
+- Mondher FRIKHA — ENET'Com, Tunisia
 - Driss BOUSSAOUD — CNRS, France
 - Abdulmajid Al-JUNAID — CS, KKU, Saudi Arabia
-- Said BOUJRAF — FMPF, Morocco
+- Leila BELTAIFA — Nancy Univ., France
 - Jamal KHARROUBI — USMBA, Morocco
-- Naoufel KRAIM — CS, KKU, Saudi Arabia
-- Ali GHARSALLAH — FST, Tunisia
+- Muniasamy ANANDHAVALLI — CS, KKU, Saudi Arabia
+- Yousef ALHAIZAEY — CS, KKU, Saudi Arabia
 - Abdelmalek TOUMI — ENSTA Bretagne, France
-- Sofia BEN JBARA — SUP'COM, Tunisia
-- Christophe GROVA — Concordia University, Canada
+- Sofia BEN JEBARA — SUP'COM, Tunisia
+- Christophe GROVA — Concordia Univ., Canada
 - Kais OUNI — ENICarthage, Tunisia
-- Riadh ABDELFATTEH — SUP'COM, Tunisia
+- Riadh ABDELFATTAH — SUP'COM, Tunisia
 - Mohamed Hedi BEDOUI — FMM, Tunisia
-- Aicha BOUZID — ENIT, Tunisia
 - Najet AROUS — ISIA, Tunisia
 - Mebarka BELAHCENE — LI3C, Biskra, Algeria
-- Hela BEZINE — FSS, USF, Tunisia
+- Ines KAMMOUN — LETI, ENIS, Tunisia
+- Noura SELLAMI — LETI, ENIS, Tunisia
+- Hala BEZINE — FSS, USF, Tunisia
 - Nawres KHLIFA — ISTM, Tunisia
-- Ofla BEN AHMED — Université de Poitiers, France
-- Sylvie DANIEL — Université Laval, Canada
-- Mohammed EL HASSOUNI — Mohammed V University, Morocco
+- Ofla BEN AHMED — Univ. Poitiers, France
+- Sylvie DANIEL — Univ. Laval, Canada
+- Mohammed EL HASSOUNI — Mohammed V Univ., Morocco
 - Nouha JAOUA — IRT Lille, France
+
+## Publicity Committee
+
+- Mohamed GHORBEL — ATISP, ENET'Com, Tunisia
+- Achraf MAKHLOUFI — ENET'Com, Sfax, Tunisia
+- Olfa BEN SASSI — Univ. of Tunis, Tunisia
+- Wassim ZOUCH — ATISP, ENET'Com, Tunisia
+- Asharul Islam MONAZIRUL — CS, KKU, Saudi Arabia
+- Mohammad RASOOL — CS, KKU, Saudi Arabia
 
 ## Track chairs
 
@@ -121,6 +116,6 @@ confirmed for ATSIP'2027.
 | Image, video, speech and audio processing | Rachid JENNANE (FRA), Sofia BEN JEBARA (TUN), Mondher FRIKHA (TUN) |
 | Big data and cloud computing applications | Naoufel KRAIM (KSA), Mohamed FARAH (TUN), Ali DOUIK (TUN) |
 | AI for advanced technologies | Bhiksha RAJ (USA), Zied LACHIRI (TUN), Najoua BEN AMARA (TUN) |
-| Advanced technologies for security | Gérard CHOLLET (FRA), Mounir SAYADI (TUN), Ali ALGARNI (KSA) |
+| Advanced technologies for security | Gérard CHOLLET (FRA), Mounir SAYADI (TUN) |
 
 </div>

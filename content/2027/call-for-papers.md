@@ -42,7 +42,7 @@ Main topics, with subtopics, include but are not limited to the
 | Image, video, speech and audio processing | Rachid JENNANE (FRA), Sofia BEN JEBARA (TUN), Mondher FRIKHA (TUN) |
 | Big data and cloud computing applications | Naoufel KRAIM (KSA), Mohamed FARAH (TUN), Ali DOUIK (TUN) |
 | AI for advanced technologies | Bhiksha RAJ (USA), Zied LACHIRI (TUN), Najoua BEN AMARA (TUN) |
-| Advanced technologies for security | Gérard CHOLLET (FRA), Mounir SAYADI (TUN), Ali ALGARNI (KSA) |
+| Advanced technologies for security | Gérard CHOLLET (FRA), Mounir SAYADI (TUN) |
 
 </div>
 
