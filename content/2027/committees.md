@@ -92,6 +92,7 @@ edition: 2027
 - Sylvie DANIEL — Univ. Laval, Canada
 - Mohammed EL HASSOUNI — Mohammed V Univ., Morocco
 - Nouha JAOUA — IRT Lille, France
+- Mohamed BEN SLIMA — ENET'Com, Tunisia
 
 ## Publicity Committee
 

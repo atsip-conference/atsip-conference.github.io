@@ -755,6 +755,31 @@ main > .cover { margin-top: -1rem; }
 .cover__facts dd b { font-weight: 700; }
 .fact--live dd { color: var(--amber); }
 
+/* Mise en avant de l'edition en cours sur la page de garde.
+
+   Le clignotement joue sur l'opacite et non sur la visibilite : un vrai
+   clignotement franc, a plus de trois cycles par seconde, gene la lecture et
+   peut declencher des crises chez les personnes photosensibles. Ici le cycle
+   dure 1,6 s et le texte ne disparait jamais completement, ce qui attire l'oeil
+   sans rendre le mot illisible.
+
+   Le rouge est eclairci par rapport au #c1272d de l'appel a communications :
+   sur le fond sombre de la couverture, le rouge du document imprime passerait
+   presque inapercu. */
+.blink {
+  color: #ff5056;
+  animation: blink 1.6s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.3; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blink { animation: none; }
+}
+
 .fact__note {
   display: block;
   font-family: var(--mono);

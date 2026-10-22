@@ -22,7 +22,10 @@
       "addressCountry": "TN"
     }
   },
-  "description": "The {{ $e.num }}th International Conference on Advanced Technologies, Signal and Image Processing. Signal processing, image analysis, medical imaging, remote sensing, AI. Published by IEEE and indexed in IEEE Xplore.",
+  {{/* Cette description porte sur l'edition a venir : la publication y est
+       annoncee comme une soumission et non comme un fait acquis, conformement
+       a ce qu'exige IEEE. */}}
+  "description": "The {{ $e.num }}th International Conference on Advanced Technologies, Signal and Image Processing. Signal processing, image analysis, medical imaging, remote sensing, AI. Accepted and presented papers are submitted for inclusion in IEEE Xplore, subject to meeting IEEE Xplore's scope and quality requirements.",
   "url": "{{ .Permalink }}",
   "organizer": {
     "@type": "Organization",
@@ -51,7 +54,7 @@
   "name": "{{ site.Params.fullName }}",
   "alternateName": ["ATSIP", "ATSIP Conference", "IEEE ATSIP"],
   "url": "{{ site.BaseURL }}",
-  "description": "IEEE conference on advanced technologies, signal and image processing, held across Tunisia and Morocco since 2014. Proceedings published by IEEE and indexed in IEEE Xplore.",
+  "description": "IEEE conference on advanced technologies, signal and image processing, held across Tunisia and Morocco since 2014. Proceedings of every edition since 2014 have been published by IEEE and indexed in IEEE Xplore.",
   "inLanguage": "en",
   "organizer": {
     "@type": "Organization",
