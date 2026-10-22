@@ -22,7 +22,7 @@ edition: 2027
 
 - Fathi KALLEL — ATISP, ENET'Com, Tunisia
 
-## Steering Committee Chairs
+## Steering Committee
 
 - Naoufel KRAIM — CS, KKU, Saudi Arabia
 - Ali KHENCHAF — ENSTA Bretagne, France
@@ -33,6 +33,9 @@ edition: 2027
 - Chokri BEN AMAR — ENIS, Tunisia
 - Hassene SEDDIK — ENSIT, Tunisia
 - Mounir SAYADI — ENSIT, Tunisia
+- Habib M. KAMMOUN — IEEE Tunisia Section
+- Maha CHARFEDDINE — IEEE SPS Tunisia Chapter
+- Mohamed BEN SLIMA — ATSI president
 
 ## Technical Programme Chairs
 
@@ -92,9 +95,6 @@ edition: 2027
 - Sylvie DANIEL — Univ. Laval, Canada
 - Mohammed EL HASSOUNI — Mohammed V, Morocco
 - Nouha JAOUA — IRT Lille, France
-- Mohamed BEN SLIMA — ENET'Com, Tunisia
-- Maha CHARFEDDINE — REGIM, ENIS, Tunisia
-- Habib M. KAMMOUN — FSS, USF, Tunisia
 
 ## Publicity Committee
 
