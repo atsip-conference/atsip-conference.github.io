@@ -61,7 +61,8 @@ published elsewhere and not under concurrent review.
 
 Each submission receives independent reviews from members of the technical
 programme committee. Accepted papers must be presented by a registered author to
-appear in the proceedings, and are submitted for inclusion in IEEE Xplore.
+appear in the proceedings, and are submitted for inclusion in IEEE Xplore,
+subject to meeting IEEE Xplore's scope and quality requirements.
 
 **Templates:** [Word and LaTeX](https://www.ieee.org/conferences/publishing/templates.html)
 &middot; [Overleaf](https://www.overleaf.com/latex/templates/preparation-of-papers-for-ieee-sponsored-conferences-and-symposia/zfnqfzzzxghk)
