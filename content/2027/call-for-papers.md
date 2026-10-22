@@ -57,8 +57,7 @@ submission through the [submission page]({{< relref "/2027/submission" >}}).
 Submissions must be original and must not have been published previously or be
 under consideration for publication while being evaluated for this conference.
 
-Accepted and presented papers will be submitted for inclusion in IEEE Xplore,
-subject to meeting IEEE Xplore's scope and quality requirements.
+Accepted and presented papers will be submitted for inclusion in IEEE Xplore.
 
 ## Paper template
 

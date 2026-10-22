@@ -54,9 +54,8 @@ Authors of accepted papers must:
 2. Complete the IEEE electronic copyright form
 3. Register at least one author for the conference
 
-Accepted and presented papers are submitted for inclusion in IEEE Xplore, subject
-to meeting IEEE Xplore's scope and quality requirements. Papers that are not
-presented at the conference by a registered author are not submitted.
+Papers that are not presented at the conference by a registered author are not
+submitted to IEEE Xplore.
 
 ## Peer-review platform
 

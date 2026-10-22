@@ -19,6 +19,5 @@ edition: 2027
 
 All deadlines are 23:59 AoE.
 
-Accepted and presented papers are submitted for inclusion in IEEE Xplore, subject
-to meeting IEEE Xplore's scope and quality requirements. Papers that are not
-presented at the conference by a registered author are not submitted.
+Papers that are not presented at the conference by a registered author are not
+submitted to IEEE Xplore.

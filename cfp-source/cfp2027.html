@@ -9,11 +9,10 @@
   :root {
     --navy:   #1a1a6e;
     --sea:    #16506b;
-    --amber:  #c1272d;
-    --ink:    #000000;
-    --soft:   #333333;
+    --amber:  #c8801d;
+    --ink:    #16232b;
+    --soft:   #4d5f68;
     --rule:   #ccd2c9;
-    --green:  #004600;
     --paper:  #ffffff;
     --band:   #f1f3ee;
   }
@@ -77,7 +76,7 @@
     font-size: 9pt;
   }
 
-  .head__dates { font-weight: bold; color: var(--amber); }
+  .head__dates { font-weight: bold; color: var(--ink); }
   .head__ed {
     color: var(--paper);
     background: var(--amber);
@@ -93,81 +92,70 @@
     width: 100%;
     table-layout: fixed;
     padding: 2mm 4mm;
+    background: var(--band);
     border-top: 0.6pt solid var(--rule);
   }
 
   .logos__cell { display: table-cell; text-align: center; vertical-align: middle; }
   .logos img { height: 7.4mm; width: auto; }
   .logos img.tall { height: 7mm; }
-  .logos img.sps  { height: 10.4mm; }
 
   /* ---------- Corps en deux colonnes ---------- */
 
-  /* Table et non flex : le document depasse desormais une page, et seul le
-     modele table se coupe proprement entre deux feuilles. */
-  .body { display: table; width: 100%; table-layout: fixed; }
+  .body { display: flex; width: 100%; align-items: stretch; }
 
   .aside {
-    display: table-cell;
-    vertical-align: top;
-    width: 50mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 0 0 57mm;
+    width: 57mm;
     padding: 2.6mm 2.5mm 2mm 3.5mm;
-    border-right: 2pt solid var(--navy);
+    border-right: 0.6pt solid var(--rule);
     font-size: 5.2pt;
     line-height: 1.2;
   }
 
-  .aside .ablock:first-child h2 { margin-top: 0; }
-
   .aside h2 {
     font-size: 5.8pt;
-    color: var(--amber);
-    margin: 3.2mm 0 0.6mm;
+    color: var(--navy);
+    margin: 1.25mm 0 0.5mm;
     padding-bottom: 0.5mm;
     border-bottom: 0.6pt solid var(--rule);
     text-transform: uppercase;
     letter-spacing: 0.2pt;
   }
 
-  .aside p { margin-bottom: 0.3mm; color: var(--navy); }
-  .aside .aff { color: var(--navy); }
+  .aside h2:first-child { margin-top: 0; }
+  .aside p { margin-bottom: 0.3mm; color: var(--ink); }
+  .aside .aff { color: var(--soft); }
 
-  .main { display: table-cell; vertical-align: top; padding: 1.8mm 2mm 1.5mm 2mm; }
+  .main { flex: 1 1 auto; min-width: 0; padding: 3.5mm 4mm 3mm 4mm; }
 
-  .lede { font-size: 7.83pt; margin-bottom: 0.9mm; }
+  .lede { font-size: 7.6pt; margin-bottom: 1.8mm; }
   .lede strong { color: var(--navy); }
 
-  .photostrip {
-    display: flex;
-    gap: 0.6mm;
-    margin: 0 0 0.8mm;
+  .photos {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 0 1.6mm;
     border-top: 0.8pt solid var(--rule);
     border-bottom: 0.8pt solid var(--rule);
-    padding: 0.4mm 0;
   }
-
-  .photostrip img {
-    flex: 1 1 0;
-    min-width: 0;
-    height: 24mm;
-    object-fit: cover;
-    display: block;
-  }
-
-  .rank a { color: inherit; text-decoration: underline; }
 
   .rank {
-    font-size: 6.8pt;
-    color: var(--amber);
-    margin-bottom: 0.9mm;
-    padding-bottom: 0.75mm;
+    font-size: 6.6pt;
+    color: var(--soft);
+    margin-bottom: 1.8mm;
+    padding-bottom: 1.5mm;
     border-bottom: 0.6pt solid var(--rule);
   }
 
   h3.sec {
-    font-size: 9.27pt;
+    font-size: 9pt;
     color: var(--amber);
-    margin: 0.8mm 0 0.4mm;
+    margin: 1.6mm 0 0.8mm;
     font-style: italic;
   }
 
@@ -178,10 +166,10 @@
     column-gap: 5mm;
   }
 
-  .track { break-inside: avoid; margin-bottom: 0.9mm; }
+  .track { break-inside: avoid; margin-bottom: 1.8mm; }
 
   .track__name {
-    font-size: 7.01pt;
+    font-size: 6.8pt;
     font-weight: bold;
     color: var(--navy);
     padding-left: 2.6mm;
@@ -200,18 +188,18 @@
   }
 
   .track__chairs {
-    font-size: 5.98pt;
-    color: var(--green);
+    font-size: 5.8pt;
+    color: var(--soft);
     padding-left: 2.6mm;
-    margin-top: 0.15mm;
+    margin-top: 0.3mm;
   }
 
   /* ---------- Sessions spéciales ---------- */
 
   .ss li {
     list-style: none;
-    font-size: 6.8pt;
-    margin-bottom: 0.35mm;
+    font-size: 6.6pt;
+    margin-bottom: 0.7mm;
     padding-left: 2.6mm;
     position: relative;
   }
@@ -223,15 +211,15 @@
     color: var(--amber);
   }
 
-  .ss { margin: 0.6mm 0 0.7mm; padding: 0; column-count: 2; column-gap: 2.5mm; }
+  .ss { margin: 1.2mm 0 1.4mm; padding: 0; column-count: 2; column-gap: 5mm; }
   .ss li { break-inside: avoid; }
   .ss__name { font-weight: bold; color: var(--navy); }
   .ss__org {
     display: block;
-    font-size: 5.77pt;
+    font-size: 5.6pt;
     font-weight: normal;
-    color: var(--green);
-    margin-top: 0.1mm;
+    color: var(--soft);
+    margin-top: 0.2mm;
   }
 
   /* ---------- Échéances ---------- */
@@ -239,13 +227,13 @@
   .deadlines {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 0.3mm;
+    margin-top: 0.6mm;
   }
 
   .deadlines td {
-    padding: 0.47mm 0.5mm;
+    padding: 0.95mm 1mm;
     border-bottom: 0.5pt solid var(--rule);
-    font-size: 7.53pt;
+    font-size: 7.3pt;
   }
 
   .deadlines td:last-child {
@@ -261,10 +249,10 @@
   /* ---------- Pied ---------- */
 
   .foot {
-    margin-top: 0.9mm;
-    padding-top: 0.7mm;
+    margin-top: 1.8mm;
+    padding-top: 1.4mm;
     border-top: 1.2pt solid var(--navy);
-    font-size: 7.63pt;
+    font-size: 7.4pt;
     color: var(--soft);
   }
 
@@ -272,19 +260,6 @@
   .foot .url { font-weight: bold; color: var(--sea); }
 
   a { color: #0e6da8; font-weight: bold; text-decoration: none; }
-
-  /* ---------- Bandeau partenaires, pied de page ---------- */
-
-  .partners {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.8mm;
-    padding: 0.9mm 2.5mm;
-    border-top: 0.6pt solid var(--rule);
-  }
-
-  .partners img { height: 4mm; width: auto; display: block; }
 
   .cmt {
     margin-top: 2mm;
@@ -301,7 +276,7 @@
     <div class="head__right">
       <div class="head__text">
         <p class="head__title">IEEE <em>A</em>dvanced <em>T</em>echnologies, <em>S</em>ignal &amp; <em>I</em>mage <em>P</em>rocessing</p>
-        <p class="head__sub">International Ranked Conference</p>
+        <p class="head__sub">International Ranked Conference &mdash; Call for Papers</p>
         <p class="head__meta">
           <span class="head__dates">30 June &ndash; 3 July 2027 &middot; Sousse, Tunisia</span>&nbsp;&nbsp;<span class="head__ed">8th edition</span>
         </p>
@@ -309,7 +284,6 @@
       <div class="logos">
         <span class="logos__cell"><img src="ieee.png" alt="IEEE" class="tall"></span>
         <span class="logos__cell"><img src="ieee-tunisia.png" alt="IEEE Tunisia Section"></span>
-        <span class="logos__cell"><img src="ieee-sps.png" alt="IEEE Signal Processing Society, Tunisia Chapter" class="sps"></span>
         <span class="logos__cell"><img src="atsi.png" alt="ATSI"></span>
       </div>
     </div>
@@ -343,6 +317,7 @@
 
       <div class="ablock">
         <h2>Steering Committee Chairs</h2>
+        <p>Mohamed BEN SLIMA<span class="aff">, ATISP, Univ. Sfax, TUN</span></p>
         <p>Naoufel KRAIM<span class="aff">, CS, KKU, KSA</span></p>
         <p>Ali KHENCHAF<span class="aff">, ENSTA Bretagne, FRA</span></p>
         <p>Ali DOUIK<span class="aff">, ENISO, TUN</span></p>
@@ -422,7 +397,6 @@
         <p>Mohamed GHORBEL<span class="aff">, ATISP, ENET'Com, TUN</span></p>
         <p>Achraf MAKHLOUFI<span class="aff">, ENET'Com, Sfax, TUN</span></p>
         <p>Olfa BEN SASSI<span class="aff">, Univ. of Tunis, TUN</span></p>
-        <p>Imen BAKLOUTI<span class="aff">, ATISP, ENET'Com, TUN</span></p>
         <p>Wassim ZOUCH<span class="aff">, ATISP, ENET'Com, TUN</span></p>
         <p>Asharul Islam MONAZIRUL<span class="aff">, CS, KKU, KSA</span></p>
         <p>Mohammad RASOOL<span class="aff">, CS, KKU, KSA</span></p>
@@ -438,18 +412,14 @@
         engineers and scientists from around the world to present and discuss recent
         advances and applications. It features world-class speakers, plenary sessions,
         business and industrial exhibits, and poster sessions.</p>
-      <div class="photostrip">
-        <img src="sousse-medina.jpg" alt="Medina of Sousse">
-        <img src="sousse-golf.jpg" alt="Golf course near Sousse">
-        <img src="sousse-marina.jpg" alt="Marina of Sousse">
-      </div>
+
 
       <p class="rank">ATSIP conference ranking: CORE database &mdash;
-        <a href="https://portal.core.edu.au/conf-ranks/2231/">portal.core.edu.au/conf-ranks/2231/</a> &nbsp;&middot;&nbsp;
+        portal.core.edu.au/conf-ranks/2231/ &nbsp;&middot;&nbsp;
         Every edition since 2014 is published by IEEE and indexed in IEEE Xplore.</p>
 
       <h3 class="sec">Topics</h3>
-      <p style="font-size:6.7pt;color:var(--ink);margin-bottom:1.4mm;">
+      <p style="font-size:6.7pt;color:var(--soft);margin-bottom:1.4mm;">
         Main topics, with sub-topics, include but are <strong>not</strong> limited to:</p>
 
       <div class="tracks">
@@ -494,8 +464,7 @@
         system, <a href="https://cmt3.research.microsoft.com/ATSIP2027">cmt3.research.microsoft.com/ATSIP2027</a>. Submissions must be original and must not have been
         published previously or be under consideration for publication elsewhere while
         being evaluated for this conference. Accepted and presented papers will be
-        submitted for inclusion in IEEE&nbsp;Xplore, subject to meeting IEEE&nbsp;Xplore's
-        scope and quality requirements.</p>
+        submitted for inclusion in IEEE&nbsp;Xplore.</p>
       <p style="margin-top:1.2mm;"><strong>Templates (Word and LaTeX):</strong>
         <a href="https://www.ieee.org/conferences/publishing/templates.html">ieee.org/conferences/publishing/templates.html</a> &nbsp;&middot;&nbsp;
         <a href="https://template-selector.ieee.org/">template-selector.ieee.org</a> &nbsp;&mdash;&nbsp; use the A4 variant.</p>
@@ -521,7 +490,7 @@
         <li><span class="ss__name">Recent advances in AI for emotion recognition</span>
           <span class="ss__org">Leila BELTAIFA (FRA), Bhiksha RAJ (USA), Hassene SEDDIK (TUN) &amp; Gérard CHOLLET (FRA)</span></li>
         <li><span class="ss__name">Deep learning for medical imaging and CAD in health information systems</span>
-          <span class="ss__org">Rachid JENNANE (FRA) &amp; Rania HAMMEMI (TUN) &amp; Aymen QAHMESH (KSA)</span></li>
+          <span class="ss__org">Rachid JENNANE (FRA) &amp; Rania HAMMEMI (TUN) &amp; Ali ALGARNI (KSA)</span></li>
         <li><span class="ss__name">Advanced AI models for biometrics</span>
           <span class="ss__org">Ahmed KAFFEL (USA), Imed Riadh FARAH (TUN), Najoua BEN AMARA (TUN) &amp; Aymen QAHMESH (KSA)</span></li>
         <li><span class="ss__name">Artificial intelligence for remote sensing images</span>
@@ -562,31 +531,11 @@
         <p><strong>More information:</strong>
           <a class="url" href="https://atsip-conference.github.io/2027/">atsip-conference.github.io</a>
           &nbsp;&middot;&nbsp; atsip.conf@gmail.com</p>
+        <p class="cmt">The Microsoft CMT service was used for managing the peer-reviewing process for this conference. This service was provided for free by Microsoft and they bore all expenses, including costs for Azure cloud services as well as for software development and support.</p>
       </div>
 
     </section>
   </div>
-
-  <footer class="partners" aria-label="Partner institutions">
-    <img src="partners/partner-01.png" alt="">
-    <img src="partners/partner-03.png" alt="">
-    <img src="partners/partner-04.png" alt="">
-    <img src="partners/partner-05.png" alt="">
-    <img src="partners/partner-06.png" alt="">
-    <img src="partners/partner-07.png" alt="">
-    <img src="partners/partner-08.png" alt="">
-    <img src="partners/partner-09.png" alt="">
-    <img src="partners/partner-10.png" alt="">
-    <img src="partners/partner-11.png" alt="">
-    <img src="partners/partner-12.png" alt="">
-    <img src="partners/partner-13.png" alt="">
-    <img src="partners/partner-14.png" alt="">
-    <img src="partners/partner-15.png" alt="">
-    <img src="partners/partner-16.png" alt="">
-    <img src="partners/partner-17.png" alt="">
-    <img src="partners/partner-18.png" alt="">
-    <img src="partners/partner-19.png" alt="">
-  </footer>
 
 </body>
 </html>

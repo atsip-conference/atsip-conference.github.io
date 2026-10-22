@@ -15,6 +15,4 @@ a UNESCO World Heritage site, and the city is served by Monastir airport (MIR),
      l'aéroport de Monastir (MIR) et de Tunis (TUN), contingent de chambres
      négocié. Fin juin est la haute saison sur le littoral : réserver tôt. -->
 
-The conference venue is being finalised with a five-star hotel in Sousse.
-Its name, full address and the negotiated room rates will be published here
-as soon as the agreement is signed.
+*Venue details and accommodation will be published here.*
