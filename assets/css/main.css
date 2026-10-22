@@ -767,15 +767,23 @@ main > .cover { margin-top: -1rem; }
    sur le fond sombre de la couverture, le rouge du document imprime passerait
    presque inapercu. */
 .blink {
-  color: #ff5056;
+  color: var(--blink, #c1272d);
+  font-weight: 700;
   animation: blink 1.6s ease-in-out infinite;
 }
+
+/* Le lien du menu porte sa propre couleur (.nav a), plus specifique que
+   .blink : sans ce selecteur le rouge ne s'appliquerait pas. */
+.nav a.blink { color: var(--blink, #c1272d); }
+.nav a.blink:hover { color: #8f1d22; }
 
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50%      { opacity: 0.3; }
 }
 
+/* Les personnes ayant demande moins d'animations gardent le rouge et la
+   graisse, sans le clignotement. */
 @media (prefers-reduced-motion: reduce) {
   .blink { animation: none; }
 }

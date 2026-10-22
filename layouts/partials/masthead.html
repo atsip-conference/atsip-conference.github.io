@@ -21,7 +21,9 @@
         {{ end }}
         <a href="{{ "editions/" | relURL }}">All editions</a>
       {{ else }}
-        <a href="{{ printf "%s/" $cur | relURL }}">ATSIP&rsquo;{{ $cur }}</a>
+        {{/* Le lien ne clignote que sur la page d'accueil : ailleurs (Editions,
+             Contact, pages d'edition) il reste sobre. */}}
+        <a href="{{ printf "%s/" $cur | relURL }}"{{ if .IsHome }} class="blink"{{ end }}>ATSIP&rsquo;{{ $cur }}</a>
         <a href="{{ "editions/" | relURL }}">Editions</a>
         <a href="{{ "contact/" | relURL }}">Contact</a>
       {{ end }}
