@@ -24,7 +24,6 @@ edition: 2027
 
 ## Steering Committee Chairs
 
-- Mohamed BEN SLIMA — ATISP, Univ. Sfax, Tunisia
 - Naoufel KRAIM — CS, KKU, Saudi Arabia
 - Ali KHENCHAF — ENSTA Bretagne, France
 - Ali DOUIK — ENISO, Tunisia
@@ -99,6 +98,7 @@ edition: 2027
 - Mohamed GHORBEL — ATISP, ENET'Com, Tunisia
 - Achraf MAKHLOUFI — ENET'Com, Sfax, Tunisia
 - Olfa BEN SASSI — Univ. of Tunis, Tunisia
+- Imen BAKLOUTI — ATISP, ENET'Com, Tunisia
 - Wassim ZOUCH — ATISP, ENET'Com, Tunisia
 - Asharul Islam MONAZIRUL — CS, KKU, Saudi Arabia
 - Mohammad RASOOL — CS, KKU, Saudi Arabia
