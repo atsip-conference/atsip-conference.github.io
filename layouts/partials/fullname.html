@@ -1,0 +1,18 @@
+{{- /* Nom complet de la conference, point unique.
+
+     Le nom courant est « International Conference on Advanced Technologies FOR
+     Signal and Image Processing », celui de l'association ATSI.
+
+     L'edition 2024 fait exception : IEEE l'a publiee sous « Advanced
+     Technologies, Signal and Image Processing », avec une virgule. Changer son
+     nom a posteriori ferait diverger le site de la notice IEEE Xplore et de
+     DBLP. L'exception se declare dans data/editions.yaml, champ `full_name`
+     de l'edition concernee, et non ici.
+
+     Usage : {{ partial "fullname.html" . }} — passer le contexte de la page. */ -}}
+{{- $n := site.Params.fullName -}}
+{{- with .Params.edition -}}
+  {{- $m := where site.Data.editions.editions "year" . -}}
+  {{- with $m -}}{{- with (index . 0).full_name -}}{{- $n = . -}}{{- end -}}{{- end -}}
+{{- end -}}
+{{- $n -}}

@@ -17,9 +17,9 @@ editions:
     year: 2027
     city: Sousse
     country: Tunisia
-    dates_start: 2027-06-30
-    dates_end: 2027-07-03
-    dates_display: "30 June – 3 July 2027"
+    dates_start: 2027-07-01
+    dates_end: 2027-07-04
+    dates_display: "1–4 July 2027"
     status: upcoming
 
   - num: 7
@@ -29,6 +29,9 @@ editions:
     dates_display: "11–13 July 2024"
     isbn: "979-8-3503-5148-4"
     doi: "https://doi.org/10.1109/ATSIP62566.2024"
+    # IEEE a publie cette edition sous le nom a virgule : le site doit coller a
+    # la notice Xplore et a DBLP, pas au nom courant de la serie.
+    full_name: "International Conference on Advanced Technologies, Signal and Image Processing"
     dblp: "https://dblp.org/db/conf/atsip/atsip2024.html"
     status: archived
 

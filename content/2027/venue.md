@@ -3,7 +3,7 @@ title: "Venue"
 edition: 2027
 ---
 
-ATSIP'2027 is held in **Sousse, Tunisia**, from 30 June to 3 July 2027.
+ATSIP'2027 is held in **Sousse, Tunisia**, from 1 to 4 July 2027.
 
 <img class="banner" src="{{< relref "/" >}}img/sousse.png" alt="Sousse: medina souk, golf course and marina">
 

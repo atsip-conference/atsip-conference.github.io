@@ -10,7 +10,7 @@ edition: 2027
 | 15 May 2027 | Camera-ready and copyright form |
 | 30 May 2027 | Author registration |
 | 25 June 2027 | Final programme |
-| 30 June – 3 July 2027 | Conference |
+| 1–4 July 2027 | Conference |
 
 <!-- À COMPLÉTER : date d'ouverture des soumissions.
      Les prolongations seront annoncées en cours de campagne : remplacer la

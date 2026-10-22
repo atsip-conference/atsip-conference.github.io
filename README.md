@@ -215,10 +215,21 @@ une affiliation change legitimement, contrairement a une graphie.
 
 ## Naming
 
-The conference name is **International Conference on Advanced Technologies,
-Signal and Image Processing** — with a comma, matching the 2024 edition and the
-logo. Earlier editions used "Advanced Technologies *for* Signal and Image
-Processing"; do not mix the two, it fragments indexing.
+The conference name is **International Conference on Advanced Technologies
+*for* Signal and Image Processing**, the form carried by the organising
+association, Association Advanced Technologies for Signal and Image (ATSI).
+Decision du 22 octobre 2026, qui revient sur la graphie a virgule retenue
+auparavant.
+
+Une seule exception : **l'edition 2024**, qu'IEEE a publiee sous « Advanced
+Technologies, Signal and Image Processing », avec une virgule. Le site doit
+coller a la notice IEEE Xplore et a DBLP, qui ne changeront pas.
+
+Le nom affiche se decide en un seul endroit, `layouts/partials/fullname.html` :
+il rend le nom courant, sauf si l'edition de la page porte un champ `full_name`
+dans `data/editions.yaml`. Pour une nouvelle exception, ajouter ce champ a
+l'edition concernee — ne pas ecrire le nom en dur dans un gabarit, c'est
+precisement ce qui avait fait diverger les pages.
 
 ## Search visibility
 

@@ -17,7 +17,7 @@
       {{ len $eds }} editions since {{ $first.year }}
     </p>
 
-    <h1 class="cover__title">{{ site.Params.fullName }}</h1>
+    <h1 class="cover__title">{{ partial "fullname.html" . }}</h1>
 
     <p class="cover__sub">
       Signal processing, image analysis and their applications &mdash; a ranked,

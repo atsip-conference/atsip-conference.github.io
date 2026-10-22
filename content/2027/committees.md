@@ -90,9 +90,11 @@ edition: 2027
 - Nawres KHLIFA — ISTM, Tunisia
 - Ofla BEN AHMED — Univ. Poitiers, France
 - Sylvie DANIEL — Univ. Laval, Canada
-- Mohammed EL HASSOUNI — Mohammed V Univ., Morocco
+- Mohammed EL HASSOUNI — Mohammed V, Morocco
 - Nouha JAOUA — IRT Lille, France
 - Mohamed BEN SLIMA — ENET'Com, Tunisia
+- Maha CHARFEDDINE — REGIM, ENIS, Tunisia
+- Habib M. KAMMOUN — FSS, USF, Tunisia
 
 ## Publicity Committee
 

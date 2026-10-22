@@ -8,7 +8,7 @@ enableRobotsTXT = true
 disableKinds = ['taxonomy', 'term']
 
 [params]
-  fullName = 'International Conference on Advanced Technologies, Signal and Image Processing'
+  fullName = 'International Conference on Advanced Technologies for Signal and Image Processing'
   acronym = 'ATSIP'
   contactEmail = 'atsip.conf@gmail.com'
   dblp = 'https://dblp.org/db/conf/atsip/index.html'
