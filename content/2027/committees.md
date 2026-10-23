@@ -54,7 +54,7 @@ edition: 2027
 - Mouna SAHNOUN — ATISP, ENET'Com, Tunisia
 - Omar TRIGUI — ATISP, ENET'Com, Tunisia
 
-## Scientific Committee
+## Technical Programme Committee
 
 - Habib BENALI — Concordia Univ., Canada
 - Zied LACHIRI — ENIT, Tunisia
@@ -95,6 +95,9 @@ edition: 2027
 - Sylvie DANIEL — Univ. Laval, Canada
 - Mohammed EL HASSOUNI — Mohammed V, Morocco
 - Nouha JAOUA — IRT Lille, France
+- Habib M. KAMMOUN — IEEE Tunisia Section
+- Maha CHARFEDDINE — IEEE SPS Tunisia Chapter
+- Mohamed BEN SLIMA — ATSI president
 
 ## Publicity Committee
 
