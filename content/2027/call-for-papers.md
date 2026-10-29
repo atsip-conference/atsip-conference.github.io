@@ -35,10 +35,10 @@ Main topics, with subtopics, include but are not limited to the
 
 | Track | Chairs |
 |---|---|
-| Medical signal/image and computer-aided diagnosis | Habib BENALI (CAN), Khalil CHTOUROU (TUN), Lamia SELLAMI (TUN) |
+| Medical signal/image and computer-aided diagnosis | Habib BENALI (CAN), Christophe GROVA (CAN), Lamia SELLAMI (TUN) |
 | IoT, embedded systems and RF applications | Mohamed ATRI (KSA), Mohamed GHORBEL (TUN), Ahmed KAFFEL (USA) |
 | Remote sensing and assimilation | Mehrez ZRIBI (FRA), Imed R. FARAH (TUN), Abdelaziz KALLEL (TUN) |
-| New technologies for communications and networking | Riadh ABDELFATTEH (TUN), Christophe GROVA (CAN), Abdelmalek TOUMI (FRA) |
+| New technologies for communications and networking | Riadh ABDELFATTEH (TUN), Abdelmalek TOUMI (FRA) |
 | Image, video, speech and audio processing | Rachid JENNANE (FRA), Sofia BEN JEBARA (TUN), Mondher FRIKHA (TUN) |
 | Big data and cloud computing applications | Naoufel KRAIM (KSA), Mohamed FARAH (TUN), Ali DOUIK (TUN) |
 | AI for advanced technologies | Bhiksha RAJ (USA), Zied LACHIRI (TUN), Najoua BEN AMARA (TUN) |

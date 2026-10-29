@@ -14,7 +14,7 @@
       {{ partial "cover-trace.html" . }}
       <div class="wrap cover__inner">
         <p class="cover__eyebrow">
-          <span class="cover__pill">IEEE</span>
+          {{ if site.Params.ieeeBranding }}<span class="cover__pill">IEEE</span>{{ end }}
           {{ $e.num }}{{ if eq $e.num 1 }}st{{ else if eq $e.num 2 }}nd{{ else if eq $e.num 3 }}rd{{ else }}th{{ end }} edition
           {{ if not $up }}&middot; Archive{{ end }}
         </p>

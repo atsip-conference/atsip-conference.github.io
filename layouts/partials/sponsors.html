@@ -7,6 +7,7 @@
 <section class="sponsors{{ if $big }} sponsors--big{{ end }}"
          aria-label="Publication and organisers">
   <div class="sponsors__row">
+    {{ if site.Params.ieeeBranding }}
     <div class="sponsors__block">
       <p class="sponsors__label">Published by</p>
       <ul class="sponsors__list">
@@ -14,12 +15,17 @@
           {{ readFile "static/img/ieee.svg" | safeHTML }}</a></li>
       </ul>
     </div>
+    {{ end }}
     <div class="sponsors__block">
       <p class="sponsors__label">Organised with</p>
       <ul class="sponsors__list">
         <li><img src="{{ "img/atsi.png" | relURL }}" alt="ATSI association" width="420" height="165"></li>
+        <li><img src="{{ "img/atisp.png" | relURL }}" alt="ATISP laboratory, ENET'Com" width="411" height="160"></li>
+        <li><img src="{{ "img/univ-sfax.png" | relURL }}" alt="University of Sfax" width="153" height="160"></li>
+        {{ if site.Params.ieeeBranding }}
         <li><img src="{{ "img/ieee-tunisia.png" | relURL }}" alt="IEEE Tunisia Section" width="420" height="149"></li>
         <li><img src="{{ "img/ieee-sps.png" | relURL }}" alt="IEEE Signal Processing Society, Tunisia Chapter" width="374" height="320"></li>
+        {{ end }}
       </ul>
     </div>
   </div>
