@@ -1,0 +1,45 @@
+# Bandeau institutionnel en haut de chaque page (layouts/partials/sponsors.html).
+#
+#   name  : nom complet, repris en texte alternatif et en infobulle
+#   logo  : chemin depuis static/
+#   w, h  : dimensions du fichier, pour que la page ne saute pas au chargement
+#   url   : site officiel (facultatif ; sans url, le logo n'est pas cliquable)
+#   tall  : true pour un logo presque carre, agrandi pour peser autant que
+#           les logos larges a cote
+#   ieee  : true pour les entites IEEE, masquees quand hugo.toml a
+#           ieeeBranding = false
+#
+# L'ordre du fichier est l'ordre d'affichage.
+
+organisers:
+  - name: ATSI association
+    logo: img/atsi.png
+    w: 420
+    h: 165
+
+  - name: IEEE Tunisia Section
+    logo: img/ieee-tunisia.png
+    w: 420
+    h: 149
+    url: https://ieee.tn/
+    ieee: true
+
+  - name: IEEE Tunisia Section SP Chapter
+    logo: img/ieee-sps.png
+    w: 374
+    h: 320
+    url: https://signalprocessingsociety.org/events/ieee-sps-tunisia-chapter
+    tall: true
+    ieee: true
+
+  - name: ATISP laboratory, ENET'Com
+    logo: img/atisp.png
+    w: 411
+    h: 160
+
+  - name: University of Sfax
+    logo: img/univ-sfax.png
+    w: 153
+    h: 160
+    url: https://www.uss.rnu.tn/
+    tall: true

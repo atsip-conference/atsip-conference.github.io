@@ -97,9 +97,13 @@
   }
 
   .logos__cell { display: table-cell; text-align: center; vertical-align: middle; }
-  .logos img { height: 9.0mm; width: auto; }
-  .logos img.tall { height: 8.5mm; }
+  /* Six logos : chacun reste dans sa cellule (max-width) au lieu de deborder
+     sur son voisin. Les logos presque carres (SPS, Sfax) sont agrandis pour
+     peser autant que les logos larges. */
+  .logos img { height: 8.4mm; width: auto; max-width: 84%; object-fit: contain; }
+  .logos img.tall { height: 7.6mm; }
   .logos img.sps  { height: 12.7mm; }
+  .logos img.sq   { height: 11.5mm; }
 
   /* ---------- Corps en deux colonnes ---------- */
 
@@ -306,20 +310,13 @@
           <span class="head__dates">1 &ndash; 4 July 2027 &middot; Sousse, Tunisia</span>&nbsp;&nbsp;<span class="head__ed">8th edition</span>
         </p>
       </div>
-      <!-- LOGOS IEEE RETIRES LE 28 OCTOBRE 2026, A LA DEMANDE D'IEEE.
-           La marque IEEE ne peut figurer sur l'appel tant que le MOU de
-           sponsorisation n'est pas approuve. Pour les retablir apres
-           approbation : supprimer ce commentaire et remettre les trois
-           cellules ci-dessous dans le bloc .logos, dans cet ordre.
-
+      <div class="logos">
         <span class="logos__cell"><img src="ieee.png" alt="IEEE" class="tall"></span>
         <span class="logos__cell"><img src="ieee-tunisia.png" alt="IEEE Tunisia Section"></span>
-        <span class="logos__cell"><img src="ieee-sps.png" alt="IEEE Signal Processing Society, Tunisia Chapter" class="sps"></span>
-      -->
-      <div class="logos">
+        <span class="logos__cell"><img src="ieee-sps.png" alt="IEEE Tunisia Section SP Chapter" class="sps"></span>
         <span class="logos__cell"><img src="atsi.png" alt="ATSI"></span>
         <span class="logos__cell"><img src="partners/partner-19.png" alt="ATISP laboratory"></span>
-        <span class="logos__cell"><img src="partners/partner-01.png" alt="University of Sfax"></span>
+        <span class="logos__cell"><img src="partners/partner-01.png" alt="University of Sfax" class="sq"></span>
       </div>
     </div>
   </header>

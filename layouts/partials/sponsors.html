@@ -1,17 +1,29 @@
 {{/* Bandeau institutionnel, en haut de chaque page. `big` = version agrandie.
 
+     Les logos des organisateurs viennent de data/organisers.yaml ; les entites
+     IEEE (ieee: true) et le bloc « Published by » suivent ieeeBranding dans
+     hugo.toml.
+
      Le logo ATSIP n'y figure pas : il est dans l'en-tete, juste au-dessus, et
      le repeter n'apporterait rien. */}}
 {{ $big := .big | default false }}
+{{ $ieee := site.Params.ieeeBranding }}
 
+{{ $orgs := slice }}
+{{ range site.Data.organisers.organisers }}
+  {{ if or $ieee (not .ieee) }}{{ $orgs = $orgs | append . }}{{ end }}
+{{ end }}
+
+{{/* Equidistance : chaque bloc recoit une largeur proportionnelle a son
+     nombre de logos, et chaque logo se centre dans sa part. */}}
 <section class="sponsors{{ if $big }} sponsors--big{{ end }}"
          aria-label="Publication and organisers">
-  <div class="sponsors__row">
-    {{ if site.Params.ieeeBranding }}
+  <div class="sponsors__row"{{ if $ieee }} style="--cols: 1fr {{ len $orgs }}fr"{{ else }} style="--cols: 1fr"{{ end }}>
+    {{ if $ieee }}
     <div class="sponsors__block">
       <p class="sponsors__label">Published by</p>
       <ul class="sponsors__list">
-        <li><a href="https://ieeexplore.ieee.org/" class="ieee-mark" aria-label="IEEE Xplore">
+        <li><a href="https://ieeexplore.ieee.org/" class="ieee-mark" aria-label="IEEE Xplore" title="IEEE Xplore">
           {{ readFile "static/img/ieee.svg" | safeHTML }}</a></li>
       </ul>
     </div>
@@ -19,12 +31,15 @@
     <div class="sponsors__block">
       <p class="sponsors__label">Organised with</p>
       <ul class="sponsors__list">
-        <li><img src="{{ "img/atsi.png" | relURL }}" alt="ATSI association" width="420" height="165"></li>
-        <li><img src="{{ "img/atisp.png" | relURL }}" alt="ATISP laboratory, ENET'Com" width="411" height="160"></li>
-        <li><img src="{{ "img/univ-sfax.png" | relURL }}" alt="University of Sfax" width="153" height="160"></li>
-        {{ if site.Params.ieeeBranding }}
-        <li><img src="{{ "img/ieee-tunisia.png" | relURL }}" alt="IEEE Tunisia Section" width="420" height="149"></li>
-        <li><img src="{{ "img/ieee-sps.png" | relURL }}" alt="IEEE Signal Processing Society, Tunisia Chapter" width="374" height="320"></li>
+        {{ range $orgs }}
+        <li>
+          {{ $img := printf `<img src="%s" alt="%s" width="%d" height="%d"%s>` (.logo | relURL) .name .w .h (cond (.tall | default false) ` class="is-tall"` "") }}
+          {{ if .url }}
+            <a href="{{ .url }}" title="{{ .name }}" rel="noopener">{{ $img | safeHTML }}</a>
+          {{ else }}
+            <span title="{{ .name }}">{{ $img | safeHTML }}</span>
+          {{ end }}
+        </li>
         {{ end }}
       </ul>
     </div>
