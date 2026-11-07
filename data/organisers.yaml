@@ -32,10 +32,16 @@ organisers:
     tall: true
     ieee: true
 
-  - name: ATISP laboratory, ENET'Com
+  - name: ATISP laboratory
     logo: img/atisp.png
     w: 411
     h: 160
+
+  - name: ENET'Com, National School of Electronics and Telecommunications of Sfax
+    logo: img/enetcom.png
+    w: 281
+    h: 160
+    url: https://enetcom.rnu.tn/
 
   - name: University of Sfax
     logo: img/univ-sfax.png

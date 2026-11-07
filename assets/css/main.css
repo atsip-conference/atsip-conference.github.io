@@ -45,73 +45,131 @@ a:hover { color: var(--amber); }
 
 /* ---------- En-tête ---------- */
 
-.masthead { border-bottom: 1px solid var(--rule); background: var(--paper); }
+/* Deux etages : en haut le logo et le nom de la conference sur une ligne,
+   en dessous une bande de menu pleine largeur. */
+.masthead { background: var(--paper); }
 
-.masthead__inner {
+.masthead__top {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  gap: 0.75rem 1.5rem;
-  padding-block: 1rem;
+  gap: 1rem clamp(1rem, 2vw, 1.75rem);
+  padding-block: clamp(0.9rem, 1.6vw, 1.4rem);
 }
 
-.wordmark { display: block; line-height: 0; text-decoration: none; }
+.wordmark { display: block; flex: none; line-height: 0; text-decoration: none; }
 .wordmark img {
-  height: clamp(2.8rem, 2rem + 2.4vw, 4.4rem);
+  height: clamp(3.6rem, 2.6rem + 3.4vw, 6.4rem);
   width: auto;
   display: block;
 }
 
-/* Nom complet de la conférence, à côté du logo. */
+/* Nom complet, a cote du logo. Le bloc est un conteneur : la taille du
+   texte suit sa largeur (cqi), si bien que le nom remplit la ligne sans
+   jamais passer a la suivante, de la tablette au grand ecran. */
 .masthead__name {
-  display: block;
+  flex: 1 1 auto;
   min-width: 0;
-  padding-left: 1.1rem;
-  border-left: 1px solid var(--rule);
-  align-self: center;
+  padding-left: clamp(1rem, 2vw, 1.75rem);
+  border-left: 2px solid var(--rule);
+  container-type: inline-size;
 }
 
 .masthead__full {
   display: block;
   font-family: var(--display);
-  font-weight: 600;
-  font-size: clamp(0.78rem, 0.68rem + 0.3vw, 0.95rem);
-  line-height: 1.25;
-  letter-spacing: -0.005em;
-  color: var(--ink);
-  text-wrap: balance;
+  font-weight: 650;
+  font-size: clamp(0.95rem, 2.3cqi, 1.9rem);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: #16206e;
+  white-space: nowrap;
 }
 
-/* Assez large : le nom tient sur une ligne, « since 2014 » passe dessous. */
-@media (min-width: 86rem) {
-  .masthead__full { white-space: nowrap; text-wrap: nowrap; }
+/* Initiales A-T-S-I-P en rouge, comme le titre de l'appel a communications. */
+.masthead__full .initial {
+  font-style: normal;
+  font-weight: 800;
+  color: #c1272d;
 }
 
 .masthead__since {
   display: block;
-  margin-top: 0.22rem;
+  margin-top: 0.4rem;
   font-family: var(--mono);
-  font-size: 0.62rem;
-  letter-spacing: 0.08em;
+  font-size: clamp(0.66rem, 0.6rem + 0.2vw, 0.8rem);
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--ink-soft);
 }
 
-/* L'en-tête compacté réduit le logo et laisse tomber la ligne secondaire. */
-.masthead.is-pinned .masthead__since { display: none; }
-
-@media (max-width: 62rem) { .masthead__name { display: none; } }
-
-.nav {
-  margin-left: auto;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.25rem;
-  font-size: 0.9rem;
+/* Tablette et telephone : le nom ne tient plus lisiblement sur une ligne,
+   il passe sur deux ou trois. */
+@media (max-width: 58rem) {
+  .masthead__full { white-space: normal; font-size: 1.12rem; text-wrap: balance; }
+}
+@media (max-width: 40rem) {
+  .masthead__full { font-size: 0.9rem; }
+  .masthead__since { display: none; }
 }
 
-.nav a { text-decoration: none; color: var(--ink-soft); }
-.nav a:hover { color: var(--sea); }
+/* ---- Bande de menu ---- */
+
+.nav {
+  background: #16206e;
+  border-top: 3px solid #c1272d;
+}
+
+.nav__list {
+  list-style: none;
+  margin-block: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.nav__list li { display: flex; }
+
+.nav a.nav__tab {
+  position: relative;
+  display: block;
+  padding: 0.85rem clamp(0.9rem, 2vw, 1.6rem);
+  font-size: clamp(0.92rem, 0.85rem + 0.25vw, 1.08rem);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.86);
+  text-decoration: none;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+/* Filet discret entre deux onglets. */
+.nav__list li + li a.nav__tab::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 32%;
+  bottom: 32%;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.nav a.nav__tab:hover { color: #fff; background: rgba(255, 255, 255, 0.08); }
+
+/* Onglet de la page courante : fond clair et barre rouge, comme un onglet
+   de classeur ouvert sur la page. */
+.nav a.nav__tab.is-active {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 -3px 0 #c1272d;
+}
+
+.nav a.nav__tab:focus-visible { outline: 2px solid #fff; outline-offset: -4px; }
+
+/* Telephone : onglets plus serres, sur deux lignes au besoin. */
+@media (max-width: 40rem) {
+  .nav__list { padding-inline: 0.5rem; }
+  .nav a.nav__tab { padding: 0.7rem 0.75rem; font-size: 0.9rem; }
+  .nav__list li + li a.nav__tab::before { display: none; }
+}
 
 /* ---------- Bandeau d'archive ---------- */
 
@@ -828,8 +886,26 @@ main > .cover { margin-top: -1rem; }
 
 /* Le lien du menu porte sa propre couleur (.nav a), plus specifique que
    .blink : sans ce selecteur le rouge ne s'appliquerait pas. */
-.nav a.blink { color: var(--blink, #c1272d); }
-.nav a.blink:hover { color: #8f1d22; }
+/* Dans la bande de menu bleu marine, un texte rouge qui s'estompe deviendrait
+   invisible : l'onglet est une pastille rouge dont seul le fond pulse, le
+   texte blanc restant toujours lisible. */
+.nav a.nav__tab.blink {
+  color: #fff;
+  background: #c1272d;
+  opacity: 1;
+  animation: tab-pulse 1.6s ease-in-out infinite;
+}
+.nav a.nav__tab.blink::before { display: none; }
+.nav a.nav__tab.blink:hover { background: #8f1d22; animation: none; }
+
+@keyframes tab-pulse {
+  0%, 100% { background-color: #c1272d; }
+  50%      { background-color: #7d1a1e; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav a.nav__tab.blink { animation: none; }
+}
 
 @keyframes blink {
   0%, 100% { opacity: 1; }
@@ -1129,7 +1205,11 @@ main > .cover { margin-top: -1rem; }
   box-shadow: 0 1px 12px rgba(22, 35, 43, 0.09);
 }
 
-.masthead.is-pinned .wordmark img { height: clamp(2.2rem, 1.8rem + 1.2vw, 3rem); }
+.masthead.is-pinned .wordmark img { height: clamp(2.6rem, 2rem + 1.6vw, 3.6rem); }
+.masthead.is-pinned .masthead__top { padding-block: 0.55rem; }
+.masthead.is-pinned .masthead__since { display: none; }
+.masthead.is-pinned .nav a.nav__tab { padding-block: 0.6rem; }
+.masthead__top { transition: padding 0.2s; }
 .wordmark img { transition: height 0.2s; }
 
 /* ---------- Apparition au défilement ---------- */

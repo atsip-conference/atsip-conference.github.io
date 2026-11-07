@@ -1,32 +1,57 @@
 {{ $cur := string site.Data.editions.current }}
 {{ $ed := "" }}{{ with .Params.edition }}{{ $ed = string . }}{{ end }}
+{{ $here := .RelPermalink }}
+
+{{/* Onglets du menu : libelle, chemin, clignote. L'onglet de la page
+     courante (ou de sa section) est mis en evidence. */}}
+{{ $tabs := slice }}
+{{ if $ed }}
+  {{ $tabs = $tabs | append (dict "label" (printf "ATSIP’%s" $ed) "path" (printf "%s/" $ed) "blink" false) }}
+  {{ if eq $ed $cur }}
+    {{ $tabs = $tabs | append (dict "label" "Call for papers" "path" (printf "%s/call-for-papers/" $ed) "blink" false) }}
+    {{ $tabs = $tabs | append (dict "label" "Important dates" "path" (printf "%s/important-dates/" $ed) "blink" false) }}
+    {{ $tabs = $tabs | append (dict "label" "Committees" "path" (printf "%s/committees/" $ed) "blink" false) }}
+  {{ end }}
+  {{ $tabs = $tabs | append (dict "label" "All editions" "path" "editions/" "blink" false) }}
+{{ else }}
+  {{/* Le lien ne clignote que sur la page d'accueil : ailleurs (Editions,
+       Contact, pages d'edition) il reste sobre. */}}
+  {{ $tabs = $tabs | append (dict "label" "Home" "path" "" "blink" false) }}
+  {{ $tabs = $tabs | append (dict "label" (printf "ATSIP’%s" $cur) "path" (printf "%s/" $cur) "blink" .IsHome) }}
+  {{ $tabs = $tabs | append (dict "label" "Editions" "path" "editions/" "blink" false) }}
+  {{ $tabs = $tabs | append (dict "label" "Contact" "path" "contact/" "blink" false) }}
+{{ end }}
 
 <header class="masthead">
-  <div class="wrap masthead__inner">
+  <div class="wrap masthead__top">
     <a class="wordmark" href="{{ "" | relURL }}" aria-label="ATSIP, home">
       <img src="{{ "img/atsip-logo.png" | relURL }}" alt="ATSIP International Conference" width="1172" height="599">
     </a>
     <span class="masthead__name">
-      <span class="masthead__full">{{ partial "fullname.html" . }}</span>
+      {{/* Initiales A, T, S, I, P en rouge, comme dans le titre de l'appel a
+           communications. Fonctionne aussi pour le nom 2024 (« Advanced
+           Technologies, Signal and Image Processing »). */}}
+      {{ $name := partial "fullname.html" . | htmlEscape }}
+      {{ $name = replaceRE `\b([ATSIP])(dvanced|echnologies|ignal|mage|rocessing)\b` `<em class="initial">${1}</em>${2}` $name }}
+      <span class="masthead__full">{{ $name | safeHTML }}</span>
       <span class="masthead__since">Since 2014</span>
     </span>
-
-    <nav class="nav" aria-label="Main">
-      {{ if $ed }}
-        <a href="{{ printf "%s/" $ed | relURL }}">ATSIP&rsquo;{{ $ed }}</a>
-        {{ if eq $ed $cur }}
-          <a href="{{ printf "%s/call-for-papers/" $ed | relURL }}">Call for papers</a>
-          <a href="{{ printf "%s/important-dates/" $ed | relURL }}">Dates</a>
-          <a href="{{ printf "%s/committees/" $ed | relURL }}">Committees</a>
-        {{ end }}
-        <a href="{{ "editions/" | relURL }}">All editions</a>
-      {{ else }}
-        {{/* Le lien ne clignote que sur la page d'accueil : ailleurs (Editions,
-             Contact, pages d'edition) il reste sobre. */}}
-        <a href="{{ printf "%s/" $cur | relURL }}"{{ if .IsHome }} class="blink"{{ end }}>ATSIP&rsquo;{{ $cur }}</a>
-        <a href="{{ "editions/" | relURL }}">Editions</a>
-        <a href="{{ "contact/" | relURL }}">Contact</a>
-      {{ end }}
-    </nav>
   </div>
+
+  <nav class="nav" aria-label="Main">
+    <ul class="wrap nav__list">
+      {{ range $tabs }}
+        {{ $label := .label }}{{ $url := .path | relURL }}{{ $blink := .blink }}
+        {{/* Actif : page exacte, ou page interieure de la section (sauf
+             l'accueil et la page d'edition, qui ne valent que pour elles-memes). */}}
+        {{ $active := eq $here $url }}
+        {{ if and (not $active) (ne .path "") (strings.HasSuffix .path "editions/") }}
+          {{ $active = strings.HasPrefix $here $url }}
+        {{ end }}
+        <li><a href="{{ $url }}"
+               class="nav__tab{{ if $blink }} blink{{ end }}{{ if $active }} is-active{{ end }}"
+               {{ if $active }}aria-current="page"{{ end }}>{{ $label }}</a></li>
+      {{ end }}
+    </ul>
+  </nav>
 </header>
