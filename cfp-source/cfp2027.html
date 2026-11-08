@@ -104,6 +104,7 @@
   .logos img.tall { height: 7.6mm; }
   .logos img.sps  { height: 12.7mm; }
   .logos img.sq   { height: 11.5mm; }
+  .logos img.enet { height: 10mm; }
 
   /* ---------- Corps en deux colonnes ---------- */
 
@@ -118,7 +119,9 @@
     padding: 2.6mm 2.5mm 2mm 3.5mm;
     border-right: 2pt solid var(--navy);
     font-size: 5.2pt;
-    line-height: 1.2;
+    /* 1.15 et non 1.2 : la colonne des comites tient sur la page avec la
+       rubrique Steering Committee Chairs. */
+    line-height: 1.15;
   }
 
   .aside .ablock:first-child h2 { margin-top: 0; }
@@ -135,6 +138,11 @@
 
   .aside p { margin-bottom: 0.15mm; color: var(--navy); white-space: nowrap; }
   .aside .aff { color: var(--navy); }
+  /* Affiliation longue : un rien plus serree pour rester dans la colonne. */
+  .aside p.tight { letter-spacing: -0.12pt; }
+  /* Titre le plus long de la colonne : tient sur une ligne sans espacement
+     de lettres. */
+  .aside h2.one-line { white-space: nowrap; letter-spacing: 0; }
 
   .main { display: table-cell; vertical-align: top; padding: 1.8mm 2mm 1.5mm 2mm; }
 
@@ -307,7 +315,7 @@
         <p class="head__title">IEEE <em>A</em>dvanced <em>T</em>echnologies for <em>S</em>ignal &amp; <em>I</em>mage <em>P</em>rocessing</p>
         <p class="head__sub">International Ranked Conference</p>
         <p class="head__meta">
-          <span class="head__dates">1 &ndash; 4 July 2027 &middot; Sousse, Tunisia</span>&nbsp;&nbsp;<span class="head__ed">8th edition</span>
+          <span class="head__dates">1 &ndash; 4 July 2027 &middot; Sousse, Tunisia &middot; Hybrid</span>&nbsp;&nbsp;<span class="head__ed">8th edition</span>
         </p>
       </div>
       <div class="logos">
@@ -316,6 +324,7 @@
         <span class="logos__cell"><img src="ieee-sps.png" alt="IEEE Tunisia Section SP Chapter" class="sps"></span>
         <span class="logos__cell"><img src="atsi.png" alt="ATSI"></span>
         <span class="logos__cell"><img src="partners/partner-19.png" alt="ATISP laboratory"></span>
+        <span class="logos__cell"><img src="enetcom.png" alt="ENET'Com" class="enet"></span>
         <span class="logos__cell"><img src="partners/partner-01.png" alt="University of Sfax" class="sq"></span>
       </div>
     </div>
@@ -343,6 +352,11 @@
       </div>
 
       <div class="ablock">
+        <h2>Steering Committee Chair</h2>
+        <p class="tight">Mohamed BEN SLIMA<span class="aff">, ATISP, ENET'Com, USF, TUN</span></p>
+      </div>
+
+      <div class="ablock">
         <h2>Logistics &amp; Organisation Chair</h2>
         <p>Fathi KALLEL<span class="aff">, ATISP, ENET'Com, TUN</span></p>
       </div>
@@ -360,7 +374,6 @@
         <p>Mounir SAYADI<span class="aff">, ENSIT, TUN</span></p>
         <p>Habib M. KAMMOUN<span class="aff">, IEEE Tunisia Section</span></p>
         <p>Maha CHARFEDDINE<span class="aff">, IEEE SPS Tunisia Chapter</span></p>
-        <p>Mohamed BEN SLIMA<span class="aff">, ATSI president</span></p>
       </div>
 
       <div class="ablock">
@@ -384,7 +397,7 @@
       </div>
 
       <div class="ablock">
-        <h2>Technical Programme Committee</h2>
+        <h2 class="one-line">Technical Programme Committee</h2>
         <p>Habib BENALI<span class="aff">, Concordia Univ., CAN</span></p>
         <p>Zied LACHIRI<span class="aff">, ENIT, TUN</span></p>
         <p>Mohamed AlHEFDHI<span class="aff">, CS, KKU, KSA</span></p>
@@ -428,7 +441,8 @@
         <p>Nada ALASBALI<span class="aff">, CS, KKU, KSA</span></p>
         <p>Habib M. KAMMOUN<span class="aff">, IEEE Tunisia Section</span></p>
         <p>Maha CHARFEDDINE<span class="aff">, IEEE SPS Tunisia Chapter</span></p>
-        <p>Mohamed BEN SLIMA<span class="aff">, ATSI president</span></p>
+        <p class="tight">Mohamed BEN SLIMA<span class="aff">, ATISP, ENET'Com, USF, TUN</span></p>
+        <p>Hassene MNIF<span class="aff">, Univ. of Sfax, TUN</span></p>
       </div>
 
       <div class="ablock">
@@ -572,9 +586,10 @@
 
       <h3 class="sec">Venue and organisation</h3>
       <p>ATSIP'2027 is held in <strong>Sousse, Tunisia</strong>, from 1 to
-        4 July 2027, organised by the <strong>ATISP laboratory (ENET'Com, University
-        of Sfax)</strong> with the ATSI association and the IEEE Tunisia Section.
-        Venue and accommodation details are published on the conference website.</p>
+        4 July 2027, in <strong>hybrid format (on site and online)</strong>, organised
+        by the <strong>ATISP laboratory (ENET'Com, University of Sfax)</strong> with
+        the ATSI association and the IEEE Tunisia Section. Venue details are on the
+        conference website.</p>
 
       <div class="foot">
         <p><strong>More information:</strong>

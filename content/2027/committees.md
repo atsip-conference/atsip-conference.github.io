@@ -18,6 +18,10 @@ edition: 2027
 - Gérard CHOLLET — Télécom Paris, France
 - Bhiksha RAJ — CMU, USA
 
+## Steering Committee Chair
+
+- Mohamed BEN SLIMA — ATISP, ENET'Com, Univ. of Sfax, Tunisia
+
 ## Logistics and Organisation Chair
 
 - Fathi KALLEL — ATISP, ENET'Com, Tunisia
@@ -35,7 +39,6 @@ edition: 2027
 - Mounir SAYADI — ENSIT, Tunisia
 - Habib M. KAMMOUN — IEEE Tunisia Section
 - Maha CHARFEDDINE — IEEE SPS Tunisia Chapter
-- Mohamed BEN SLIMA — ATSI president
 
 ## Technical Programme Chairs
 
@@ -99,7 +102,8 @@ edition: 2027
 - Nada ALASBALI — CS, KKU, Saudi Arabia
 - Habib M. KAMMOUN — IEEE Tunisia Section
 - Maha CHARFEDDINE — IEEE SPS Tunisia Chapter
-- Mohamed BEN SLIMA — ATSI president
+- Mohamed BEN SLIMA — ATISP, ENET'Com, Univ. of Sfax, Tunisia
+- Hassene MNIF — Univ. of Sfax, Tunisia
 
 ## Publicity Committee
 

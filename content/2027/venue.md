@@ -3,7 +3,8 @@ title: "Venue"
 edition: 2027
 ---
 
-ATSIP'2027 is held in **Sousse, Tunisia**, from 1 to 4 July 2027.
+ATSIP'2027 is held in **Sousse, Tunisia**, from 1 to 4 July 2027, as a
+**hybrid conference**: on site and online.
 
 <img class="banner" src="{{< relref "/" >}}img/sousse.png" alt="Sousse: medina souk, golf course and marina">
 
@@ -18,3 +19,9 @@ a UNESCO World Heritage site, and the city is served by Monastir airport (MIR),
 The conference venue is being finalised with a five-star hotel in Sousse.
 Its name, full address and the negotiated room rates will be published here
 as soon as the agreement is signed.
+
+## Hybrid conference
+
+ATSIP'2027 is a **hybrid conference**. Authors and attendees can take part
+**on site** in Sousse or **online**: sessions are open to remote participants,
+and papers can be presented either in person or remotely.

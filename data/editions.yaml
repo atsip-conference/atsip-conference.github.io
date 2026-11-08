@@ -20,6 +20,8 @@ editions:
     dates_start: 2027-07-01
     dates_end: 2027-07-04
     dates_display: "1–4 July 2027"
+    # Format affiche sous le lieu (accueil, page d'edition). Facultatif.
+    format: "Hybrid: on site and online"
     status: upcoming
 
   - num: 7

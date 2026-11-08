@@ -58,7 +58,7 @@ a:hover { color: var(--amber); }
 
 .wordmark { display: block; flex: none; line-height: 0; text-decoration: none; }
 .wordmark img {
-  height: clamp(3.6rem, 2.6rem + 3.4vw, 6.4rem);
+  height: clamp(4.4rem, 3rem + 4.8vw, 8.6rem);
   width: auto;
   display: block;
 }
@@ -108,6 +108,7 @@ a:hover { color: var(--amber); }
   .masthead__full { white-space: normal; font-size: 1.12rem; text-wrap: balance; }
 }
 @media (max-width: 40rem) {
+  .wordmark img { height: 4rem; }
   .masthead__full { font-size: 0.9rem; }
   .masthead__since { display: none; }
 }
@@ -1205,7 +1206,7 @@ main > .cover { margin-top: -1rem; }
   box-shadow: 0 1px 12px rgba(22, 35, 43, 0.09);
 }
 
-.masthead.is-pinned .wordmark img { height: clamp(2.6rem, 2rem + 1.6vw, 3.6rem); }
+.masthead.is-pinned .wordmark img { height: clamp(3rem, 2.2rem + 2vw, 4.6rem); }
 .masthead.is-pinned .masthead__top { padding-block: 0.55rem; }
 .masthead.is-pinned .masthead__since { display: none; }
 .masthead.is-pinned .nav a.nav__tab { padding-block: 0.6rem; }

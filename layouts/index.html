@@ -36,7 +36,7 @@
       </div>
       <div class="fact">
         <dt>Venue</dt>
-        <dd>{{ $e.city }}, {{ $e.country }}</dd>
+        <dd>{{ $e.city }}, {{ $e.country }}{{ with $e.format }}<span class="fact__note">{{ . }}</span>{{ end }}</dd>
       </div>
       <div class="fact fact--live">
         <dt>Submission deadline</dt>
