@@ -28,8 +28,8 @@ industrial exhibits, and poster sessions.
 
 ## Topics
 
-Main topics, with subtopics, include but are not limited to the
-[eight tracks of the conference]({{< relref "/" >}}#topics):
+Main topics include, but are **not** limited to, the eight tracks of the
+conference:
 
 <div class="tracks-table">
 
@@ -38,7 +38,7 @@ Main topics, with subtopics, include but are not limited to the
 | Medical signal/image and computer-aided diagnosis | Habib BENALI (CAN), Christophe GROVA (CAN), Lamia SELLAMI (TUN) |
 | IoT, embedded systems and RF applications | Mohamed ATRI (KSA), Mohamed GHORBEL (TUN), Ahmed KAFFEL (USA) |
 | Remote sensing and assimilation | Mehrez ZRIBI (FRA), Imed R. FARAH (TUN), Abdelaziz KALLEL (TUN) |
-| New technologies for communications and networking | Riadh ABDELFATTEH (TUN), Abdelmalek TOUMI (FRA) |
+| New technologies for communications and networking | Riadh ABDELFATTAH (TUN), Abdelmalek TOUMI (FRA) |
 | Image, video, speech and audio processing | Rachid JENNANE (FRA), Sofia BEN JEBARA (TUN), Mondher FRIKHA (TUN) |
 | Big data and cloud computing applications | Naoufel KRAIM (KSA), Mohamed FARAH (TUN), Ali DOUIK (TUN) |
 | AI for advanced technologies | Bhiksha RAJ (USA), Zied LACHIRI (TUN), Najoua BEN AMARA (TUN) |
@@ -46,13 +46,14 @@ Main topics, with subtopics, include but are not limited to the
 
 </div>
 
-<!-- Responsables de track repris de 2024 — à confirmer pour 2027. -->
-
 ## Paper submission
 
 Authors are invited to submit full-length papers of **no more than six pages**
-including results, figures and references. Papers are accepted only by electronic
-submission through the [submission page]({{< relref "/2027/submission" >}}).
+including results, figures and references. Papers are accepted only through the
+conference submission system,
+[**cmt3.research.microsoft.com/ATSIP2027**](https://cmt3.research.microsoft.com/ATSIP2027)
+(see the [submission page]({{< relref "/2027/submission" >}}) for the
+step-by-step procedure).
 
 Submissions must be original and must not have been published previously or be
 under consideration for publication while being evaluated for this conference.
@@ -65,11 +66,15 @@ subject to meeting IEEE Xplore's scope and quality requirements.
 Papers must follow the **IEEE conference format** (two columns, A4). Download the
 official templates:
 
+<div class="label-table">
+
 | Format | Link |
 |---|---|
 | Word and LaTeX templates | [IEEE Manuscript Templates for Conference Proceedings](https://www.ieee.org/conferences/publishing/templates.html) |
 | LaTeX, online, no install | [IEEE conference template on Overleaf](https://www.overleaf.com/latex/templates/preparation-of-papers-for-ieee-sponsored-conferences-and-symposia/zfnqfzzzxghk) |
 | Not sure which to use | [IEEE Template Selector](https://template-selector.ieee.org/) |
+
+</div>
 
 Use the **A4** variant, not US Letter. Do not alter the margins, column widths,
 font sizes or line spacing: papers that do not match the template are rejected by
@@ -77,8 +82,8 @@ IEEE PDF eXpress at the camera-ready stage.
 
 ## Selected papers, best papers
 
-Best papers will be awarded and extended in order to be submitted as special
-issues of international journals.
+Best papers will be awarded. Selected papers will be invited to extend their
+work for special issues of international journals.
 
 <!-- À COMPLÉTER : noms des revues partenaires pour 2027, une fois les accords
      obtenus (les éditions précédentes ont travaillé avec European Journal of
@@ -86,26 +91,41 @@ issues of international journals.
 
 ## Special sessions and round tables
 
-Besides regular sessions, special sessions are an important part of the technical
-programme, promoting an environment that fosters discussion and collaboration on
-specific topics of interest.
+Alongside the regular sessions, special sessions are an important part of the
+technical programme. The following special sessions are organised:
 
-Proposals should give the session title, a short rationale, the organisers and
-their affiliations, and an indication of the expected contributions.
+<div class="tracks-table">
 
-<!-- À COMPLÉTER : liste des sessions spéciales retenues pour 2027, publiée au
-     fur et à mesure de leur acceptation. -->
+| Special session | Organisers |
+|---|---|
+| Medical signal/image and cognitive neuroscience | Habib BENALI (CAN), Julien DOYON (CAN) |
+| Artificial intelligence in neurodegenerative diseases | Nawres KHLIFA (TUN), Rostom MABROUK (CAN), Hajer KACHNAOUI (TUN), Bouchra GUELIB (ALG) |
+| Artificial intelligence for control and navigation of robots | Hassene SEDDIK (TUN), Chiraz BEN JABEUR (TUN), Nadhir MESAI (FRA) |
+| Signal and image processing: disease and pattern identification | Hassene SEDDIK (TUN), Slim BEN CHAABENE (TUN), Zouhair MBARKI (TUN), Amine BEN SLAMA (TUN) |
+| Recent advances in AI for emotion recognition | Leila BELTAIFA (FRA), Bhiksha RAJ (USA), Hassene SEDDIK (TUN), Gérard CHOLLET (FRA) |
+| AI for medical imaging and CAD in health information systems | Rachid JENNANE (FRA), Rania HAMMEMI (TUN), Aymen QAHMESH (KSA) |
+| Advanced AI models for biometrics | Ahmed KAFFEL (USA), Imed Riadh FARAH (TUN), Najoua BEN AMARA (TUN), Aymen QAHMESH (KSA) |
+| Artificial intelligence for remote sensing images | Mehrez ZRIBI (FRA), Abdelmalek TOUMI (FRA), Abdelaziz KALLEL (TUN) |
 
-*Accepted special sessions for this edition will be listed here.*
+</div>
+
+Further proposals should give the session title, a short rationale and the
+organisers with their affiliations; send them to **atsip.conf@gmail.com**.
 
 ## Important deadlines
 
+<div class="label-table">
+
 | | |
 |---|---|
-| Submission of regular papers | 30 March 2027 |
+| Submission of regular papers | **30 March 2027** |
 | Notification of paper acceptance | 1 May 2027 |
-| Revised paper upload | 15 May 2027 |
-| Author registration | 30 May 2027 |
+| Camera-ready paper and copyright form | 15 May 2027 |
+| Author's registration deadline | 30 May 2027 |
+| Final programme | 25 June 2027 |
+| Conference (hybrid: on site and online) | 1–4 July 2027 |
 
-See the [important dates page]({{< relref "/2027/important-dates" >}}) for the
-full schedule.
+</div>
+
+All deadlines are 23:59 AoE. See the
+[important dates page]({{< relref "/2027/important-dates" >}}).

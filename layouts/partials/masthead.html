@@ -55,3 +55,17 @@
     </ul>
   </nav>
 </header>
+
+{{/* Bandeau de format (hybride) sous les onglets, sur toutes les pages d'une
+     edition qui declare `format` dans data/editions.yaml (2027). */}}
+{{ with $ed }}
+  {{ $e := index (where site.Data.editions.editions "year" (int .)) 0 }}
+  {{ with $e.format }}
+  <div class="format-band" role="note">
+    <p class="wrap format-band__inner">
+      <span class="format-band__tag">Hybrid conference</span>
+      <span class="format-band__text">Attend and present <strong>on site</strong> in {{ $e.city }} or <strong>online</strong> &middot; {{ $e.dates_display }}</span>
+    </p>
+  </div>
+  {{ end }}
+{{ end }}

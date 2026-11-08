@@ -1815,3 +1815,48 @@ main > .cover { margin-top: -1rem; }
   color: var(--amber, #e0a030);
   white-space: nowrap;
 }
+
+/* Bandeau « Hybrid conference » sous la bande de menu (pages d'edition). */
+.format-band {
+  background: #fdf3e3;
+  border-bottom: 1px solid #ecd3a8;
+}
+.format-band__inner {
+  margin-block: 0;
+  padding-block: 0.6rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.35rem 0.9rem;
+  text-align: center;
+  font-size: clamp(0.88rem, 0.82rem + 0.2vw, 1rem);
+  color: #4a3410;
+}
+.format-band__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.2rem 0.75rem;
+  border-radius: 999px;
+  background: #c1272d;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.78em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+/* Point « en direct » devant le libelle. */
+.format-band__tag::before {
+  content: "";
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 50%;
+  background: #fff;
+}
+.format-band__text strong { color: #16206e; }
+
+/* Tableaux dont la premiere colonne est un libelle (et non une date) :
+   police normale au lieu de la police a chasse fixe des tableaux de dates. */
+.label-table td:first-child { font-family: var(--sans); font-weight: 600; white-space: normal; }
+.label-table td + td { white-space: nowrap; }
