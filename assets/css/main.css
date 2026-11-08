@@ -1801,3 +1801,17 @@ main > .cover { margin-top: -1rem; }
 }
 
 .cta a strong { font-weight: 600; }
+
+/* Format de l'edition (hybride) : pastille bien visible sous le lieu. */
+.fact__badge {
+  display: table;
+  margin-top: 0.45rem;
+  padding: 0.22rem 0.6rem;
+  border: 1px solid var(--amber, #e0a030);
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--amber, #e0a030);
+  white-space: nowrap;
+}

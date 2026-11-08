@@ -1,13 +1,13 @@
 ---
 title: "ATSIP'2027"
-description: "ATSIP'2027 — 8th International Conference on Advanced Technologies for Signal and Image Processing. Sousse, Tunisia (hybrid), 1–4 July 2027. IEEE. Call for papers, topics, committees, submission."
+description: "ATSIP'2027 — 8th International Conference on Advanced Technologies, Signal and Image Processing. Sousse, Tunisia (hybrid), 1–4 July 2027. IEEE. Call for papers, topics, committees, submission."
 cascade:
   edition: 2027
 ---
 
 <div class="lead">
 
-The **8th International Conference on Advanced Technologies for Signal and
+The **8th International Conference on Advanced Technologies, Signal and
 Image Processing (ATSIP'2027)** will be held in **Sousse, Tunisia, from 1 to
 4 July 2027**, as a **hybrid conference**: participants can attend on site in
 Sousse or online.

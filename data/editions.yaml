@@ -21,7 +21,7 @@ editions:
     dates_end: 2027-07-04
     dates_display: "1–4 July 2027"
     # Format affiche sous le lieu (accueil, page d'edition). Facultatif.
-    format: "Hybrid: on site and online"
+    format: "Hybrid · on site & online"
     status: upcoming
 
   - num: 7
@@ -39,6 +39,8 @@ editions:
 
   - num: 6
     year: 2022
+    # Nom sous lequel IEEE a publie les actes (Xplore, DBLP).
+    full_name: "International Conference on Advanced Technologies for Signal and Image Processing"
     city: Sfax
     country: Tunisia
     dates_display: "24–27 May 2022"
@@ -49,6 +51,8 @@ editions:
 
   - num: 5
     year: 2020
+    # Nom sous lequel IEEE a publie les actes (Xplore, DBLP).
+    full_name: "International Conference on Advanced Technologies for Signal and Image Processing"
     city: Sousse
     country: Tunisia
     dates_display: "2–5 September 2020"
@@ -59,6 +63,8 @@ editions:
 
   - num: 4
     year: 2018
+    # Nom sous lequel IEEE a publie les actes (Xplore, DBLP).
+    full_name: "International Conference on Advanced Technologies for Signal and Image Processing"
     city: Sousse
     country: Tunisia
     dates_display: "21–24 March 2018"
@@ -69,6 +75,8 @@ editions:
 
   - num: 3
     year: 2017
+    # Nom sous lequel IEEE a publie les actes (Xplore, DBLP).
+    full_name: "International Conference on Advanced Technologies for Signal and Image Processing"
     city: Fez
     country: Morocco
     dates_display: "22–24 May 2017"
@@ -79,6 +87,8 @@ editions:
 
   - num: 2
     year: 2016
+    # Nom sous lequel IEEE a publie les actes (Xplore, DBLP).
+    full_name: "International Conference on Advanced Technologies for Signal and Image Processing"
     city: Monastir
     country: Tunisia
     dates_display: "21–23 March 2016"
@@ -89,6 +99,8 @@ editions:
 
   - num: 1
     year: 2014
+    # Nom sous lequel IEEE a publie les actes (Xplore, DBLP).
+    full_name: "International Conference on Advanced Technologies for Signal and Image Processing"
     city: Sousse
     country: Tunisia
     dates_display: "17–19 March 2014"

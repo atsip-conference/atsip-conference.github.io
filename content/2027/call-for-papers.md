@@ -6,7 +6,7 @@ edition: 2027
 <div class="lead">
 
 The ATSIP Executive Committee is pleased to announce the **8th IEEE ATSIP
-edition**, International Ranked Conference on Advanced Technologies for Signal and
+edition**, International Ranked Conference on Advanced Technologies, Signal and
 Image Processing — ATSIP'2027, held in Sousse, Tunisia, from 1 to 4 July
 2027, as a hybrid conference (on site and online).
 

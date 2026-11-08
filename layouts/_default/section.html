@@ -30,7 +30,7 @@
           </div>
           <div class="fact">
             <dt>Venue</dt>
-            <dd>{{ $e.city }}, {{ $e.country }}{{ with $e.format }}<span class="fact__note">{{ . }}</span>{{ end }}</dd>
+            <dd>{{ $e.city }}, {{ $e.country }}{{ with $e.format }}<span class="fact__badge">{{ . }}</span>{{ end }}</dd>
           </div>
           {{ if $up }}
             <div class="fact fact--live">
